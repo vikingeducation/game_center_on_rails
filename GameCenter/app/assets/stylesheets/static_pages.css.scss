@@ -1,0 +1,24 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+header nav {
+	border-bottom:1px solid #000 !important;
+}
+.container .jumbotron {
+	margin-top:70px;
+	text-align:center;
+	background-color:#fff;
+}
+
+.game-tile {
+	border:1px solid black;
+	color:black;
+}
+
+
+
+.game-tile:hover {
+	background-color:rgba(138, 203, 255, 0.4);
+	text-decoration: none;
+}
