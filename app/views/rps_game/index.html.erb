@@ -1,1 +1,39 @@
 <%= render 'shared/navbar' %>
+
+
+<main>
+	<secion class="rps-game-wrapper container">
+		<div class="rps-content col-xs-6">
+			<header class="header">
+				<h1>RPS</h1>
+				<p>Play the game below</p>
+			</header>
+			<div class="col-xs-10">
+				<div class="rps-win-box">
+					
+				</div>
+				<div class="rps-score-box">
+					<h3>Score 1:</h3>
+					<h3>Score 2:</h3>
+				</div>
+
+				
+				<%= form_tag(:player_choice), method: "get") do %>
+					<%= radio_button_tag(:player_choice, "rock") %>
+					<%= label_tag(:rock_label, "Rock") %>
+
+					<%= radio_button_tag(:player_choice, "paper") %>
+					<%= label_tag(:paper, "Paper") %>
+
+					<%= radio_button_tag(:player_choice, "Scissors") %>
+					<%= label_tag(:scissors_label, "Scissors") %>
+					<%= submit_tag("Ro Sham Bo!")
+				<%end%>
+
+
+			</div>
+		
+		</div>
+	
+	</secion>
+</main>
