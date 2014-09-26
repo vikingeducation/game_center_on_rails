@@ -7,6 +7,7 @@
 			<header class="header">
 				<h1>RPS</h1>
 				<p>Play the game below</p>
+
 			</header>
 			<div class="col-xs-10">
 				<div class="rps-win-box">
@@ -18,7 +19,7 @@
 				</div>
 
 				
-				<%= form_tag(:player_choice), method: "get") do %>
+					<%= form_tag do %>
 					<%= radio_button_tag(:player_choice, "rock") %>
 					<%= label_tag(:rock_label, "Rock") %>
 
@@ -27,13 +28,17 @@
 
 					<%= radio_button_tag(:player_choice, "Scissors") %>
 					<%= label_tag(:scissors_label, "Scissors") %>
-					<%= submit_tag("Ro Sham Bo!")
-				<%end%>
+					<%= submit_tag("Ro Sham Bo!") %>
+				<% end %>
 
 
 			</div>
 		
 		</div>
-	
+		<br>
+		<br>
+		<br>
+		<br>
+	<h1><%= @player %></h1>
 	</secion>
 </main>

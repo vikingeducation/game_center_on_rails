@@ -1,8 +1,12 @@
-class Game < ActiveRecord::Base
-	# this @player_choice is in Game
-	attr_accessor :player_choice
+class Game 
 
-	def initialize
-		
+	
+
+	def get_choice
+		@player_choice = gets.strip.downcase # params[:player_choice]
 	end
+
+
+
+
 end

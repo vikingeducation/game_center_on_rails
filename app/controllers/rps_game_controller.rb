@@ -1,26 +1,54 @@
 class RpsGameController < ApplicationController
+
 	
-	def index
-	end
+	CHOICES = ["rock", "paper", "scissors"]
+
+	@victory = {:scissors => :rock, :rock => :paper, :paper => :scissors }
+
+	
 
 	def new
-
+		# @game = Game.new(params[])
 	end
 
-	def player_choice
-		@player_choice = params[:player_choice]
-
+	def index
+		@game = Game.new
+		@player = session[:choice]
 	end
 
-	def start_game
-		player_choose
-		computer_choose
-		check_win
+	def create
+		session[:choice] = params[:player_choice]
+		redirect_to rps_game_index_path
 	end
 
-	def player_choose()
-		# @player_choice = params[:player_choice]
+	def is_valid?(choice)
+		CHOICES.include?(choice)
 	end
 
+	def check_win(choice1, choice2)
+		if choice1 == choice2
+			puts "This is a draw"
+		elsif @victory[choice1] == choice2
+			puts "computer wins"
+		else
+			puts "player wins"
+		end
+	end
+
+	def computer_chooses
+		@comp_choice = CHOICES[rand(0..2)]
+	end
 
 end
+
+
+# to add feature to track play count
+
+# def conditions
+# 		if((session[:history])==nil)
+#   			session[:history] = Array.new
+# 		end
+# 		if((session[:counter])==nil)
+#   			session[:counter] = 0
+# 		end
+# 	end
