@@ -1,0 +1,20 @@
+
+
+<div class = "col-md-6" role="dynamic-results">
+  <div class = "row">
+    <h3><%=session[:result] %></h3>
+  </div>
+</div>
+
+<div class = "col-md-6" role="player-choices">
+  <div class = "row">
+    <div class = "col-md-12" role="your-choice">
+      You Chose: <%= session[:player_move].capitalize %>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-md-12" role="their-choice">
+      They Chose: <%= session[:ai_move].capitalize %>
+    </div>
+  </div>
+</div>
