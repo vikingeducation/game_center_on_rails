@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+	$("#pflayer-select").change(function() {
+		if ($(this).val() == '1 Player') { //Show only one player select if one player
+			$('.game-selection').toggleClass('invisible');
+			$('#player1').toggleClass('invisible');
+			$('.results').toggleClass('invisible');
+		} else {
+			$('.game-selection').toggleClass('invisible');
+			$('#player1').toggleClass('invisible');
+			$('#player2').toggleClass('invisible');
+		}
+	})
+	$('#test').trigger('submit.rails');
+});

@@ -1,0 +1,22 @@
+<div class="container">
+
+	<div class="row col-sm-6">
+		<div class="player-choices " id="player1">
+			<h3>Player 1 Choices</h3>
+			<%= render 'player_choice_list'%>
+		</div>
+	</div>
+	<div class="row col-sm-6">
+		<div class="player-choices " id="player2">
+			<h3>Player 2 Choices</h3>
+			<%= render 'player_choice_list'%>
+		</div>
+	</div>
+	<% unless @playerchoice.nil? %>
+		<div class="row results ">
+			<%= render 'results' %>
+		</div>
+	<% end %>
+</div>
+
+<h3>Game type: <%= @game_type %></h3>

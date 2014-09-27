@@ -1,0 +1,18 @@
+
+<%= form_tag do |f| %> <%# ajax the call to keep it on page %>
+	<div class="radio">
+
+	  <%= radio_button_tag(:rpsChoices, "R") %>
+	  <%= label_tag(:rpsChoices, "Rock")%>
+	</div>
+	<div class="radio">
+		<%= radio_button_tag(:rpsChoices, "P") %>
+		<%= label_tag(:rpsChoices, "Paper")%>
+	</div>
+	<div class="radio disabled">
+	  <%= radio_button_tag(:rpsChoices, "S") %>
+	  <%= label_tag(:rpsChoices, "Scissors")%>
+	</div>
+	<%= submit_tag("Submit")%>
+
+<% end %>
