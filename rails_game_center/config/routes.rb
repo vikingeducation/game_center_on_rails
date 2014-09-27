@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
 root 'home#index'
 
-get 'rps_game' => 'rps_game#index'
-get 'connect_four_game' => 'connect_four_game#index'
+resources :rps_game, :only => [:create, :new]
+resources :connect_four_game, :only => [:create, :new]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

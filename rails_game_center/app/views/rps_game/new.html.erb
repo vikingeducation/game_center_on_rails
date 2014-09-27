@@ -1,0 +1,22 @@
+<main>
+
+  <div class ="row">
+    <h1>Rock, Paper, Scissors</h1>
+      <h4>Make you selection and submit to the might game below!</h4>
+  </div>
+
+  <div class ="row" role="results" >
+    <%= render "results_window" %> <!-- partial -->
+  </div>
+
+  <div class ="row" role="score">
+    <%= render "scores_window" %> <!-- partial -->
+  </div>
+
+  <div class ="row" role="selection_form">
+    <%= form_tag do %>
+    <% end %>
+  </div>
+
+
+</main>
