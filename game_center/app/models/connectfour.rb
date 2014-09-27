@@ -1,30 +1,26 @@
 class Connectfour
   attr_accessor :board
 
-  def initialize
-    @board = Array.new(7){Array.new}
-  end
-
-  def board
+  def initialize(c4array=nil)
+    if c4array
+      @board = c4array
+    else
+      @board = Array.new(7){Array.new}
+    end
   end
 
   def make_move(move)
-    move = move.to_i
-    if @board.is_valid?(move)
-      @board[move-1] << 'x'
-      #@board.place_piece(move)
-    else
-      make_move()
-    end
+    intmove = move.to_i
+    place_piece(intmove) if is_valid?(intmove)
   end
 
   def check_win
     horizontal || vertical || search_diagonal || search_other_diagonal || check_draw
   end
 
-  #def place_piece(move, piece)
-  #  @board[move-1] << piece
-  #end
+  def place_piece(move)
+    @board[move-1] << "x"
+  end
 
   def is_valid?(move)
     if (0..6).include?(move-1) && @board[move-1].length < 7
