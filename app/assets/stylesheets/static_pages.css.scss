@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* UNIVERSAL */
+body{
+	padding-top:50px;
+}
 
 
 // GAME CENTER FRONT PAGE
@@ -12,4 +16,12 @@
 			border: 2px solid #777;
 		}
 	}
+}
+
+.rps-content{
+	text-align:center;
+}
+.game-box{
+	border: 2px solid #777;
+	border-radius: 3px;
 }
