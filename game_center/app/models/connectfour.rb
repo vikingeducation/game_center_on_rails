@@ -1,23 +1,30 @@
-class Connectfour < ActiveRecord::Base
+class Connectfour
+  attr_accessor :board
+
   def initialize
     @board = Array.new(7){Array.new}
   end
 
+  def board
+  end
+
   def make_move(move)
-      if @board.is_valid?(move)
-        @board.place_piece(move)
-      else
-        make_move()
-      end
+    move = move.to_i
+    if @board.is_valid?(move)
+      @board[move-1] << 'x'
+      #@board.place_piece(move)
+    else
+      make_move()
+    end
   end
 
   def check_win
     horizontal || vertical || search_diagonal || search_other_diagonal || check_draw
   end
 
-  def place_piece(move, piece)
-    @board[move-1] << piece
-  end
+  #def place_piece(move, piece)
+  #  @board[move-1] << piece
+  #end
 
   def is_valid?(move)
     if (0..6).include?(move-1) && @board[move-1].length < 7
@@ -26,7 +33,7 @@ class Connectfour < ActiveRecord::Base
       return false
     end
   end
-  
+
   def horizontal #actual rows
     horiz = []
     (0..6).each do |column|
@@ -91,15 +98,14 @@ class Connectfour < ActiveRecord::Base
     check_four(diagonal)
   end
 
- def check_draw
-  @board.each do |column|
-    if column.length >= 7
-      return true
-    else
-      return false
-      break
-   end
+  def check_draw
+    @board.each do |column|
+      if column.length >= 7
+        return true
+      else
+        return false
+        break
+      end
+    end
   end
-end
-
 end

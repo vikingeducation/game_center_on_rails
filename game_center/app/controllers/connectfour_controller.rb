@@ -1,14 +1,18 @@
 class ConnectfourController < ApplicationController
 
   def index
-    @c4game = connectfour.new
-    @playerchoice = session[:moves]
-    session[:board] = @c4game.to_json
-    make_move(@playerchoice)
+    if session[:board]
+      @c4board = JSON.parse(session[:board])
+    else
+      @c4board = Connectfour.new.board
+    end
+    session[:board] = @c4board.to_json
   end
 
   def create
-    session[:moves] = params[:connectfourchoices]
+    @c4board = JSON.parse(session[:board])
+    @c4board.make_move(params[:connectfourchoices])
+    session[:board] = @c4board.to_json
     redirect to connectfour_path
   end
 

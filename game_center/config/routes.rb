@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/rps' => 'rps#index'
   post '/rps' => 'rps#create'
 
+  get '/connectfour' => 'connectfour#index'
+  post '/connectfour' => 'connectfour#create'
+
   #update '/rps/index' => 'rps#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
