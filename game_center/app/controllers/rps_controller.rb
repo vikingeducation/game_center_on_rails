@@ -1,12 +1,14 @@
 class RpsController < ApplicationController
+
   def index
-  @game = Game.new
-  @playerchoice = params[:session]
+    @rps_game = Rps.new
+    @playerchoice = session[:choice]
+    @winner = @rps_game.check_win(@playerchoice) if @playerchoice
   end
 
   def create
     session[:choice] = params[:rpsChoices]
-    render index_path
+    redirect_to rps_path
   end
 
 end

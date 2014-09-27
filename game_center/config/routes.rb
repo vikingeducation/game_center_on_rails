@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'gamecenter#index'
-  get '/rps/index' => 'rps#index'
+
+  get '/rps' => 'rps#index'
+  post '/rps' => 'rps#create'
+
+  #update '/rps/index' => 'rps#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

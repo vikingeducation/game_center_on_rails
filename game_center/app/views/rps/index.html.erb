@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h3>Player Choices</h3>
+    <h2>Player Choices</h2>
     <%= form_tag do %>
       <div class="radio">
         <label>
@@ -23,4 +23,5 @@
     <% end %>
   </div>
 </div>
-<%= @playerchoice
+<%= "Player choice was: #{@playerchoice}" %>
+<%= @winner %>
