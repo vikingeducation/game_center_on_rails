@@ -1,26 +1,29 @@
 <div class="container">
-  <div class="row">
-    <h3>Player Choices</h3>
-    <%= form_tag do %>
-      <div class="radio">
-        <label>
-        <input type="radio" name="rpsChoices" id="rock" value="R">
-        Rock
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-        <input type="radio" name="rpsChoices" id="paper" value="P">Paper
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-        <input type="radio" name="rpsChoices" id="scissors" value="S">
-        Scissors
-        </label>
-      </div>
-      <input type="submit">
-    <% end %>
+  <div class="row col-sm-6 col-sm-offset-3">
+    <h2>Player Choices</h2>
+      <%= form_tag do %>
+        <div class="radio">
+          <label>
+            <input type="radio" name="rpsChoices" id="rock" value="R">Rock
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="rpsChoices" id="paper" value="P">Paper
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="rpsChoices" id="scissors" value="S">Scissors
+          </label>
+        </div>
+        
+        <input type="submit">
+      <% end %>
+  </div>
+  <div class="row results col-sm-6 col-sm-offset-3">
+    <%= @playerchoice %>
+    <%= "Player choice was: #{@playerchoice}" %>
+    <%= @winner %>
   </div>
 </div>
-<%= @playerchoiced %>
