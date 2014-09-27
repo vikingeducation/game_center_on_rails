@@ -2,3 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+div {
+  border: 1px dotted red;
+}
+nav {
+  height: 54px;
+}
+#game-navbar {
+  border-bottom: 2px solid black;
+}
+
+main {
+  // margin-top: 100px;
+  text-align: center;
+}
+/*text-align: center*/
