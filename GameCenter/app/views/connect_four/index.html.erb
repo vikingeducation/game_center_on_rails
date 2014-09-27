@@ -1,0 +1,51 @@
+ <table>
+   <% 5.downto(0) do |row| %>
+   <tr>
+     <% 0.upto(6) do |column| %>
+     <td>
+     <%= @board[column][row].nil? ? "|      |" : "| #{@board[column][row]}"%>
+     </td>
+     <% end %>
+   </tr>
+  <% end %>
+</table>
+
+<%= form_tag do |f| %> 
+	<div class="radio radioc4">
+	  <%= radio_button_tag(:c4choice, '0') %>
+	  <%= label_tag(:c4choice, '0')%>
+	</div>
+	
+	<div class="radio radioc4">
+	  <%= radio_button_tag(:c4choice, '1') %>
+	  <%= label_tag(:c4choice, '1')%>
+	</div>
+	
+	<div class="radio radioc4">
+	  <%= radio_button_tag(:c4choice, '2') %>
+	  <%= label_tag(:c4choice, '2')%>
+	</div>
+	
+	<div class="radio radioc4">
+	  <%= radio_button_tag(:c4choice, '3') %>
+	  <%= label_tag(:c4choice, '3')%>
+	</div>
+	
+	<div class="radio radioc4">
+	  <%= radio_button_tag(:c4choice, '4') %>
+	  <%= label_tag(:c4choice, '4')%>
+	</div>
+	
+	<div class="radio radioc4">
+	  <%= radio_button_tag(:c4choice, '5') %>
+	  <%= label_tag(:c4choice, '5')%>
+	</div>
+	
+	<div class="radio radioc4">
+	  <%= radio_button_tag(:c4choice, '6') %>
+	  <%= label_tag(:c4choice, '6')%>
+	</div>
+
+	<%= submit_tag("Submit")%>
+
+<% end %>

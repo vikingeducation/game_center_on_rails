@@ -2,6 +2,10 @@ GameCenter::Application.routes.draw do
   root 'static_pages#index'
 
   resources :rps
+  resources :connect_four
+
+  get '/cfour-select' => 'connect_four#select'
+  post '/cfour-select' => 'connect_four#select_create'
 
   get '/rps-select' => 'rps#select'
   post '/rps-select' => 'rps#select_create'
