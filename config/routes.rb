@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "static_pages#home"
   # get 'rps_game' => 'rps_game#index'
-  resources :rps_game, :only => [:new,:index,:show,:create]
+  resources :rps #, :only => [:new, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
