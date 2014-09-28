@@ -1,7 +1,7 @@
 <table>
   <% @board_arr.each_with_index do |column, index| %>
     <tr>
-      <%= index %>
+      <td><%= index %></td>
       <% column.each do |cell| %>
         <td>
           <%= cell %>

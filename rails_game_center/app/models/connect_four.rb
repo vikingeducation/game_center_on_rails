@@ -6,9 +6,9 @@ class ConnectFour #Plain Old Ruby Object
   end
 
     def accept_piece(col_num, piece)
-      @playfield[col_num - 1].each_with_index do |cell, index|
+      @playfield[col_num].each_with_index do |cell, index|
         next unless cell == "_"
-        @playfield[col_num - 1][index] = piece
+        @playfield[col_num][index] = piece
         break
       end
     end
