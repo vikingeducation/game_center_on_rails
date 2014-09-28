@@ -1,2 +1,14 @@
  <%= flash[:success] %>
-  <%= @c4board %>
+  <%= @c4array %>
+
+<table>
+<% 6.downto(0).each do |row| %>
+  <tr>
+  <% (0..6).each do |col| %>
+  <td>
+  <%= @c4array[col][row].nil? ? '-' : @c4array[col][row] %>
+  </td>
+  <% end %>
+  </tr>
+<% end %>
+</table>

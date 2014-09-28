@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/connectfour' => 'connectfour#index'
   post '/connectfour' => 'connectfour#create'
 
-  get '/connectfour' => 'connectfour#gameover'
+  get '/gameover' => 'connectfour#gameover'
 
   #update '/rps/index' => 'rps#index'
 
