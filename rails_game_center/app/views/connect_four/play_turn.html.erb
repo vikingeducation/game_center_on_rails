@@ -10,19 +10,27 @@
       <div class = "row">
       <%= form_tag connect_four_drop_piece_path, method: "post" do%>
           <div class = "col-md-12">
-          <%= radio_button_tag(:column, "0") %>
-          <%= radio_button_tag(:column, "1") %>
-          <%= radio_button_tag(:column, "2") %>
-          <%= radio_button_tag(:column, "3") %>
-          <%= radio_button_tag(:column, "4") %>
-          <%= radio_button_tag(:column, "5") %>
-          <%= radio_button_tag(:column, "6") %>
+            <!--0 upto 6 do radio button tag-->
+            <% 0.upto(@num_cols-1) do |col| %>
+              <% if @board_arr[col].none? { |cell| cell == nil} %>
+                <%= radio_button_tag :column, col, false, :disabled => true %>
+              <% else %>
+                <%= radio_button_tag(:column, col, false) %>
+              <% end %>
+            <% end %>
         </div>
-        <!-- BOARD GOES HERE-->
+
+        <%= render "board"%><!-- BOARD GOES HERE-->
+
         <div class = "col-md-12">
           <%= submit_tag "Drop!", class: "btn btn-primary" %>
         </div>
       <% end %>
+
+        <div class = "col-md-4 col-md-offset-4 restart">
+          <%= link_to "Restart", connect_four_new_path, class: "restart-link"%>
+        </div>
+        </div>
 
       </div>
     </div>

@@ -1,0 +1,15 @@
+<table>
+  <% @board_arr.each do |column| %>
+    <tr>
+      <% column.each do |cell| %>
+        <td>
+        </td> 
+        <td>
+          <%= cell.nil? ? '_' : cell %>
+        </td>
+        <td> 
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
