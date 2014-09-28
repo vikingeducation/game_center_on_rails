@@ -3,10 +3,14 @@ Rails.application.routes.draw do
 root 'home#index'
 
 resources :rps_game, :only => [:create, :new, :index]
-resources :connect_four_game, :only => [:create, :new]
+
+get 'connect_four/new' => "connect_four#new"
+get 'connect_four/play_turn' => "connect_four#play_turn"
+get 'connect_four/show' => "connect_four#show"
+
 
 post 'rps_game/new' => "rps_game#create"
-
+post 'connect_four/drop_piece' => "connect_four_game#drop_piece"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
