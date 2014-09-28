@@ -21,6 +21,8 @@ class ConnectFourController < ApplicationController
 
   def show
     #game ending, no submissions allowed
+    load_session_variables
+    @winner = session[:winner]
   end
 
   def drop_piece
@@ -35,7 +37,11 @@ class ConnectFourController < ApplicationController
       @col_selection = selection(curr_player)
       @connect_four_game_instance.accept_piece(@col_selection, curr_player["play_piece"])
 
-      break if check_game_over
+      if check_game_over
+        session[:winner] = @curr_player["number"]
+        session[:winner] = 0 if check_draw
+        break
+      end
     end
 
     save_session_variables
@@ -53,9 +59,9 @@ class ConnectFourController < ApplicationController
     @board_arr = Array.new(NUM_COLS) { Array.new(NUM_ROWS){ "_" } }
     session[:board] = @board_arr
 
-    @player1 = {type: "human" , play_piece: "X"}
+    @player1 = {type: "human" , play_piece: "X", number: "1" }
     session[:player1] = @player1
-    @player2 = {type: "AI", play_piece: "O"}
+    @player2 = {type: "AI", play_piece: "O", number: "2"}
     session[:player2] = @player2
     @curr_player = @player1
     session[:@curr_player] = @curr_player

@@ -1,0 +1,12 @@
+<% if current_page?(connect_four_play_turn_path) %>
+  <h4>Choose which column to drop your tile into:</h4>
+<% elsif current_page?(connect_four_show_path) %>
+  <% case winner.to_i %>
+    <% when 0 %>
+      <h3>It's a DRAWWWWWWW</h3>
+    <% when 1 %>
+      <h2>YOU WINNNN!!!!!!!!!!1</h2>
+    <% when 2 %>
+      <h3>Sorry, YOU LOSE.</h3>
+  <% end %>
+<% end %>
