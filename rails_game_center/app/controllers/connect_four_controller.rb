@@ -25,18 +25,23 @@ class ConnectFourController < ApplicationController
 
   def drop_piece
     #handles POSTS from move form
-    @col_selection = params[:column].to_i  # col num that was selected on the form
+
     load_session_variables # to send to model
     @connect_four_game_instance = ConnectFour.new(@board_arr, @curr_player)
 
-    @connect_four_game_instance.accept_piece(@col_selection, @curr_player["play_piece"])
 
-   #redirects to show if game over
+    [@player1, @player2].each do |curr_player|
+      @col_selection = selection(curr_player)
+      @connect_four_game_instance.accept_piece(@col_selection, curr_player["play_piece"])
+
+      break if check_game_over
+    end
+
+    save_session_variables
     if check_game_over
       redirect_to connect_four_show_path
     else
-     #redirects to play_turn if game ongoing
-     redirect_to connect_four_play_turn_path
+      redirect_to connect_four_play_turn_path
     end
 
   end
@@ -56,6 +61,15 @@ class ConnectFourController < ApplicationController
 
   end
 
+  def selection(curr_player)
+    if curr_player["type"] == "human"
+      col_selection = params[:column].to_i
+    else
+      col_selection = ai_selection
+    end
+    col_selection
+  end
+
   def load_session_variables
     @num_cols = NUM_COLS
     @num_rows = NUM_ROWS
@@ -64,6 +78,13 @@ class ConnectFourController < ApplicationController
     @player1 = session[:player1]
     @player2 = session[:player2]
     @curr_player = session[:@curr_player]
+  end
+
+  def save_session_variables
+    session[:board] = @board_arr
+    session[:player1] = @player1
+    session[:player2] = @player2
+    session[:@curr_player] = @curr_player
   end
 
     def check_game_over
@@ -110,4 +131,17 @@ class ConnectFourController < ApplicationController
       return @connect_four_game_instance.horz_pieces_in_a_row?(WIN_COUNT, @curr_player["play_piece"])
     end
 
+  #creates a valid column selection for the AI
+    def ai_selection
+      @valid_inputs = []
+      0.upto(NUM_COLS - 1) do |col|
+        if @board_arr[col].none? { |cell| cell == "_" }
+          next
+        else
+          @valid_inputs << col
+        end
+      end#upto
+
+      @valid_inputs.sample
+    end
 end
