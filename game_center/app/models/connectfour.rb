@@ -9,25 +9,21 @@ class Connectfour
     end
   end
 
-  def make_move(move)
+  def make_move(move, player)
     intmove = move.to_i
-    place_piece(intmove) if is_valid?(intmove)
+    place_piece(intmove, player) if is_valid?(intmove)
   end
 
   def check_win
     horizontal || vertical || search_diagonal || search_other_diagonal || check_draw
   end
 
-  def place_piece(move)
-    @board[move-1] << "x"
+  def place_piece(move, player)
+    @board[move-1] << player
   end
 
   def is_valid?(move)
-    if (0..6).include?(move-1) && @board[move-1].length < 7
-      return true
-    else
-      return false
-    end
+    (0..6).include?(move-1) && @board[move-1].length < 7
   end
 
   def horizontal #actual rows
