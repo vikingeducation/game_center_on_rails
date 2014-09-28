@@ -31,6 +31,7 @@ class ConnectFourController < ApplicationController
 
 
     [@player1, @player2].each do |curr_player|
+      @curr_player = curr_player
       @col_selection = selection(curr_player)
       @connect_four_game_instance.accept_piece(@col_selection, curr_player["play_piece"])
 
