@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root "static_pages#home"
   # get 'rps_game' => 'rps_game#index'
-  resources :rps #, :only => [:new, :index]
+  get 'rockpaperscissors' => 'rps#new'
+  get 'rockpaperscissors/reset' => 'rps#new'
+  post 'rockpaperscissors/make_move' => 'rps#make_move'
 
   get 'connectfour' => 'connect_four#new'
   get 'connectfour/new' => 'connect_four#new'
