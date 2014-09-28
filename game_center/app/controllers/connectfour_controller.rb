@@ -6,6 +6,7 @@ class ConnectfourController < ApplicationController
     else
       @c4board = Connectfour.new # board
     end
+
     
     if session[:board]
       session[:board] = @c4array.to_json #string
@@ -17,9 +18,13 @@ class ConnectfourController < ApplicationController
   def create
     @c4array = JSON.parse(session[:board])["board"] #array
     @c4board = Connectfour.new(@c4array) #board
-    @c4board.make_move(params[:connectfourchoices]) #board
-    session[:board] = @c4board.to_json #string
-    redirect_to connectfour_path 
+    if @c4board.is_valid?(params[:connectfourchoices])
+      @c4board.make_move(params[:connectfourchoices])
+      session[:board] = @c4board.to_json #string
+      redirect_to connectfour_path
+    else
+      flash.now[:error] = "That move was invalid!"
+      render :index
+    end
   end
-
 end

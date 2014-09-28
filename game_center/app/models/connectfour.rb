@@ -23,7 +23,8 @@ class Connectfour
   end
 
   def is_valid?(move)
-    if (0..6).include?(move-1) && @board[move-1].length < 7
+    intmove = move.to_i
+    if (0..6).include?(intmove-1) && @board[intmove-1].length < 7
       return true
     else
       return false
@@ -99,7 +100,7 @@ class Connectfour
       if column.length >= 7
         return true
       else
-        return false
+          return false
         break
       end
     end

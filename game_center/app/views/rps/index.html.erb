@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row col-sm-6 col-sm-offset-3">
+  <div class="row col-sm-4 col-sm-offset-3">
     <h2>Player Choices</h2>
       <%= form_tag do %>
         <div class="radio">
@@ -21,8 +21,7 @@
         <input type="submit">
       <% end %>
   </div>
-  <div class="row results col-sm-6 col-sm-offset-3">
-    <%= @playerchoice %>
+  <div class="row results col-sm-4 col-sm-offset-6">
     <%= "Player choice was: #{@playerchoice}" %>
     <%= @winner %>
   </div>
