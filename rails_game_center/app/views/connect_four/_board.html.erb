@@ -1,13 +1,10 @@
 <table>
-  <% @board_arr.each do |column| %>
+  <% @board_arr.each_with_index do |column, index| %>
     <tr>
+      <%= index %>
       <% column.each do |cell| %>
         <td>
-        </td> 
-        <td>
-          <%= cell.nil? ? '_' : cell %>
-        </td>
-        <td> 
+          <%= cell %>
         </td>
       <% end %>
     </tr>

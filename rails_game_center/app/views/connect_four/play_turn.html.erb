@@ -12,7 +12,7 @@
           <div class = "col-md-12">
             <!--0 upto 6 do radio button tag-->
             <% 0.upto(@num_cols-1) do |col| %>
-              <% if @board_arr[col].none? { |cell| cell == nil} %>
+              <% if @board_arr[col].none? { |cell| cell == "_"} %>
                 <%= radio_button_tag :column, col, false, :disabled => true %>
               <% else %>
                 <%= radio_button_tag(:column, col, false) %>
