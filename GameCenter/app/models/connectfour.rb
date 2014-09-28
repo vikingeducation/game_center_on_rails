@@ -1,6 +1,6 @@
 class Connectfour
   attr_accessor :board
-  def initialize(board=nil)
+  def initialize(board=nil) 
     if board.nil?
       @board = Board.new
     else

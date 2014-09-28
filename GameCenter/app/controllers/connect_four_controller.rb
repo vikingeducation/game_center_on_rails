@@ -6,25 +6,21 @@ class ConnectFourController < ApplicationController
     session['current_board'] = @board
     session['game'] = @game
     @current_player = session['current_player']
+    
     @game_status = session['game_status']
-    flash[:status] = "Game over? #{@game_status}"
+
+   
   end 
 
   def select_create #fired when we pick number of players
     #this is a good place to reset all variables
-    session['current_board'] = nil
-    session['game'] = nil
-    session['game_status'] = false
-    @current_player = 'X'
-    save_player
+    wipe_session
     redirect_to connect_four_index_path
   end
 
   def create #update current board
     @current_player = session['current_player']
-    if make_move(@current_player)
-      swap_player
-    end
+    swap_player if make_move(@current_player)
     check_game_over
     redirect_to connect_four_index_path
   end
@@ -50,15 +46,19 @@ class ConnectFourController < ApplicationController
     session['current_player'] == 'X' ? session['current_player'] = 'Y' : session['current_player'] = 'X'
   end
 
-  def save_player
-    session['current_player'] = @current_player
+  def wipe_session
+    session['current_board'] = nil
+    session['game'] = nil
+    session['game_status'] = false
+    session['current_player'] = 'X'
   end
 
   def check_game_over
     @game = session['game']
     if @game.check_victory(params[:c4choice])
-      session['game_status'] = true
-      return true
+       session['game_status'] = true
+       flash[:status] = "Game over!!!"
+       return true
     end
     false
   end

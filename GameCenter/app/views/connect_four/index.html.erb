@@ -1,57 +1,67 @@
- 
+ <div class="container">
+	 <h3>Player turn: <%= @current_player == 'X' ? 'Black' : 'Red' %></h3>
+	   <% 5.downto(0) do |row| %>
+	   <div class="row">
+		   	<div class="col-xs-offset-3">
+			     <% 0.upto(6) do |column| %>
+				     <span class="col-xs-1 c4-cell">
+				     	<% if @board[column][row].nil? %> 
+				     		<%= image_tag("c4white.png")%>
+				     	<% elsif @board[column][row] == 'Y' %>
+				     		<%= image_tag("c4red.png")%>
+				     	<% elsif @board[column][row] == 'X' %><%# black piece %>
+				     		<%= image_tag("c4black.png")%>
+				     	<% end %>
+				     </span>
+			     <% end %>
+		     </div>
+	   </div>
+	  <% end %>
 
- <h3>Player turn: <%=@current_player%></h3>
- <table>
-   <% 5.downto(0) do |row| %>
-   <tr>
-     <% 0.upto(6) do |column| %>
-     <td>
-     <%= @board[column][row].nil? ? "|      |" : "| #{@board[column][row]}"%>
-     </td>
-     <% end %>
-   </tr>
-  <% end %>
-</table>
+	<div class="row radio-row">
+		<div class="col-xs-offset-3">
 
-<%= form_tag do |f| %> 
-	<div class="radio radioc4">
-	  <%= radio_button_tag(:c4choice, '0') %>
-	  <%= label_tag(:c4choice, '0')%>
-	</div>
-	
-	<div class="radio radioc4">
-	  <%= radio_button_tag(:c4choice, '1') %>
-	  <%= label_tag(:c4choice, '1')%>
-	</div>
-	
-	<div class="radio radioc4">
-	  <%= radio_button_tag(:c4choice, '2') %>
-	  <%= label_tag(:c4choice, '2')%>
-	</div>
-	
-	<div class="radio radioc4">
-	  <%= radio_button_tag(:c4choice, '3') %>
-	  <%= label_tag(:c4choice, '3')%>
-	</div>
-	
-	<div class="radio radioc4">
-	  <%= radio_button_tag(:c4choice, '4') %>
-	  <%= label_tag(:c4choice, '4')%>
-	</div>
-	
-	<div class="radio radioc4">
-	  <%= radio_button_tag(:c4choice, '5') %>
-	  <%= label_tag(:c4choice, '5')%>
-	</div>
-	
-	<div class="radio radioc4">
-	  <%= radio_button_tag(:c4choice, '6') %>
-	  <%= label_tag(:c4choice, '6')%>
-	</div>
+		<%= form_tag do |f| %> 
+			<span class="radio radioc4 col-xs-1">
+			  <%= radio_button_tag(:c4choice, '0') %>
+			</span>
+			
+			<span class="radio radioc4 col-xs-1">
+			  <%= radio_button_tag(:c4choice, '1') %>
+			</span>
+			
+			<span class="radio radioc4 col-xs-1">
+			  <%= radio_button_tag(:c4choice, '2') %>
+			</span>
+			
+			<span class="radio radioc4 col-xs-1">
+			  <%= radio_button_tag(:c4choice, '3') %>
+			</span>
+			
+			<span class="radio radioc4 col-xs-1">
+			  <%= radio_button_tag(:c4choice, '4') %>
+			</span>
+			
+			<span class="radio radioc4 col-xs-1">
+			  <%= radio_button_tag(:c4choice, '5') %>
+			</span>
+			
+			<span class="radio radioc4 col-xs-1">
+			  <%= radio_button_tag(:c4choice, '6') %>
+			</span>
+			</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-11  submit-row">
+					<%= submit_tag("Submit", class: 'btn btn-large btn-success')%>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-11  submit-row">
+					<a href="/"><button class="btn btn-large btn-primary">New Game</button></a>
+				</div>
+			</div>
 
-	<%= submit_tag("Submit")%>
+		<% end %>
 
-<% end %>
-
-<h3>Current board: <%= session['current_board'] %></h3>
-<h3>Game: <%= session['game'] %></h3>
+</div>
