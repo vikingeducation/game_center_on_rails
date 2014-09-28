@@ -6,6 +6,13 @@
 body{
 	padding-top:50px;
 }
+a{
+	text-decoration: none;
+	color: #555;
+	&:hover{
+		text-decoration:none;
+	}
+}
 
 
 // GAME CENTER FRONT PAGE
@@ -14,6 +21,14 @@ body{
 	.content-wrapper{
 		.game-wrapper{
 			border: 2px solid #777;
+		  opacity: 0.25;
+		  -webkit-transition: opacity .25s ease-in-out;
+		  	 -moz-transition: opacity .25s ease-in-out;
+		          transition: opacity .25s ease-in-out;
+	    &:hover {
+	    	opacity: 1;
+	    	background-color: rgb(173,216,230);
+	    }
 		}
 	}
 }

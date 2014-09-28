@@ -11,8 +11,8 @@
 			</header>
 			<div class="col-md-8 col-md-offset-3">
 				<div class="game-box">
-					<h3><%="Computer chose #{@comp_choice}"%></h3>
-					<h3><%="Player chose #{@player_choice}"%></h3>
+					<h3><%="Computer chose #{@choices[@comp_choice.to_i]}"%></h3>
+					<h3><%="Player chose #{@choices[(@player_choice.to_i) -1]}"%></h3>
 					<h3><%="The result is #{@winner}"%></h3>
 				</div>
 				<div class="game-box">
