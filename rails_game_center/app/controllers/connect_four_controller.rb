@@ -74,7 +74,7 @@ class ConnectFourController < ApplicationController
     else
       col_selection = ai_selection
     end
-    col_selection
+    return col_selection
   end
 
   def load_session_variables
