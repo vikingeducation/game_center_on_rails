@@ -1,7 +1,7 @@
-
  <main>
 	 <div class="container">
 		 <h3 class="playernotice">Player turn: <%= @current_player == 'X' ? 'Black' : 'Red' %></h3>
+		 <p class="playernotice">If you don't see buttons, refresh the page</p>
 		   <% 5.downto(0) do |row| %>
 		   <div class="row">
 			   	<div class="col-xs-offset-3">
@@ -19,6 +19,8 @@
 			     </div>
 		   </div>
 		  <% end %>
+
+
 
 		<% if session['game_status'] || session['game_status'].nil? %>
 			<%= render 'gameover' %>
