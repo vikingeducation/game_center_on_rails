@@ -11,4 +11,9 @@ class RpsController < ApplicationController
     redirect_to rps_path
   end
 
+  def new
+    reset_session
+    redirect_to rps_path
+  end
+
 end

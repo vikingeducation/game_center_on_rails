@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/gameover' => 'connectfour#gameover'
 
   get '/newc4' => 'connectfour#new'
+  get '/newrps' => 'rps#new'
 
   #update '/rps/index' => 'rps#index'
 

@@ -2,6 +2,8 @@
 
   <%= flash[:error] %>
   <%= flash[:success] %>
+  <div class="row col-md-6 col-md-offset-3">
+    <div class="radio-tile col-sm-6 col-sm-offset-3">
       <%= form_tag do %>
         <% (1..7).each do |col| %>
           <div class="radio">
@@ -10,21 +12,31 @@
             </label>
           </div>
         <% end %>
-        <input type="submit">
-      <% end %>
+    </div>
+  </div>
 
-<table>
-  <% 6.downto(0).each do |row| %>
-    <tr>
+  <div class="row col-sm-6 col-sm-offset-3">
+        <input class="btn btn-large btn-success submit-button col-sm-6 col-sm-offset-3" type="submit">
+      <% end %>
+  </div>
+
+<div class="row col-sm-6 col-sm-offset-3">
+  <table class="col-sm-6 col-sm-offset-3 c4-table">
+
+    <% 6.downto(0).each do |row| %>
+      <tr>
       <% (0..6).each do |col| %>
-        <td>
-        <%= @c4array[col][row].nil? ? '-' : @c4array[col][row] %>
-        </td>
+      <td>
+      <%= @c4array[col][row].nil? ? "-" : @c4array[col][row] %>
+      </td>
       <% end %>
-    </tr>
-  <% end %>
-</table>
+      </tr>
+      <% end %>
+  </table>
+</div>
 
-<%= link_to "New game!", newc4_path %>
+<div class="row col-sm-6 col-sm-offset-3">
+<%= link_to "New game!", newc4_path, class: "btn-new-game col-sm-6 col-sm-offset-3 btn btn-large btn-success" %>
+</div>
 
 </div>
