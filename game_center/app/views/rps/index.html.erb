@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="row col-md-6 col-md-offset-3">
+    <h2 class="col-md-6 col-md-offset-3">Player Choices</h2>
+  </div>
+  <%= form_tag do %>
+  <div class="row col-sm-6 col-sm-offset-3">
+    <div class = "radio-tile col-sm-6 col-sm-offset-3">
+
+      <div class="radio">
+        <label>
+          <input type="radio" name="rpsChoices" id="rock" value="rock">Rock
+        </label>
+      </div>
+
+      <div class="radio">
+        <label>
+          <input type="radio" name="rpsChoices" id="paper" value="paper">Paper
+        </label>
+      </div>
+
+      <div class="radio">
+        <label>
+          <input type="radio" name="rpsChoices" id="scissors" value="scissors">Scissors
+        </label>
+      </div>
+
+    </div><!-- close radio tile -->
+  </div>
+  <div class="row col-sm-6 col-sm-offset-3">
+    <input type="submit" class="btn btn-large btn-success col-sm-6 col-sm-offset-3 submit-button">
+      <% end %>
+  </div>
+
+  <div class="row results col-sm-6 col-sm-offset-3">
+    <p class = "col-sm-6 col-sm-offset-3"><%= "Player choice was: #{@playerchoice}" %></p>
+    <p class="col-sm-6 col-sm-offset-3"><%= @winner %></p>
+    <%= link_to "New game!", newrps_path, class: "btn-new-game col-sm-6 col-sm-offset-3 btn btn-large btn-success" %></p>
+  </div><!-- close row -->
+</div><!-- close view container -->
