@@ -1,6 +1,5 @@
 class ConnectFourController < ApplicationController
   def index 
-
     @game = Connectfour.new(session['current_board'])
     @board = @game.board.board
     session['current_board'] = @board
