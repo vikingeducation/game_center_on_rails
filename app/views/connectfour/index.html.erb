@@ -2,31 +2,34 @@
 
   <%= flash[:success] %>
 
-  <table>
-    <% 5.downto(0).each do |row| %>
-      <tr>
-        <% (0..6).each do |col| %>
-          <td>|</td>
-          <td>
-          <%= @c4array[col][row] if @c4array[col][row] %>
-          </td>
-        <% end %>
-        <td>|</td>
-      </tr>
-    <% end %>
+  <%= form_tag do %>
 
-    <tr>
-      <%= form_tag do %>
+    <table>
+      <% 5.downto(0).each do |row| %>
+        <tr>
+          <% (0..6).each do |col| %>
+            <td>|</td>
+            <td>
+            <%= @c4array[col][row] if @c4array[col][row] %>
+            </td>
+          <% end %>
+          <td>|</td>
+        </tr>
+      <% end %>
+      <tr>
         <% (0..6).each do |col| %>
           <td>|</td>
           <td>
             <%= radio_button_tag("connectfourchoices", col, checked = false, :disabled => @c4array[col][5] || @game_over ) %>
           </td>
         <% end %>
-        <td>| <input type="submit"></td>
-      <% end %>
-    </tr>
-  </table>
+        <td>|</td>
+      </tr>
+    </table>
+
+    <input type="submit"></td>
+
+  <% end %>
 
   <%= link_to "New game!", newc4_path %>
 
