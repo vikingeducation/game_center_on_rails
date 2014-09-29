@@ -1,7 +1,7 @@
 class ConnectFourController < ApplicationController
 
   NUM_COLS = 7
-  NUM_RO WS = 6
+  NUM_ROWS = 6
   WIN_COUNT =4
 
   def new

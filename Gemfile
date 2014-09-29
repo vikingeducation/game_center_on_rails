@@ -32,6 +32,7 @@ group :development do
   gem "better_errors"
 end
 gem "binding_of_caller"
+gem 'sqlite3'
 
 group :production do
   gem 'rails_12factor'
