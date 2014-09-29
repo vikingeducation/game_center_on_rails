@@ -57,10 +57,13 @@ class ConnectFourController < ApplicationController
     @game = session['game']
     if @game.check_victory(params[:c4choice])
        session['game_status'] = true
-       flash[:status] = "Game over!!!"
        return true
     end
     false
+  end
+
+  def disable_game
+
   end
 
 
