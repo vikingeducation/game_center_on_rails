@@ -9,6 +9,10 @@ class Connectfour
     end
   end
 
+  def board
+    @board
+  end
+
   def make_move(move, player)
     intmove = move.to_i
     place_piece(intmove, player) if is_valid?(intmove)
@@ -41,10 +45,10 @@ class Connectfour
 
   def vertical #actual COLUMNS
     vertical = []
-    @board.each do |column|
-      column.each do |piece|
-        vertical << "b" if piece == nil
-        vertical << piece
+    (0..6).each do |column|
+      (0..6).each do |row|
+        vertical << "b" if @board[column][row] == nil
+        vertical << @board[column][row]
       end
     vertical << "b"
     end
@@ -52,7 +56,7 @@ class Connectfour
   end
 
   def check_four(arg)
-    %w(xxxx oooo).any?{|str| arg.join.include? str}
+    %w(XXXX OOOO).any?{|str| arg.join.include? str}
   end
 
   def search_diagonal
