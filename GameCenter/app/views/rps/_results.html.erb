@@ -1,4 +1,14 @@
-
-<h2>Player chose: <%= @playerchoice %></h2>
-<h2>AI chose: <%= @ai_move %></h2>
-<h2>Result: <%= @result %></h2>
+<div class="row results ">
+	<div class="col-sm-4">
+		<h2><%= @playerchoice %></h2>
+	</div>
+	<div class="col-sm-4">
+		<h3>VS.</h3>
+	</div>
+	<div class="col-sm-4">
+		<h2><%= @ai_move %></h2>
+	</div>
+</div>
+<div class="row results">
+	<h2><%= @result %></h2>
+</div>

@@ -24,4 +24,22 @@ $(document).ready(function() {
 		$('.c4submit').click();
 	});
 
+
+	$('.rockimg').on('click',function(){
+		$('#rpsR input:radio').click();
+		$('.rpssubmit').click();
+	});
+	
+	$('.paperimg').on('click',function(){
+		$('#rpsP input:radio').click();
+		$('.rpssubmit').click();
+	});
+
+	$('.scissorsimg').on('click',function(){
+		$('#rpsS input:radio').click();
+		$('.rpssubmit').click();
+	});
+
+
+
 });
