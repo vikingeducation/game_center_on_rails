@@ -9,7 +9,7 @@ class ConnectfourController < ApplicationController
     else
       @c4board = Connectfour.new # board
       session[:board] = @c4board.to_json
-      @c4array = @c4board
+      @c4array = @c4board.board
     end
   end
 
