@@ -1,0 +1,73 @@
+ <main>
+	 <div class="container">
+		 <h3 class="playernotice">Player turn: <%= @current_player == 'X' ? 'Black' : 'Red' %></h3>
+		 <p class="playernotice">If you don't see buttons, refresh the page</p>
+		   <% 5.downto(0) do |row| %>
+		   <div class="row">
+			   	<div class="col-xs-offset-3">
+				     <% 0.upto(6) do |column| %>
+					     <span class="col-xs-1 c4-cell">
+					     	<% if @board[column][row].nil? %> 
+					     		<%= image_tag("c4white.png")%>
+					     	<% elsif @board[column][row] == 'Y' %>
+					     		<%= image_tag("c4red.png")%>
+					     	<% elsif @board[column][row] == 'X' %><%# black piece %>
+					     		<%= image_tag("c4black.png")%>
+					     	<% end %>
+					     </span>
+				     <% end %>
+			     </div>
+		   </div>
+		  <% end %>
+
+
+
+		<% if session['game_status'] || session['game_status'].nil? %>
+			<%= render 'gameover' %>
+		<% end %>
+
+		<% if session['game_status'] == false || session['game_status'].nil? %>
+			<div class="row radio-row invisible">
+				<div class="col-xs-offset-3 ">
+					<%= form_tag do |f| %> 
+						<span class="radio radioc4 col-xs-1">
+						  <%= radio_button_tag(:c4choice, '0') %>
+						</span>
+						
+						<span class="radio radioc4 col-xs-1">
+						  <%= radio_button_tag(:c4choice, '1') %>
+						</span>
+						
+						<span class="radio radioc4 col-xs-1">
+						  <%= radio_button_tag(:c4choice, '2') %>
+						</span>
+						
+						<span class="radio radioc4 col-xs-1">
+						  <%= radio_button_tag(:c4choice, '3') %>
+						</span>
+						
+						<span class="radio radioc4 col-xs-1">
+						  <%= radio_button_tag(:c4choice, '4') %>
+						</span>
+						
+						<span class="radio radioc4 col-xs-1">
+						  <%= radio_button_tag(:c4choice, '5') %>
+						</span>
+						
+						<span class="radio radioc4 col-xs-1">
+						  <%= radio_button_tag(:c4choice, '6') %>
+						</span>
+
+						<div class="row">
+							<div class="col-xs-2 col-xs-offset-3  submit-row">
+								<%= submit_tag("Submit", class: 'btn btn-large btn-success c4submit')%>
+							</div>
+						</div>
+
+
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</main>

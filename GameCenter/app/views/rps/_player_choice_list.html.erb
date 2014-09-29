@@ -1,0 +1,18 @@
+
+<%= form_tag do |f| %> 
+
+	<div class="radio rps col-sm-4" id="rpsR">
+	  <%= image_tag("rock.png", :class => "rockimg")%>
+	  <%= radio_button_tag(:rpsChoices, "R") %>
+	</div>
+	<div class="radio rps col-sm-4" id="rpsP">
+		<%= image_tag("paper.png", :class => "paperimg")%>
+		<%= radio_button_tag(:rpsChoices, "P") %>
+	</div>
+	<div class="radio rps col-sm-4" id="rpsS">
+	  <%= image_tag("scissors.png", :class => "scissorsimg")%>
+	  <%= radio_button_tag(:rpsChoices, "S") %>
+	</div>
+	<%= submit_tag("Submit", :class => 'btn btn-large btn-success rpssubmit')%>
+
+<% end %>

@@ -1,0 +1,30 @@
+
+<main class="container">
+	<div class="row">
+		<div class="jumbotron">
+		  <h2>Welcome to Game Center!</h2>
+		  <p><em>Choose one of the games below to start playing</em></p>
+		</div>
+	</div>
+	<div class="row">
+
+		<div class="col-sm-4 col-sm-offset-2">
+		<%= link_to rps_path do %>
+			<div class="game-tile">
+				<h3>Rock, Paper, Scissors</h3>
+				<p>An ancient game of skill and strategy.  Do you have what it takes?</p>
+			</div>
+		<% end %>
+		</div>
+
+		<div class="col-sm-4 ">
+		<%= link_to connect_four_index_path do %>
+			<div class="game-tile">
+				<h3>Connect Four</h3>
+				<p>The disks drop like comets from the sky. Connect four to achieve ultimate victory!</p>
+			</div>
+		<% end %>
+		</div>
+	</div>
+
+</main>

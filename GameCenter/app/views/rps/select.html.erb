@@ -1,0 +1,9 @@
+<div class="container">
+	<div class="row col-sm-12 game-selection">
+		<h3>How many players?</h3>
+			<%= form_tag do |f| %>
+			<%= select_tag(:game_type, options_for_select([['1 Player',1],['2 Players',2]], selected: :option)) %>
+			<%= submit_tag("Submit")%>
+			<% end %>
+	</div>
+</div>

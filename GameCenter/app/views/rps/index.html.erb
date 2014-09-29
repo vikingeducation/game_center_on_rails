@@ -1,0 +1,13 @@
+
+<main class="rpscontainer">
+	<div class="container">
+		<div class="row rpschoices">
+			<%= render 'player_1'%>
+		</div>
+		<% unless @playerchoice.nil? %>
+				<%= render 'results' %>
+		<% end %>
+
+	</div>
+
+</main>
