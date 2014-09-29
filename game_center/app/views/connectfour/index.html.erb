@@ -1,73 +1,20 @@
 <div class="container">
-  <div class="row">
-    <div class = "col-sm-8 col-sm-offset-8"
-      <table class="connectfourboard">
-        <tr>
-        </tr>
-
-        <tr>
-        </tr>
-
-        <tr>
-        </tr>
-
-        <tr>
-        </tr>
-
-        <tr>
-        </tr>
-
-        <tr>
-        </tr>
-
-        <tr>
-        </tr>
-      </table>
-    </div>
-  </div>
 
   <%= flash[:error] %>
   <%= flash[:success] %>
       <%= form_tag do %>
-        <div class="radio">
-          <label>
-            <input type="radio" name="connectfourchoices" id="1" value="1">Column 1
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="connectfourchoices" id="2" value="2">Column 2
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="connectfourchoices" id="3" value="3">Column 3
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="connectfourchoices" id="4" value="4">Column 4
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="connectfourchoices" id="5" value="5">Column 5
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="connectfourchoices" id="6" value="6">Column 6
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="connectfourchoices" id="7" value="7">Column 7
-          </label>
-        </div>
+        <% (1..7).each do |col| %>
+          <div class="radio">
+            <label>
+              <input type="radio" name="connectfourchoices" id=<%=col%> value=<%="#{col}"%>>Column <%="#{col}"%>
+            </label>
+          </div>
+        <% end %>
         <input type="submit">
       <% end %>
 
 <table>
+
 <% 6.downto(0).each do |row| %>
   <tr>
   <% (0..6).each do |col| %>
@@ -75,8 +22,8 @@
   <%= @c4array[col][row].nil? ? "-" : @c4array[col][row] %>
   </td>
   <% end %>
-  </tr>
-<% end %>
 </table>
+
+<%= link_to "New game!", newc4_path %>
 
 </div>

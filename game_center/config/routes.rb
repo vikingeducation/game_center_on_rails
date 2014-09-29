@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get '/gameover' => 'connectfour#gameover'
 
+  get '/newc4' => 'connectfour#new'
+
   #update '/rps/index' => 'rps#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
