@@ -20,11 +20,11 @@
 		   </div>
 		  <% end %>
 
-		<% if session['game_status'] %>
+		<% if session['game_status'] || session['game_status'].nil? %>
 			<%= render 'gameover' %>
 		<% end %>
 
-		<% if session['game_status'] == false %>
+		<% if session['game_status'] == false || session['game_status'].nil? %>
 			<div class="row radio-row">
 				<div class="col-xs-offset-3">
 					<%= form_tag do |f| %> 

@@ -19,9 +19,12 @@ class ConnectFourController < ApplicationController
   end
 
   def create #update current board
+    if params[:c4choice].nil? 
+    else
     @current_player = session['current_player']
     swap_player if make_move(@current_player)
     check_game_over
+    end
     redirect_to connect_four_index_path
   end
 
