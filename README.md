@@ -1,6 +1,6 @@
 game_center_on_rails
 ====================
 
-Peter DePaulo - PNDPO
-https://github.com/VikingPeter/game_center_on_rails.git
+Matt Davis - chewieee
 
+https://github.com/chewieee/game_center_on_rails
