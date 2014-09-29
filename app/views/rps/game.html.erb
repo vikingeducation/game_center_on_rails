@@ -9,19 +9,21 @@
 				<p>Play the game below</p>
 
 			</header>
+			<!-- needs to have a case for the start of the game. Otherwise these values are nil. -->
 			<div class="col-md-8 col-md-offset-3">
 				<div class="game-box">
-					<h3><%="Computer choice #{@choices[@computer -1]}"%></h3>
-					<h3><%="The result is #{@result}"%></h3>
+					<h3><%="Computer chose {@choices[@comp_choice.to_i]}"%></h3>
+					<h3><%="Player chose {@choices[(@player_choice.to_i) -1]}"%></h3>
+					<h3><%="The result is {@winner}"%></h3>
 				</div>
 				<div class="game-box">
 					<div class="row">
-						<h3><%="Player: #{session[:play_count]} Computer: #{session[:comp_count]}"%></h3>
+						<h3><%="Player: ___ Computer: ___ "%></h3>
 					</div>
 				</div>
 
 				<div class="game-box">
-					<%= form_tag do %>
+					<%= form_tag(rockpaperscissors_make_move_path) do %>
 						<%= radio_button_tag(:player_choice, 1) %>
 						<%= label_tag(:rock_label, "Rock") %>
 
