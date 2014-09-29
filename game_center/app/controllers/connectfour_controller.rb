@@ -14,7 +14,7 @@ class ConnectfourController < ApplicationController
   def create
     @c4board = Connectfour.new(session[:board]) #board
     if @c4board.make_move(params[:connectfourchoices], session[:player]) #board
-      if @c4board.check_win
+      if @c4board.check_victory(params[:connectfourchoices])
         flash[:success] = "Player #{session[:player]} wins"
         redirect_to gameover_path
       else
