@@ -1,0 +1,12 @@
+<table>
+  <% @board_arr.each_with_index do |column, index| %>
+    <tr>
+      <td><%= index %></td>
+      <% column.each do |cell| %>
+        <td>
+          <%= cell %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

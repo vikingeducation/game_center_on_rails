@@ -1,0 +1,26 @@
+
+<div class = "col-md-6" role="your-score">
+  <div class = "row">
+    <div class = "col-md-12">
+      <span class = "score-heading">Good Guys:</span>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-md-12">
+            <%= session[:your_score] %>
+    </div>
+  </div>
+</div>
+
+<div class = "col-md-6" role="their-score">
+  <div class = "row">
+    <div class = "col-md-12">
+      <span class = "score-heading">Bad Guys:</span>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-md-12">
+      <%= session[:their_score] %>
+    </div>
+  </div>
+</div>
