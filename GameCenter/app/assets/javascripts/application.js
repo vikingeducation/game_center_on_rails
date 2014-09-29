@@ -17,6 +17,8 @@
 
 
 $(document).ready(function() {
+	$('.radio-row').toggleClass('invisible');
+
 	$('.radioc4').on('click',function(){
 		$('.c4submit').click();
 

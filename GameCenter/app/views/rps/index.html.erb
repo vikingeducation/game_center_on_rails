@@ -1,11 +1,7 @@
 
 <main>
 	<div class="container">
-		<% if @game_type == '1' %>
 			<%= render 'player_1'%>
-		<% else %>
-			<%= render 'player_2'%>
-		<% end %>
 
 		<% unless @playerchoice.nil? %>
 			<div class="row results ">
