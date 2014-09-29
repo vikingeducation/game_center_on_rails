@@ -30,9 +30,10 @@ gem 'spring',        group: :development
 # better_errors gem uses binding_of_caller
 group :development do
   gem "better_errors"
+  gem 'sqlite3'
 end
 gem "binding_of_caller"
-gem 'sqlite3'
+
 
 group :production do
   gem 'rails_12factor'
