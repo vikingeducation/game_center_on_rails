@@ -1,0 +1,49 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div {
+  // border: 1px dotted red;
+}
+
+
+nav {
+  height: 54px;
+  margin-bottom: 50px;
+
+  #game-navbar {
+    border-bottom: 2px solid black;
+
+    .logo {
+      font-size: 24px;
+      color: black;
+    }
+  }
+}
+
+
+
+.selection_tile{
+  margin-top: 60px;
+  height:  150px;
+  border: 2px solid #CCC;
+  vertical-align: middle;
+  color: black;
+
+  &:hover {
+    background-color: #CCFFFF;
+    cursor: pointer;
+  }
+
+}
+
+
+main {
+  text-align: center;
+
+  h4 {
+    font-style: italic;
+    color: #777;
+  }
+}
+/*text-align: center*/

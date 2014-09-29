@@ -1,0 +1,35 @@
+  <div class="col-md-12">
+    <table id="game_board" class= "table table-bordered"  >
+      <tr>
+          <!--0 upto 6 do radio button tag-->
+          <% 0.upto(num_cols-1) do |col| %>
+            <% if current_page?(connect_four_show_path) %>
+                <td>
+                  <%= radio_button_tag :column, col, false, :disabled => true %>
+                </td>
+            <% elsif board[col].none? { |cell| cell == "_"} %>
+              <td>
+                <%= radio_button_tag :column, col, false, :disabled => true %>
+              </td>
+            <% else %>
+              <td>
+                <%= radio_button_tag(:column, col, false) %>
+              </td>
+            <% end %>
+          <% end %>
+      </tr>
+        <% (num_rows-1).downto(0) do |row| %>
+        <tr>
+          <% (0...num_cols).each do |col| %>
+            <td>
+              <% if board[col][row] == "_" %>
+                &nbsp;
+              <% else %>
+              <%= board[col][row] %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>

@@ -1,0 +1,25 @@
+<main>
+
+  <div class ="row">
+    <h1>Connect Four</h1>
+     <%= render partial: 'subtitle', locals: {winner: @winner} %>
+  </div>
+
+  <div class ="row" role="game_board" >
+    <div class = "col-md-6 col-md-offset-3">
+      <div class = "row">
+      <%= form_tag connect_four_new_path, method: "get" do%>
+       <%= render partial: 'board', locals: {num_rows: @num_rows, num_cols: @num_cols, board: @board_arr} %>
+
+      <div class = "col-md-12">
+        <%= submit_tag "PLAY AGAIN!", class: "btn btn-primary" %>
+      </div>
+
+      <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>

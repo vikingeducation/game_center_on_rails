@@ -1,0 +1,49 @@
+<main>
+
+  <div class ="row">
+    <h1>Rock, Paper, Scissors</h1>
+      <h4>Make you selection and submit to the might game below!</h4>
+  </div>
+
+  <div class ="row" role="results" >
+    <div class = "col-md-4 col-md-offset-4 window">
+      <div class = "row">
+        <%= render "results_window" %> <!-- partial -->
+      </div>
+    </div>
+  </div>
+
+  <div class ="row" role="score">
+    <div class = "col-md-4 col-md-offset-4 window">
+      <div class = "row">
+        <%= render "scores_window" %> <!-- partial -->
+        </div>
+      </div>
+  </div>
+
+  <div class ="row" role="selection_form">
+    <div class = "col-md-4 col-md-offset-4 window">
+      <div class = "row form-group">
+        <%= form_tag new_rps_game_path, method: "post" do %>
+          <div class = "col-md-12">
+          <%= radio_button_tag(:choice, "rock", checked: "checked") %>
+          <%= label_tag(:choice_rock, "Rock") %>
+        </div>
+        <div class = "col-md-12">
+          <%= radio_button_tag(:choice, "paper") %>
+          <%= label_tag(:choice_paper, "Paper") %>
+        </div>
+        <div class = "col-md-12">
+          <%= radio_button_tag(:choice, "scissors") %>
+          <%= label_tag(:choice_scissors, "Scissors") %>
+        </div>
+        <div class = "col-md-12">
+          <%= submit_tag "Play!", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+</main>
