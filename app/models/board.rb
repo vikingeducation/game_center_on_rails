@@ -22,7 +22,7 @@ class Board
   end
 
   def is_valid?(move)
-    if move.nil? || @current_board[move-1].length < 7
+    if move.nil? || @current_board[move-1].length < 7 # this is where it is really breaking
       return true
     else
       return false

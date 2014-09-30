@@ -16,7 +16,7 @@ class ConnectFourController < ApplicationController
 
     @board = Board.new(retrieve_current_board)
 
-    if @board.is_valid?(retrieve_move)
+    if @board.is_valid?(retrieve_move) # it is breaking here
     	@board.drop_piece(retrieve_move, @current_player)
     else
     	drop_piece
