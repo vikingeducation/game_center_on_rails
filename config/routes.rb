@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "static_pages#home"
-  # get 'rps_game' => 'rps_game#index'
+
   get 'rockpaperscissors' => 'rps#new'
   get 'rockpaperscissors/reset' => 'rps#new'
   post 'rockpaperscissors/make_move' => 'rps#make_move'

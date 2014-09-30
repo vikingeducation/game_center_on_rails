@@ -16,10 +16,11 @@ class RpsController < ApplicationController
 	def make_move	#the results were being read as strings. Line 14 changes that.
 		@game = Game.new(session[:choice])
 		@comp_choice = @game.comp_choice
-		@player_choice = @game.player_choice
+		@player_choice = params[:player_choice].to_i #this needs to be moved??MAYBE?
 		@winner = @game.game_win(@player_choice.to_i, @comp_choice.to_i) 
 		@choices = ["Rock", "Paper", "Scissors"]
 		render :game
+
 	end
 
 	def create
