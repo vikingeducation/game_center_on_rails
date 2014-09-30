@@ -1,4 +1,4 @@
-# apps/views/connect_four/new.html.erb
+
 
 <h1>Welcome to Connect Four!</h1>
 
@@ -7,26 +7,38 @@
 </p>
 
 
-<pre>
-  <table>
-    <% 7.times do |column| %>
-      <tr> 
-        <% 7.times do |cell| %>
-          <td> -</td>
-        <% end %>
-      </tr>
-    <% end %>
-  </table>
-</pre>
+<table>
+  <% @current_board.each do |row| %>
+    <tr>
+      <% row.each do |cell| %>
+        <td>
+          <%= cell.nil? ? '- ' : cell %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
 
+
+
+<% if @game_over %>
+
+  <!-- Render Game Over Link -->
+  <%= link_to "Play Again!", new_path %>
+
+<% else %>
 
 <%= form_tag(connectfour_drop_piece_path, :method => "POST") do %>
   <table>
     <% (0..6).each do |column| %>
-      <tr> 
-         <%= radio_button_tag(:move, column) %>
+      <tr>
+        <sp>
+         <%= radio_button_tag(:move, column)%>
       </tr>
     <% end %>
   </table>
   <%= submit_tag "Make Move" %>
+<% end %>
+
+
 <% end %>
