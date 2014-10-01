@@ -2,7 +2,7 @@ class ConnectFourController < ApplicationController
 
   # Set up a brand new game board
 	def new
-    @current_player = 'X'
+    @current_player = 'x'
     @current_board = Board.blank_board
     save_player
     save_current_board
@@ -16,11 +16,8 @@ class ConnectFourController < ApplicationController
 
     @board = Board.new(retrieve_current_board)
 
-    if @board.is_valid?(retrieve_move) # it is breaking here
-    	@board.drop_piece(retrieve_move, @current_player)
-    else
-    	drop_piece
-    end
+  	@board.drop_piece(retrieve_move, @current_player)
+   
 
     @game_over = game_over
 
@@ -35,7 +32,7 @@ class ConnectFourController < ApplicationController
 
   # switch the current player
   def switch_player
-    @current_player = (@current_player == 'X' ? 'O' : 'X')
+    @current_player = (@current_player == 'x' ? 'o' : 'x')
   end
 
   # pull the current player from the session
@@ -61,7 +58,7 @@ class ConnectFourController < ApplicationController
   end
 
    def game_over
-    if @board.check_win(@current_player)
+    if @board.check_win
       @game_over = "Game over, player #{@current_player} WINS!"
     elsif @board.full?
       @game_over = "Game Over! You've drawn."

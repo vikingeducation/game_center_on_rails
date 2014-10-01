@@ -17,24 +17,25 @@ class Board
     check_draw
   end
 
-  def place_piece(move, piece)
+  def drop_piece(move, piece)
     @current_board[move-1] << piece
   end
 
   def is_valid?(move)
-    if move.nil? || @current_board[move-1].length < 7 # this is where it is really breaking
-      return true
-    else
-      return false
-    end
+    true
+    # if move.nil? || @current_board[move-1].length < 7 # this is where it is really breaking
+    #   return true
+    # else
+    #   return false
+    # end
   end
   
   def horizontal #actual rows
     horiz = []
     (0..6).each do |column|
       (0..6).each do |row|
-        horiz << @board[row][column]
-        horiz << "b" if @board[row][column] == nil
+        horiz << @current_board[row][column]
+        horiz << "b" if @current_board[row][column] == nil
       end
     horiz << "b"
     end
@@ -43,7 +44,7 @@ class Board
 
   def vertical #actual COLUMNS
     vertical = []
-    @board.each do |column|
+    @current_board.each do |column|
       column.each do |piece|
         vertical << "b" if piece == nil
         vertical << piece
@@ -62,11 +63,11 @@ class Board
     (0..6).each do |column|
       (0..6).each do |row|
         (0..6).each do |diag|
-          unless @board[column+diag].nil?
-            if @board[column+diag][row+diag].nil?
+          unless @current_board[column+diag].nil?
+            if @current_board[column+diag][row+diag].nil?
               diagonal << "b"
             else
-            diagonal << @board[column+diag][row+diag]
+            diagonal << @current_board[column+diag][row+diag]
             end
           end
         end
@@ -80,11 +81,11 @@ class Board
     (0..6).each do |column|
       (0..6).each do |row|
         (0..6).each do |diag|
-          unless @board[column+diag].nil?
-            if @board[column-diag][row+diag].nil?
+          unless @current_board[column+diag].nil?
+            if @current_board[column-diag][row+diag].nil?
               diagonal << "b"
             else
-            diagonal << @board[column+diag][row+diag]
+            diagonal << @current_board[column+diag][row+diag]
             end
           end
         end
@@ -94,7 +95,7 @@ class Board
   end
 
   def check_draw
-    @board.each do |column|
+    @current_board.each do |column|
       if column.length >= 7
         return true
       else
