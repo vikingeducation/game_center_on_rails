@@ -12,13 +12,21 @@
 			<!-- needs to have a case for the start of the game. Otherwise these values are nil. -->
 			<div class="col-md-8 col-md-offset-3">
 				<div class="game-box">
-					<h3><%="Computer chose #{@choices[@comp_choice -1]}"%></h3>
-					<h3><%="Player chose #{@choices[@player_choice -1]}"%></h3>
-					<h3><%="The result is #{@winner}"%></h3>
+					<h3><% if @comp_choice %>
+							<%= "The computer chose #{@choices[@comp_choice -1]}" %>
+							<% end %>
+					</h3>
+					<h3><% if @player_choice %>
+							<%= "You chose #{@choices[@player_choice - 1]}" %>
+							<% else %>
+							<%= "What's it gonna be?" %>
+							<% end %>
+					</h3>
+					<h3><%= "#{@winner}" %></h3>
 				</div>
 				<div class="game-box">
 					<div class="row">
-						<h3><%="Player: ___ Computer: ___ "%></h3>
+						<h4><%="Score feature coming soon."%></h4>
 					</div>
 				</div>
 
@@ -31,12 +39,11 @@
 						<%= label_tag(:paper, "Paper") %>
 
 						<%= radio_button_tag(:player_choice, 3) %>
-						<%= label_tag(:scissors_label, "scissors") %>
+						<%= label_tag(:scissors_label, "Scissors") %>
 						<%= submit_tag("Ro Sham Bo!") %>
 					<% end %>
 
 				</div>
-
 
 			</div>
 		
