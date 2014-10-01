@@ -1,6 +1,6 @@
 game_center_on_rails
 ====================
 
-The Game Center finds its way onto the Web!
+Matt Davis - chewieee
 
-This is your README!
+https://github.com/chewieee/game_center_on_rails

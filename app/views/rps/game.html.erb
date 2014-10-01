@@ -1,0 +1,57 @@
+<%= render 'shared/navbar' %>
+
+
+<main>
+	<secion class="rps-game-wrapper container">
+		<div class="rps-content col-md-6">
+			<header class="header">
+				<h2>Rock, Paper, Scissors</h2>
+				<p>Play the game below</p>
+
+			</header>
+			<!-- needs to have a case for the start of the game. Otherwise these values are nil. -->
+			<div class="col-md-8 col-md-offset-3">
+				<div class="game-box">
+					<h3><% if @comp_choice %>
+							<%= "The computer chose #{@choices[@comp_choice -1]}" %>
+							<% end %>
+					</h3>
+					<h3><% if @player_choice %>
+							<%= "You chose #{@choices[@player_choice - 1]}" %>
+							<% else %>
+							<%= "What's it gonna be?" %>
+							<% end %>
+					</h3>
+					<h3><%= "#{@winner}" %></h3>
+				</div>
+				<div class="game-box">
+					<div class="row">
+						<h4><%="Score feature coming soon."%></h4>
+					</div>
+				</div>
+
+				<div class="game-box">
+					<%= form_tag(rockpaperscissors_make_move_path) do %>
+						<%= radio_button_tag(:player_choice, 1) %>
+						<%= label_tag(:rock_label, "Rock") %>
+
+						<%= radio_button_tag(:player_choice, 2) %>
+						<%= label_tag(:paper, "Paper") %>
+
+						<%= radio_button_tag(:player_choice, 3) %>
+						<%= label_tag(:scissors_label, "Scissors") %>
+						<%= submit_tag("Ro Sham Bo!") %>
+					<% end %>
+
+				</div>
+
+			</div>
+		
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+	<h1><%= @result %></h1>
+	</secion>
+</main>
