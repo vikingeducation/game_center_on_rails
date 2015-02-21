@@ -1,0 +1,3 @@
+class RockPaperScissorsController < ApplicationController
+
+end
