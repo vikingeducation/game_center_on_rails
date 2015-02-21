@@ -1,18 +1,24 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h1>Welcome to Game Center</h1>
-    <p>Choose one of the games below to start playing</p>
-  </div>
-</div>
-
-<div class="row">
-  <div id="rock-paper-scissors" class="col-md-4 col-md-offset-2 game-box">
-    <h2>Rock, Paper, Scissors</h2>
-    <p>An ancient game of skill and strategy. Do you have what it takes?</p>
+<div id="home">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 headline">
+      <h1>Welcome to Game Center</h1>
+      <p>Choose one of the games below to start playing.</p>
+    </div>
   </div>
 
-  <div id="connect-four" class="col-md-4 game-box">
-    <h2>Connect Four</h2>
-    <p>The disks drop like comets from the sky. Connect four to achieve ultimate victory!</p>
+  <div class="row">
+    <%= link_to 'rock-paper-scissors', class: 'game-link' do %>
+      <div id="rock-paper-scissors" class="col-md-4 col-md-offset-2 game-box">
+        <h2>Rock, Paper, Scissors</h2>
+        <p>An ancient game of skill and strategy. Do you have what it takes?</p>
+      </div>
+    <% end %>
+
+    <%= link_to 'gamecenter', class: 'game-link' do %>
+      <div id="connect-four" class="col-md-4 game-box">
+        <h2>Connect Four</h2>
+        <p>The disks drop like comets from the sky. Connect four to achieve ultimate victory!</p>
+      </div>
+    <% end %>
   </div>
 </div>

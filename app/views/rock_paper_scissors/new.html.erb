@@ -1,0 +1,29 @@
+<h1>
+  Rock, Paper, Scissors
+</h1>
+
+<p>
+  What's your move?
+</p>
+
+<%= form_tag(shoot_path, method: "POST") do %>
+  <div class="radio">
+    <label>
+      <%= radio_button_tag 'move', 'rock' %>
+      Rock
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <%= radio_button_tag 'move', 'paper' %>
+      Paper
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <%= radio_button_tag 'move', 'scissors' %>
+      Scissors
+    </label>
+  </div>
+  <%= submit_tag "Shoot!" %>
+<% end %>

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   get 'gamecenter' => 'static_pages#home'
 
+  get 'rock-paper-scissors' => 'rock_paper_scissors#new'
+  post '/shoot' => 'rock_paper_scissors#shoot'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
