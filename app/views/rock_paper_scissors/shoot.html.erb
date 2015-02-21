@@ -1,3 +1,15 @@
 <h1>
   You done shot!
 </h1>
+
+<p>
+  You chose <%= @RPS.player_move %>.
+</p>
+
+<p>
+  Computer chose <%= @RPS.ai_move %>.
+</p>
+
+<p>
+  It is <%= "not" unless @RPS.is_draw? %> a draw.
+</p>
