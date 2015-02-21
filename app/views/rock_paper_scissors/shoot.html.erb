@@ -1,15 +1,47 @@
-<h1>
-  You done shot!
-</h1>
+<div id="rock-paper-scissors">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1 move-display" id="player-move">
+      <h3>
+        You
+      </h3>
+      <p>
+        <%= render partial: 'move_image', locals: {move: @RPS.player_move} %>
+      </p>
+    </div>
 
-<p>
-  You chose <%= @RPS.player_move %>.
-</p>
+    <div class="col-md-4 move-display" id="ai_move">
+      <h3>
+        Opponent
+      </h3>
+      <p>
+        <%= render partial: 'move_image', locals: {move: @RPS.ai_move} %>
+      </p>
+    </div>
 
-<p>
-  Computer chose <%= @RPS.ai_move %>.
-</p>
+    <div class="col-md-2 col-md-offset-1 move-display" id="play_again">
+      <h4>
+        Play again?
+      </h4>
+      <%= render "turn_form" %>
+    </div>
+  </div>
 
-<p>
-  It is <%= "not" unless @RPS.is_draw? %> a draw.
-</p>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-1 who-won">
+      <h1>
+        <% if @RPS.player_won? %>
+          You won!
+        <% elsif @RPS.ai_won? %>
+          You lost.
+        <% else %>
+          It's a draw.
+        <% end %>
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+
+  </div>
+
+</div>

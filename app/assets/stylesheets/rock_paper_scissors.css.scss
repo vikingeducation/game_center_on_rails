@@ -1,3 +1,13 @@
 // Place all the styles related to the RockPaperScissors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#rock-paper-scissors {
+  .move-display {
+    text-align: center;
+    margin-top: 45px;
+  }
+  .who-won {
+    text-align: center;
+  }
+}
