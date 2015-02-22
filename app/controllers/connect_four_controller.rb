@@ -4,11 +4,15 @@ class ConnectFourController < ApplicationController
   end
 
   def make_move
-    @var = ConnectFour.new(params[:move], session[:board])
-    @message = @var.message
-    #if @var.gameover?
-    @board_render = @var.board
-    session[:board] = @var.board
+    @game = ConnectFour.new(params[:move], session[:board])
+    @message = @game.message
+    #if @game.gameover?
+    @board_render = @game.board
+    session[:board] = @game.board
     render :index
+  end
+
+  def save_board
+    session[:board] = @game.board
   end
 end

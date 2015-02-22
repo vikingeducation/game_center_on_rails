@@ -4,37 +4,36 @@ class ConnectFour
 
   def initialize (move, board=nil)
     @message = ""
-    if board.nil?
-      @board = Array.new(7) {Array.new(0)} #7 empty columns
-    else
-      @board = board
-    end
-    @move = move
-    insert_coin(@move, "x") #human move
-    set_message
+    @board = board
+    player_move = move.to_i - 1
+    insert_coin(player_move, "X") #human move
+    @message = set_message
+  end
+
+  def ai_move
+
+  end
+
+  def ai_wins?
+
   end
 
   def set_message
     if win?
-      @message = "Congrats! You win!"
+      "Congrats! You win!"
     elsif full?
-      @message = "Board is full. You draw!"
+      "Board is full. You draw!"
     else
-      @message = "Make a move!"
+      "Make a move!"
     end
   end
 
   def insert_coin(column, player_id)
-    if column.nil?
-      false
-    elsif column_is_invalid?(column)
-      # "Error: That is not a correct column."
-      false
-    elsif column_is_full?(column)
+    if column_is_full?(column)
       # "Error: The column is full! Please choose another column"
       false
     else
-      board[column] << player_id
+      @board[column] << player_id
       true
     end
   end
@@ -48,7 +47,7 @@ class ConnectFour
   end
 
   def full?
-    board.each do |column|
+    @board.each do |column|
       return false if column.length < 6
     end
     return true
@@ -56,7 +55,7 @@ class ConnectFour
 
 
   def column_is_full?(column)
-    board[column].length == 6
+    @board[column].length == 6
   end
 
   def column_is_invalid?(column)
@@ -64,7 +63,7 @@ class ConnectFour
   end
 
   def vertical_win?
-    board.each do |col|
+    @board.each do |col|
       0.upto(2) do |row|
         test_array = [ col[row],
                        col[row+1],
@@ -80,10 +79,10 @@ class ConnectFour
     row = 0
     while row < 7 do
       0.upto(3) do |col|
-        test_array = [ board[col][row],
-                       board[col+1][row],
-                       board[col+2][row],
-                       board[col+3][row] ]
+        test_array = [ @board[col][row],
+                       @board[col+1][row],
+                       @board[col+2][row],
+                       @board[col+3][row] ]
         return true if winning_array?(test_array)
       end
       row += 1
@@ -95,10 +94,10 @@ class ConnectFour
     col = 0
     while col < 4 do
       0.upto(2) do |row|
-        test_array = [ board[col][row],
-                       board[col+1][row+1],
-                       board[col+2][row+2],
-                       board[col+3][row+3] ]
+        test_array = [ @board[col][row],
+                       @board[col+1][row+1],
+                       @board[col+2][row+2],
+                       @board[col+3][row+3] ]
         return true if winning_array?(test_array)
       end
       col += 1
@@ -110,10 +109,10 @@ class ConnectFour
     col = 0
     while col < 4 do
       5.downto(3) do |row|
-        test_array = [ board[col][row],
-                       board[col+1][row-1],
-                       board[col+2][row-2],
-                       board[col+3][row-3] ]
+        test_array = [ @board[col][row],
+                       @board[col+1][row-1],
+                       @board[col+2][row-2],
+                       @board[col+3][row-3] ]
         return true if winning_array?(test_array)
       end
       col += 1
@@ -131,28 +130,10 @@ class ConnectFour
   # Game logic
 
   def game_over?
-    board.full? || board.win?
+    @board.full? || @board.win?
   end
-
-  def game_over_sequence(player_id)
-    if game_over?
-      if board.win?
-        puts "Congratulations, Player #{player_id.upcase}! You won!"
-      else
-        puts "Sorry, this game is a draw"
-      end
-      board.render
-      exit
-    end
-  end
-
-
 
   # AI
-  def initialize(player_id, game_board)
-    @player_id = player_id
-    @game_board = game_board
-  end
 
   def pick_column
     rational_choice = pick_rationally
