@@ -1,0 +1,16 @@
+<% 5.downto 0 do |row| %>
+  <tr class="connect-four-row">
+    <% 0.upto 6 do |column| %>
+      <td>
+        <% case board[column][row] %>
+        <% when 'player' %>
+          <div class="coin player-coin"></div>
+        <% when 'computer' %>
+          <div class="coin computer-coin"></div>
+        <% else %>
+          <div class="coin empty-slot"></div>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+<% end %>

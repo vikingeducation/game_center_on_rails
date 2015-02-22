@@ -12,7 +12,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 #misc
-gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -20,6 +19,7 @@ group :development do
   gem 'sqlite3'
   gem 'spring'
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do

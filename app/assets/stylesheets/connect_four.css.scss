@@ -1,3 +1,42 @@
 // Place all the styles related to the ConnectFour controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#connect-four {
+  .headline {
+    text-align: center;
+  }
+  .connect-four-board {
+    margin: 0 auto;
+    .connect-four-row {
+      th {
+        width: 80px;
+        text-align: center;
+      }
+      td {
+        width: 80px;
+        height: 70px;
+        background-color: #1E90FF;
+      }
+      .coin {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        margin: 0 auto;
+      }
+      .player-coin{
+        background-color: #F00;
+      }
+      .computer-coin{
+        background-color: #FF0;
+      }
+      .empty-slot {
+        background-color: #FFF;
+      }
+    }
+  }
+  #restart {
+    margin: 10px auto;
+    width: 100%;
+  }
+}

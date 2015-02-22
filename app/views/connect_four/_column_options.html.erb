@@ -1,0 +1,9 @@
+<tr class="connect-four-row">
+  <%= form_tag(drop_piece_path, method: "POST") do %>
+    <% 7.times do |column| %>
+      <% disabled = board.column_full? column %>
+      <th><%= radio_button_tag 'column', column, !disabled, disabled: disabled %></th>
+    <% end %>
+    <th><%= submit_tag "Drop!" %></th>
+  <% end %>
+</tr>
