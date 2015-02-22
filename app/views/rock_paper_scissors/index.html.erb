@@ -2,11 +2,11 @@
   <%= render :partial => "result", :locals => {:message => @message} %>
 <% end %>
 
-<h5>Hello, World!</h5>
+<h1>Rock Paper Scissors!</h1>
 
 <%= form_tag(rock_paper_scissors_make_move_path, :method => "POST") do %>
-  <%= radio_button_tag(:move, "R") %>Rock <br>
-  <%= radio_button_tag(:move, "P") %>Paper <br>
-  <%= radio_button_tag(:move, "S") %>Scissors
+  <%= radio_button_tag(:move, "R") %> Rock <br>
+  <%= radio_button_tag(:move, "P") %> Paper <br>
+  <%= radio_button_tag(:move, "S") %> Scissors <br><br>
   <%= submit_tag "Make Yer Move, SON" %>
 <% end %>

@@ -17,7 +17,13 @@
 
 <%= render partial: "shared/navbar" %>
 
-<%= yield %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <%= yield %>
+    </div>
+  </div>
+</div>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
