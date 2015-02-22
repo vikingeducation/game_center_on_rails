@@ -1,45 +1,37 @@
 class ConnectFour
   attr_reader :player_id
-  attr_accessor :game_board
-
-  # Board
-  class Board
-  attr_accessor :board
+  attr_accessor :game_board, :board, :message
 
   def initialize (move, board=nil)
-    if board=nil
+    @message = ""
+    if board.nil?
       @board = Array.new(7) {Array.new(0)} #7 empty columns
     else
       @board = board
     end
+    @move = move
+    insert_coin(@move, "x") #human move
+    set_message
   end
 
-  # Graphic methods
-  def render
-    puts "\n   1 2 3 4 5 6 7"
-    5.downto 0 do |row|
-      print "  |"
-      0.upto 6 do |column|
-        if board[column][row].nil?
-          print " |"
-        else
-          print board[column][row]
-          print "|"
-        end
-      end
-      print "\n"
+  def set_message
+    if win?
+      @message = "Congrats! You win!"
+    elsif full?
+      @message = "Board is full. You draw!"
+    else
+      @message = "Make a move!"
     end
-    print "   1 2 3 4 5 6 7\n\n"
   end
 
   def insert_coin(column, player_id)
     if column.nil?
       false
     elsif column_is_invalid?(column)
-      puts "Error: That is not a correct column."
+      # "Error: That is not a correct column."
       false
     elsif column_is_full?(column)
-      puts "Error: The column is full! Please choose another column"
+      # "Error: The column is full! Please choose another column"
       false
     else
       board[column] << player_id
@@ -62,7 +54,6 @@ class ConnectFour
     return true
   end
 
-  private
 
   def column_is_full?(column)
     board[column].length == 6
@@ -136,11 +127,8 @@ class ConnectFour
     # therefore uniq.length will return 1
     !array.include?(nil) && array.uniq.length == 1
   end
-end
 
   # Game logic
-
-  attr_reader :board, :player_x, :player_o
 
   def game_over?
     board.full? || board.win?

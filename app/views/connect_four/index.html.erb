@@ -10,3 +10,7 @@
   <%= radio_button_tag(:move, 7) %>7 <br>
   <%= submit_tag "Make Yer Move, SON" %>
 <% end %>
+
+<%= render :partial => "result", :locals => {:message => @message} %>
+
+<%= render :partial => "board", :locals => {:board => @board} %>
