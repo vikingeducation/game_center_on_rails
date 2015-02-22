@@ -8,14 +8,18 @@ class ConnectFour
     player_move = move.to_i - 1
     insert_coin(player_move, "X") #human move
     @message = set_message
+    insert_coin(pick_randomly, "O")
+    unless @message == "Congrats! You win!" || @message == "Board is full. You draw!"
+      @message = ai_wins
+    end
   end
 
-  def ai_move
-
-  end
-
-  def ai_wins?
-
+  def ai_wins
+    if win?
+      "Sorry, you LOSE!"
+    else
+      "Make a move!"
+    end
   end
 
   def set_message
@@ -157,7 +161,7 @@ class ConnectFour
   end
 
   def pick_randomly
-    (1..7).to_a.sample
+    (0..6).to_a.sample
   end
 
 
