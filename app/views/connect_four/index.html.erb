@@ -1,0 +1,16 @@
+<h1>Connect Four!</h1>
+
+<%= form_tag(connect_four_make_move_path, :method => "POST") do %>
+  <%= radio_button_tag(:move, 1) %> 1 <br>
+  <%= radio_button_tag(:move, 2) %> 2 <br>
+  <%= radio_button_tag(:move, 3) %> 3 <br>
+  <%= radio_button_tag(:move, 4) %> 4 <br>
+  <%= radio_button_tag(:move, 5) %> 5 <br>
+  <%= radio_button_tag(:move, 6) %> 6 <br>
+  <%= radio_button_tag(:move, 7) %> 7 <br><br>
+  <%= submit_tag "Make Yer Move, SON" %>
+<% end %>
+
+<%= render :partial => "result", :locals => {:message => @message} %>
+
+<%= render :partial => "board", :locals => {:board => @board} %>
