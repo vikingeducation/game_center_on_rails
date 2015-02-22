@@ -1,6 +1,17 @@
-game_center_on_rails
-====================
+Game Center on Rails!
 
-The Game Center finds its way onto the Web!
+Daniel Au
+Nick Schwad
 
-This is your README!
+[Dan's Github](https://github.com/dakmau)
+[Nick's Github](https://github.com/schwad)
+
+Technology stack:
+Bootstrap
+Rails
+Ruby
+Heroku
+
+Insert description here
+
+[Viking Code School](http://vikingcodeschool.com)
