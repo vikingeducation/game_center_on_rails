@@ -1,3 +1,7 @@
+<% unless @message.nil? %>
+  <%= render :partial => "result", :locals => {:message => @message} %>
+<% end %>
+
 <h5>Hello, World!</h5>
 
 <%= form_tag(rock_paper_scissors_make_move_path, :method => "POST") do %>
@@ -6,5 +10,3 @@
   <%= radio_button_tag(:move, "S") %>Scissors
   <%= submit_tag "Make Yer Move, SON" %>
 <% end %>
- 
-

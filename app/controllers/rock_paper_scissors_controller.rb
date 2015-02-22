@@ -1,14 +1,10 @@
 class RockPaperScissorsController < ApplicationController
-  def new
+  def index
   end
 
   def make_move
     game = RockPaperScissors.new(params[:move])
     @message = game.game_result
-    render :result
+    render :index
   end
-
-
-
-
 end
