@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'rock-paper-scissors' => 'rock_paper_scissors#new'
   post '/shoot' => 'rock_paper_scissors#shoot'
 
+  get 'connect-four' => 'connect_four#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

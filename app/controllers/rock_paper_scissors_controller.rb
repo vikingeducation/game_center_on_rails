@@ -3,6 +3,6 @@ class RockPaperScissorsController < ApplicationController
   end
 
   def shoot
-    @RPS = RockPaperScissor.new (params[:move]).to_sym
+    @rps = RockPaperScissor.new (params[:move]).to_sym
   end
 end

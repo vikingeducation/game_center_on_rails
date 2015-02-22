@@ -1,11 +1,11 @@
 <div id="rock-paper-scissors">
   <div class="row">
-    <div class="col-md-4 col-md-offset-1 move-display" id="player-move">
+    <div class="col-md-4 move-display" id="player-move">
       <h3>
         You
       </h3>
       <p>
-        <%= render partial: 'move_image', locals: {move: @RPS.player_move} %>
+        <%= render partial: 'move_image', locals: {move: @rps.player_move} %>
       </p>
     </div>
 
@@ -14,7 +14,7 @@
         Opponent
       </h3>
       <p>
-        <%= render partial: 'move_image', locals: {move: @RPS.ai_move} %>
+        <%= render partial: 'move_image', locals: {move: @rps.ai_move} %>
       </p>
     </div>
 
@@ -27,11 +27,11 @@
   </div>
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-1 who-won">
+    <div class="col-md-8 who-won">
       <h1>
-        <% if @RPS.player_won? %>
+        <% if @rps.player_won? %>
           You won!
-        <% elsif @RPS.ai_won? %>
+        <% elsif @rps.ai_won? %>
           You lost.
         <% else %>
           It's a draw.
