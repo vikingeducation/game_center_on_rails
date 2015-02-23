@@ -1,0 +1,21 @@
+<%= form_tag(shoot_path, method: "POST", id: 'turn-form') do %>
+  <div class="radio">
+    <label>
+      <%= radio_button_tag 'move', 'rock', class: 'not_there' %>
+      <%= image_tag 'rock.png', height: '100px', class: 'glow' %>
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <%= radio_button_tag 'move', 'paper', class: 'not_there' %>
+      <%= image_tag 'paper.png', height: '100px', class: 'glow' %>
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <%= radio_button_tag 'move', 'scissors', class: 'not_there' %>
+      <%= image_tag 'scissors.svg', height: '100px', class: 'glow' %>
+    </label>
+  </div>
+  <%= submit_tag "Shoot!" %>
+<% end %>

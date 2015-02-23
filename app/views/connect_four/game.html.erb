@@ -1,0 +1,21 @@
+<div id="connect-four">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 headline">
+      <h1>
+        Connect Four
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <table class="connect-four-board">
+        <%= render partial: 'column_options', locals: {board: @connect_four} %>
+        <%= render partial: 'board', locals: {board: @connect_four.board} %>
+      </table>
+    </div>
+  </div>
+
+  <%= render 'restart' %>
+
+</div>

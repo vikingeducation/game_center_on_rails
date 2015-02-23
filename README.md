@@ -1,6 +1,7 @@
-game_center_on_rails
-====================
+#Koding for Kidz Game Center
 
-The Game Center finds its way onto the Web!
+by [Dan Berger](https://github.com/dsberger) with the [Viking Code School](http://vikingcodeschool.com)
 
-This is your README!
+This project hosts a few online games that kidz love to play.
+
+The code is [running on Heroku](https://fast-everglades-4407.herokuapp.com/).

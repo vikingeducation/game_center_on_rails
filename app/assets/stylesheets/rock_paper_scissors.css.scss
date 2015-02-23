@@ -1,0 +1,25 @@
+// Place all the styles related to the RockPaperScissors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#rock-paper-scissors {
+  .move-display {
+    text-align: center;
+    margin-top: 45px;
+  }
+  .who-won {
+    text-align: center;
+  }
+}
+
+#turn-form {
+  [type='radio'] {
+    display: none;
+  }
+  :checked + .glow {
+    box-shadow: 0px 0px 20px #0E0;
+  }
+  img {
+    border-radius: 25%
+  }
+}
