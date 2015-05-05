@@ -26,7 +26,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12 text-center">
-      <%= form_tag(rockpaperscissors_move_path, :method => "POST") do %>
+      <%= form_tag(rockpaperscissors_move_path, method: "POST") do %>
         <%= radio_button_tag(:move, "ROCK") %> Rock <br />
         <%= radio_button_tag(:move, "PAPER") %> Paper <br />
         <%= radio_button_tag(:move, "SCISSORS") %> Scissors <br />

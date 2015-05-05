@@ -37,7 +37,7 @@
       <% if @game_over %>
         <%= link_to "Play again?", new_connectfour_path %>
       <% else %>
-        <%= form_tag(connectfour_drop_piece_path, :method => "POST", :class => "move-form") do %>
+        <%= form_tag(connectfour_drop_piece_path, method: "POST", class: "move-form") do %>
           <table class="table-centered">
             <% 1.times do |row| %>
               <tr>
