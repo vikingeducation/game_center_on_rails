@@ -7,7 +7,9 @@ class ConnectfourController < ApplicationController
   end
 
   def drop_piece
-    @game = get_board
+    @move = ConnectFour.new(get_board)
+    @move.make_move(get_column)
+    @game = @move.board
     save_board
 
     render :game_board
@@ -19,5 +21,9 @@ class ConnectfourController < ApplicationController
 
   def get_board
     session[:saved_board]
+  end
+
+  def get_column
+    params[:move].to_i
   end
 end
