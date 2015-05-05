@@ -9,6 +9,11 @@ class ConnectFour
     Array.new(7) { Array.new(6) }
   end
 
+  def tachikoma_move
+    column = rand(0..5)
+    make_move(column)
+  end
+
   def make_move(column)
     row = 6
     until @board[row][column] == nil

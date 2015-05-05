@@ -9,6 +9,7 @@ class ConnectfourController < ApplicationController
   def drop_piece
     @move = ConnectFour.new(get_board)
     @move.make_move(get_column)
+    @move.tachikoma_move
     @game = @move.board
     save_board
 
