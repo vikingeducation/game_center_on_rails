@@ -13,6 +13,14 @@
   </div>
   <div class="row">
     <div class="col-sm-12 text-center">
+      <% if @wins || @losses %>
+        <h4>Wins: <%= @wins %></h4>
+        <h4>Losses: <%= @losses %></h4>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
       <p>Make your move against the computer:</p>
     </div>
   </div>

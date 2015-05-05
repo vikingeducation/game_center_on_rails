@@ -8,15 +8,23 @@ class Rps < ActiveRecord::Base
     @tachikoma_move = %w(ROCK PAPER SCISSORS).sample
   end
 
+  def won?
+    @player_move == 'ROCK' && @tachikoma_move == 'SCISSORS' ||
+      @player_move == 'PAPER' && @tachikoma_move == 'ROCK' ||
+      @player_move == 'SCISSORS' && @tachikoma_move == 'PAPER'
+  end
+
+  def lost?
+    @player_move == 'ROCK' && @tachikoma_move == 'PAPER' ||
+      @player_move == 'PAPER' && @tachikoma_move == 'SCISSORS' ||
+      @player_move == 'SCISSORS' && @tachikoma_move == 'ROCK'
+  end
+
   def determine_win
-    if @player_move == 'ROCK' && @tachikoma_move == 'SCISSORS' ||
-       @player_move == 'PAPER' && @tachikoma_move == 'ROCK' ||
-       @player_move == 'SCISSORS' && @tachikoma_move == 'PAPER'
+    if won?
       return "You picked #{@player_move}, Tachikoma picked #{@tachikoma_move}.
               You won!"
-    elsif @player_move == 'ROCK' && @tachikoma_move == 'PAPER' ||
-          @player_move == 'PAPER' && @tachikoma_move == 'SCISSORS' ||
-          @player_move == 'SCISSORS' && @tachikoma_move == 'ROCK'
+    elsif lost?
       return "You picked #{@player_move}, Tachikoma picked #{@tachikoma_move}.
               You lost :("
     else
