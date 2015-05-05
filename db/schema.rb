@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505005931) do
+ActiveRecord::Schema.define(version: 20150505051622) do
+
+  create_table "connect_fours", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "rps", force: :cascade do |t|
     t.datetime "created_at", null: false

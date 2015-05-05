@@ -1,4 +1,4 @@
-class Rps < ActiveRecord::Base
+class Rps
   def initialize(player_move)
     @player_move = player_move
     @tachikoma_move = tachikoma_choose

@@ -1,0 +1,34 @@
+<h1>Welcome to Connect Four!</h1>
+
+<p>
+  Make your move using the form below.
+</p>
+
+
+<pre>
+  <table>
+    <% @game.each do |row| %>
+      <tr>
+        <% row.each do |cell| %>
+          <td><%= cell.nil? ? ' - ' : cell %> </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</pre>
+
+
+<%= form_tag(connectfour_drop_piece_path, :method => "POST") do %>
+  <table>
+    <% 1.times do |row| %>
+      <tr>
+        <% 6.times do |cell| %>
+          <td>
+            <%= radio_button_tag("move","#") %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  <%= submit_tag "Make Move" %>
+<% end %>
