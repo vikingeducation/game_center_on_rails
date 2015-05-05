@@ -17,27 +17,43 @@ class ConnectfourController < ApplicationController
       save_player
       save_board
     else
-      @move.make_move(get_column, ' R ')
       @current_player = get_player
+      @move.make_move(get_column, ' R ')
       if @move.player_won?
-        @game_over = "Game over, you win!"
+        @game_over = "Game over, #{@current_player} wins!"
+        @game = @move.board
+        save_board
+        render :game_board
+        return
       elsif @move.is_full?
         @game_over = "Game over, it's a draw!"
+        @game = @move.board
+        save_board
+        render :game_board
+        return
       end
       switch_player
-      @current_player = get_player
       @move.tachikoma_move
       if @move.player_won?
-        @game_over = "Game over, Tachikoma wins!"
+        @game_over = "Game over, #{@current_player} wins!"
+        @game = @move.board
+        save_board
+        render :game_board
+        return
       elsif @move.is_full?
         @game_over = "Game over, it's a draw!"
+        @game = @move.board
+        save_board
+        render :game_board
+        return
       end
+
       @game = @move.board
 
+      switch_player
       save_player
       save_board
     end
-
     render :game_board
   end
 
@@ -50,7 +66,12 @@ class ConnectfourController < ApplicationController
   end
 
   def switch_player
-    @current_player = @current_player == 'Human' ? 'Tachikoma' : 'Human'
+    if @current_player == 'Human'
+      @current_player = 'Tachikoma'
+    elsif @current_player == 'Tachikoma'
+      @current_player = 'Human'
+    end
+    # @current_player = (@current_player == 'Human' ? 'Tachikoma' : 'Human')
   end
 
   def get_player

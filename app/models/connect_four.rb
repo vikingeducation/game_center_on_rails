@@ -19,7 +19,7 @@ class ConnectFour
 
   def make_move(column, color)
     row = 6
-    until @board[row][column] == nil
+    until @board[row][column].nil?
       row -= 1
     end
     @board[row][column] = color
