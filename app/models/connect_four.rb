@@ -11,7 +11,10 @@ class ConnectFour
 
   def tachikoma_move
     column = rand(0..5)
-    make_move(column, 'Y')
+    while column_full?(column)
+      column = rand(0..5)
+    end
+    make_move(column, ' Y ')
   end
 
   def make_move(column, color)

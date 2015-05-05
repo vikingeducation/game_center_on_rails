@@ -17,10 +17,10 @@ class ConnectfourController < ApplicationController
       save_player
       save_board
     else
-      @move.make_move(get_column, 'R')
+      @move.make_move(get_column, ' R ')
       @current_player = get_player
       if @move.player_won?
-        @game_over = "Game over, #{@current_player} wins!"
+        @game_over = "Game over, you win!"
       elsif @move.is_full?
         @game_over = "Game over, it's a draw!"
       end
@@ -28,7 +28,7 @@ class ConnectfourController < ApplicationController
       @current_player = get_player
       @move.tachikoma_move
       if @move.player_won?
-        @game_over = "Game over, #{@current_player} wins!"
+        @game_over = "Game over, Tachikoma wins!"
       elsif @move.is_full?
         @game_over = "Game over, it's a draw!"
       end
