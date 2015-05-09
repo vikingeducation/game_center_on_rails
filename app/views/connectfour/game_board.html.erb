@@ -21,7 +21,7 @@
     <div class="col-sm-12 board">
       <pre>
         <table class="table-centered">
-          <% @game.each do |row| %>
+          <% @game_board.each do |row| %>
             <tr>
               <% row.each do |cell| %>
                 <td><%= cell.nil? ? ' - ' : cell %> </td>

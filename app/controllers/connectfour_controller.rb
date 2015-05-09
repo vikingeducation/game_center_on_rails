@@ -1,58 +1,49 @@
 class ConnectfourController < ApplicationController
   def new
     @current_player = 'Human'
-    @game = ConnectFour.new.board
+    @game_board = ConnectFour.new.board
     save_player
     save_board
 
     render :game_board
   end
 
-  def render_end
-    @game = @move.board
+  def drop_piece
+    @move = ConnectFour.new(retrieve_board)
+    @current_player = retrieve_player
+    if @move.column_full?(retrieve_column)
+      @message = 'Column full! Try again.'
+      @game_board = @move.board
+    else
+      @move.make_move(retrieve_column, ' R ')
+      if win_checks
+      else
+        switch_player
+        @move.tachikoma_move
+        if win_checks
+        else
+          @game_board = @move.board
+
+          switch_player
+        end
+      end
+    end
+    @game_board = @move.board
+    save_player
     save_board
     render :game_board
-    true
   end
 
   def win_checks
     if @move.player_won?
       @game_over = "Game over, #{@current_player} wins!"
-      render_end
     elsif @move.full?
       @game_over = "Game over, it's a draw!"
-      render_end
     end
-  end
-
-  def drop_piece
-    @move = ConnectFour.new(retrieve_board)
-    if @move.column_full?(retrieve_column)
-      @message = 'Column full! Try again.'
-      @game = @move.board
-
-      save_player
-      save_board
-    else
-      @current_player = retrieve_player
-      @move.make_move(retrieve_column, ' R ')
-      return if win_checks
-
-      switch_player
-      @move.tachikoma_move
-      return if win_checks
-
-      @game = @move.board
-
-      switch_player
-      save_player
-      save_board
-    end
-    render :game_board
   end
 
   def save_board
-    session[:saved_board] = @game
+    session[:saved_board] = @game_board
   end
 
   def save_player

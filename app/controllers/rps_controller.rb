@@ -4,6 +4,8 @@ class RpsController < ApplicationController
 
   def move
     rps = Rps.new(params[:move])
+    session[:win_count] ||= 0
+    session[:loss_count] ||= 0
     session[:win_count] += 1 if rps.won?
     session[:loss_count] += 1 if rps.lost?
 
