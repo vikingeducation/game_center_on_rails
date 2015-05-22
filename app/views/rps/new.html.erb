@@ -1,0 +1,38 @@
+<main id="rps" class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h1>Welcome to Rock Paper Scissors!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <% if @result %>
+        <h3><%= @result %></h3>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <% if @wins || @losses %>
+        <h4>Wins: <%= @wins %></h4>
+        <h4>Losses: <%= @losses %></h4>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <p>Make your move against the computer:</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <%= form_tag(rockpaperscissors_move_path, method: "POST") do %>
+        <%= radio_button_tag(:move, "ROCK") %> Rock <br />
+        <%= radio_button_tag(:move, "PAPER") %> Paper <br />
+        <%= radio_button_tag(:move, "SCISSORS") %> Scissors <br />
+        <br />
+        <%= submit_tag "Shoot!", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,57 @@
+<main id="connectfour" class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h1>Welcome to Connect Four!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <% if @game_over %>
+        <h2><%= @game_over %></h2>
+      <% elsif @message %>
+        <h2><%= @message %>
+      <% else %>
+        <p>
+          Make your move using the form below.
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 board">
+      <pre>
+        <table class="table-centered">
+          <% @game_board.each do |row| %>
+            <tr>
+              <% row.each do |cell| %>
+                <td><%= cell.nil? ? ' - ' : cell %> </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </table>
+      </pre>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <% if @game_over %>
+        <%= link_to "Play again?", new_connectfour_path %>
+      <% else %>
+        <%= form_tag(connectfour_drop_piece_path, method: "POST", class: "move-form") do %>
+          <table class="table-centered">
+            <% 1.times do |row| %>
+              <tr>
+                <% 6.times do |cell| %>
+                  <td class="move-radios">
+                    <%= radio_button_tag("move","#{cell}") %>
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </table>
+          <%= submit_tag "Make Move", class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</main>
