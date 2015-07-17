@@ -1,11 +1,14 @@
 <h1> Welcome to Connect Four! </h1>
 <% @board.each do |col| %>
-<p> <%= col %> <p>
+<p class="col"> <% col.each do |piece| %>
+	<%= content_tag(:div, nil, :class => "circle#{piece}") %>
+<% end %>
+</p>
 <% end %>
 
 <% if @game_over %>
 	<%=form_tag("/index", method: "get") do %>
-		<button>Play again!</button>
+		<button name="restart" value="true">Play again!</button>
 	<% end %>
 <% else %>
 	<%= form_tag("/move", method: "post") do %>
