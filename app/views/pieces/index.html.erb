@@ -1,0 +1,16 @@
+
+
+<h1>Board game Connect Four </h1>
+<ul>
+  <% @pieces.each do |p| %>
+    <% 7.times do |col| %>
+        <tr>
+          <% 6.times do |row|%>
+           <td> 
+            <%=Piece.find_by(x_value: => col, y_value: => row).color %>
+           </td>
+           <%end%>
+        </tr>
+    <%end%>
+  <% end %>
+</ul>
