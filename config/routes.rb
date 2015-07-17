@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  get '/connect-four' => 'connect_four#new'
+  get '/connect-four' => 'connect_four_game#new'
+
+  post '/connect-four/drop_piece' => 'connect_four_game#update'
+
+  get '/connect-four/play' => 'connect-four_game#show'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

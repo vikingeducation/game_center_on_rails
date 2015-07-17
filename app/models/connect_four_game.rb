@@ -1,12 +1,16 @@
 class ConnectFourGame
 
-  def initialize(board = [], current_player)
-    if board.empty?
-      create_new_board
+  attr_reader :board
+
+  def initialize(game_board = [], current_player = nil)
+    @board = Board.new(game_board)
+    if current_player
+      @player1 = current_player
+      @player2 = AI.new("Player 2", "o", @board)
     else
-      @board = board
+      @player1 = Human.new("Player 1", "x", @board)
+      @player2 = AI.new("Player 2", "o", @board)
     end
-    @player = current_player
   end
 
 
@@ -22,7 +26,34 @@ class ConnectFourGame
     @board.check_victory? || @board.full?
   end
 
+ def create_players(choice)
+
+   if choice == 1
+     @player1 = Human.new("Player 1", "x", @board)
+     @player2 = AI.new("Player 2", "o", @board)
+   else
+     @player1 = Human.new("Player 1", "x", @board)
+     @player2 = Human.new("Player 2", "o", @board)
+   end
+
+ end
+
+ def game_over?
+   @board.check_victory? || @board.full?
+ end
+
+ def switch_player
+
+   if @current_player == @player1
+     @current_player = @player2
+   else
+     @current_player = @player1
+   end
+
+ end
+
 end
+
 
 class Board
   attr_reader :game_board
@@ -31,12 +62,12 @@ class Board
     if board.empty?
       create_new_board
     else
-      @board = board
+      @game_board = board
     end
   end
 
   def create_new_board
-    @board = Array.new(7) {[]}
+    @game_board = Array.new(7) {[]}
   end
 
 
