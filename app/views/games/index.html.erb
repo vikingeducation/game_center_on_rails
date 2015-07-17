@@ -1,2 +1,9 @@
 <h1> Welcome to Connect Four! </h1>
+<% @board.each do |col| %>
+<p> <%= col %> <p>
+<% end %>
 
+<%= form_tag("/move", method: "post") do %>
+	<%= number_field_tag("col", 0, {max: 6, min: 0}) %>
+	<%= submit_tag "Submit" %>
+<% end %>
