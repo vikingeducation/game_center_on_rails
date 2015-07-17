@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: "games#index"
+  root to: "games#new"
   get "index" => "games#index"
   post "move" => "games#move"
-  get "new" => "game#new"
+  get "new" => "games#new"
 end
