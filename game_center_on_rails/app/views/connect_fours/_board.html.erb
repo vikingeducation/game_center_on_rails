@@ -1,11 +1,27 @@
 <div>
-<% if @game %>
-  <% for row in (0..5) %>
-    <p>
-    <% for column in (0..6) %>
-      <%= @game[row][column] ? @game[row][column] : '__' %>
-    <% end %>
-    </p>
-  <% end %>
-<% end %>
+  <table>
+    <% if @game %>
+      <th>
+        <form action="/update" method="post">
+          <input name="_method" value="patch" type="hidden"/>
+        <% for column in (1..7) %>
+          <td>
+            <input type="submit" name="column" value=<%=column%>>
+          </td>
+        <% end %>
+          <input  type="hidden"
+                  name="authenticity_token"
+                  value="<%= form_authenticity_token %>">
+        </form>
+      </th>
+      <% for row in (0..5) %>
+        <tr>
+          <td></td>
+          <% for column in (0..6) %>
+            <td><%= @game[row][column] ? @game[row][column] : '__' %></td>
+          <% end %>
+        </tr>
+      <%end%>
+    <%end%>
+  </table>
 </div>
