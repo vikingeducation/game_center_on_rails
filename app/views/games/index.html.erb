@@ -1,18 +1,33 @@
-<h1> Welcome to Connect Four! </h1>
-<% @board.each do |col| %>
-<p class="col"> <% col.each do |piece| %>
-	<%= content_tag(:div, nil, :class => "circle#{piece}") %>
-<% end %>
-</p>
-<% end %>
+<h1 class="centered"> Welcome to Connect Four! </h1>
+<div class="board_container">
+<div class="board">
+	<% @board.each do |col| %>
+		<div class="col"> <% col.each do |piece| %>
+			<%= content_tag(:div, nil, :class => "circle#{piece}") %>
+		<% end %>
+		</div>
+	<% end %>
+</div>
+</div>
 
-<% if @game_over %>
-	<%=form_tag("/index", method: "get") do %>
-		<button name="restart" value="true">Play again!</button>
+<div class= "centered">
+	<% if @game_over %>
+		<%=form_tag("/index", method: "get") do %>
+			<button name="restart" value="true">Play again!</button>
+		<% end %>
+	<% else %>
+		<%= form_tag("/move", method: "post") do %>
+			<!--<%= number_field_tag("col", 0, {max: 6, min: 0}) %>-->
+			<div class="radio_buttons">
+				<%= radio_button_tag "col", 0, false, disabled: !legal?(0, @board)%>
+				<%= radio_button_tag "col", 1, false, disabled: !legal?(1, @board)%>
+				<%= radio_button_tag "col", 2, false, disabled: !legal?(2, @board)%>
+				<%= radio_button_tag "col", 3, false, disabled: !legal?(3, @board)%>
+				<%= radio_button_tag "col", 4, false, disabled: !legal?(4, @board)%>
+				<%= radio_button_tag "col", 5, false, disabled: !legal?(5, @board)%>
+				<%= radio_button_tag "col", 6, false, disabled: !legal?(6, @board)%>
+			</div>
+			<%= submit_tag "Submit" %>
+		<% end %>
 	<% end %>
-<% else %>
-	<%= form_tag("/move", method: "post") do %>
-		<%= number_field_tag("col", 0, {max: 6, min: 0}) %>
-		<%= submit_tag "Submit" %>
-	<% end %>
-<% end %>
+</div>

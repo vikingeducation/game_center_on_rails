@@ -9,6 +9,10 @@ module GamesHelper
     return [[],[],[],[],[],[],[]]
   end
 
+  def legal?(move, board)
+    board[move].length < 6
+  end
+
   def play_move(move, board)
     return false if board[move].length >= 6
     turn = board.flatten.length % 2
