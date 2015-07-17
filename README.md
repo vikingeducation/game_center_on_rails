@@ -1,6 +1,11 @@
-game_center_on_rails
-====================
+Game Center on Rails
+Featuring: Connect Four
 
-The Game Center finds its way onto the Web!
+David Meza (https://github.com/david-meza)
+Garrett Weinert (https://github.com/gweinert)
 
-This is your README!
+Game center is a compilation of classic board games written in Ruby and using the Rails framework to have a web interface
+
+
+This is a project as part of the Viking Code School curriculum
+http://www.vikingcodeschool.com/
