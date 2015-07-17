@@ -1,5 +1,7 @@
 class ConnectFour #< ActiveRecord::Base
 
+  attr_reader :board
+
   def initialize(obj)
     obj ? @board = obj : @board = build_board
     @piece = "O "
@@ -15,10 +17,9 @@ class ConnectFour #< ActiveRecord::Base
     board
   end
 
-  def move
-    row, col = define_column_row
+  def move(input)
+    row, col = define_column_row(input)
     make_move(row, col)
-    win
   end
 
   def make_move(row, col)
@@ -30,22 +31,15 @@ class ConnectFour #< ActiveRecord::Base
     winning_combo?(symbol) || tie?
   end
 
+  def win?
+    @board.game_over?(@piece)
+  end
+
   private
 
-  def get_input
-    #from form
-  end
 
-  def win
-    if @board.game_over?(@piece)
-      @board.render
-      #flash "You Won!"
-      exit
-    end
-  end
-
-  def define_column_row
-    col=get_input
+  def define_column_row(input)
+    col=input
 
     until check?(col)
       col=get_input

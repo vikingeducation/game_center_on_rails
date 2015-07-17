@@ -1,12 +1,20 @@
 class ConnectFoursController < ApplicationController
 
 
-  def new
-    @game= Array.new(6) {Array.new(7) {"__"}}
+  def new #get
   end
 
   def update
-    get_input = params[:column]
+    @game = load_game
+    connectfour = ConnectFour.new(@game)
+    connectfour.move(params[:column])
+    if connectfour.win?
+      flash[:success] = "You Won!"
+    else
+      @game = connectfour.board
+      save_game
+    end
+      render :update
   end
 
 end
