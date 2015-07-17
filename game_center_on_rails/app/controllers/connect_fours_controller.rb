@@ -1,11 +1,12 @@
 class ConnectFoursController < ApplicationController
 
+
   def new
-    @game= Array.new(6) {Array.new(7) {"__"}} 
+    @game= Array.new(6) {Array.new(7) {"__"}}
   end
 
   def update
-    params[:column]
+    get_input = params[:column]
   end
 
 end

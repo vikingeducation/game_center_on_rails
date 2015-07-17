@@ -1,6 +1,6 @@
 <div>
   <table>
-    <% if @game %>
+
       <th>
         <form action="/update" method="post">
           <input name="_method" value="patch" type="hidden"/>
@@ -22,6 +22,6 @@
           <% end %>
         </tr>
       <%end%>
-    <%end%>
+
   </table>
 </div>
