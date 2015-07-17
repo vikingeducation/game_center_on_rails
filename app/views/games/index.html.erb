@@ -3,7 +3,13 @@
 <p> <%= col %> <p>
 <% end %>
 
-<%= form_tag("/move", method: "post") do %>
-	<%= number_field_tag("col", 0, {max: 6, min: 0}) %>
-	<%= submit_tag "Submit" %>
+<% if @game_over %>
+	<%=form_tag("/index", method: "get") do %>
+		<button>Play again!</button>
+	<% end %>
+<% else %>
+	<%= form_tag("/move", method: "post") do %>
+		<%= number_field_tag("col", 0, {max: 6, min: 0}) %>
+		<%= submit_tag "Submit" %>
+	<% end %>
 <% end %>

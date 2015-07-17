@@ -17,44 +17,44 @@ module GamesHelper
     return true
   end
 
-  def winner
-    horizontal_winner || vertical_winner ||
-    backslash_winner || forwardslash_winner
+  def check_winner(board)
+    horizontal_winner(board) || vertical_winner(board) ||
+    backslash_winner(board) || forwardslash_winner(board)
   end
 
-  def horizontal_winner
+  def horizontal_winner(board)
     0.upto(5) do |row|
-      0.upto(2) do |col|
-        if (@state[0 + col][row] == @state[1 + col][row]) &&
-        (@state[0 + col][row] == @state[2 + col][row]) &&
-        (@state[0 + col][row] == @state[3 + col][row])
-          return @state[col][row] unless @state[col][row].nil?
+      0.upto(3) do |col|
+        if (board[0 + col][row] == board[1 + col][row]) &&
+        (board[0 + col][row] == board[2 + col][row]) &&
+        (board[0 + col][row] == board[3 + col][row])
+          return board[col][row] unless board[col][row].nil?
         end
       end
     end
     return nil
   end
 
-  def vertical_winner
-    0.upto(5) do |col|
+  def vertical_winner(board)
+    0.upto(6) do |col|
       0.upto(2) do |row|
-        if (@state[col][0 + row] == @state[col][1 + row]) &&
-          (@state[col][0 + row] == @state[col][2 + row]) &&
-          (@state[col][0 + row] == @state[col][3 + row])
-          return @state[col][row] unless @state[col][row].nil?
+        if (board[col][0 + row] == board[col][1 + row]) &&
+          (board[col][0 + row] == board[col][2 + row]) &&
+          (board[col][0 + row] == board[col][3 + row])
+          return board[col][row] unless board[col][row].nil?
         end
       end
     end
     return nil
   end
 
-  def backslash_winner
-    5.downto(3) do |row|
+  def backslash_winner(board)
+    6.downto(3) do |row|
       0.upto(2) do |col|
-        if (@state[col][row] == @state[col + 1][row - 1]) &&
-          (@state[col][row] == @state[col + 2][row - 2]) &&
-          (@state[col][row] == @state[col + 3][row - 3])
-          return @state[col][row] unless @state[col][row].nil?
+        if (board[col][row] == board[col + 1][row - 1]) &&
+          (board[col][row] == board[col + 2][row - 2]) &&
+          (board[col][row] == board[col + 3][row - 3])
+          return board[col][row] unless board[col][row].nil?
         end
       end
     end
@@ -62,13 +62,13 @@ module GamesHelper
     return nil
   end
 
-  def forwardslash_winner
-    0.upto(2) do |row|
+  def forwardslash_winner(board)
+    0.upto(3) do |row|
       0.upto(2) do |col|
-        if (@state[col][row] == @state[1 + col][1 + row]) &&
-          (@state[col][row] == @state[2 + col][2 + row]) &&
-          (@state[col][row] == @state[3 + col][3 + row])
-          return @state[col][row] unless @state[col][row].nil?
+        if (board[col][row] == board[1 + col][1 + row]) &&
+          (board[col][row] == board[2 + col][2 + row]) &&
+          (board[col][row] == board[3 + col][3 + row])
+          return board[col][row] unless board[col][row].nil?
         end
       end
     end
