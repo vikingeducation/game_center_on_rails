@@ -2,15 +2,28 @@
 
 <h1>Board game Connect Four </h1>
 <ul>
-  <% @pieces.each do |p| %>
-    <% 7.times do |col| %>
+  <table>
+    <% 6.times do |row| %>
         <tr>
-          <% 6.times do |row|%>
-           <td> 
-            <%=Piece.find_by(x_value: => col, y_value: => row).color %>
+          <% 7.times do |col|%>
+           <td>
+            <%=Piece.find_by(x_value: col, y_value: row).color %>
            </td>
            <%end%>
         </tr>
     <%end%>
-  <% end %>
+  </table>
+  <form action="move" method="post">
+    <input type="radio" name="move" value ="0">
+    <input type="radio" name="move" value ="1">
+    <input type="radio" name="move" value ="2">
+    <input type="radio" name="move" value ="3">
+    <input type="radio" name="move" value ="4">
+    <input type="radio" name="move" value ="5">
+    <input type="radio" name="move" value ="6"><br>
+    <input type="submit" value="Move">
+    <input  type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+  </form>
 </ul>

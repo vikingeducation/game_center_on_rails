@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: 'pieces#index'
 
   resources :pieces
+
+  post '/move', to: 'pieces#move'
+
+  get '/reset', to: 'pieces#reset'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

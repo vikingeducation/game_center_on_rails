@@ -1,0 +1,15 @@
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 25px;
+    border-color: gray;
+}
+
+input {
+    position: relative;
+    left: 20px;
+    margin-right: 15px;
+
+
+
+}
