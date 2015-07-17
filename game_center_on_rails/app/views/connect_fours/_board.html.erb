@@ -1,0 +1,11 @@
+<div>
+<% if @game %>
+  <% for row in (0..5) %>
+    <p>
+    <% for column in (0..6) %>
+      <%= @game[row][column] ? @game[row][column] : '__' %>
+    <% end %>
+    </p>
+  <% end %>
+<% end %>
+</div>
