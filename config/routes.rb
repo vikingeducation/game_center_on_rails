@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   post '/connect-four/drop_piece' => 'connect_four_game#update'
 
-  get '/connect-four/play' => 'connect-four_game#show'
+  get '/connect-four/play' => 'connect_four_game#show'
 
+  get '/connect-four/win' => 'connect_four_game#win'
 
+  get '/connect-four/lose' => 'connect_four_game#lose'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

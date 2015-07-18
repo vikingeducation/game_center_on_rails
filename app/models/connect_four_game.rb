@@ -1,6 +1,6 @@
 class ConnectFourGame
 
-  attr_reader :board
+  attr_reader :board, :player2
 
   def initialize(game_board = [], current_player = nil)
     @board = Board.new(game_board)
@@ -67,22 +67,23 @@ class Board
   end
 
   def create_new_board
-    @game_board = Array.new(7) {[]}
+    @game_board = Array.new(7) {Array.new(6) {"-"}}
   end
 
 
   def add_piece(column, piece)
+    column = column.to_i
 
     if @game_board[column-1][0] == "-"
       @game_board[column-1].length.downto(0) do |i|
         if @game_board[column-1][i] == "-"
-          @game_board[column-1][i] = piece 
+          @game_board[column-1][i] = piece
           break
         end
       end
       return true
     else
-      puts "This column is full, you can not add more pieces in it."
+      return nil
     end
 
   end
