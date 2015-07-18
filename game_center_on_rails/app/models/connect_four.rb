@@ -33,6 +33,7 @@ class ConnectFour #< ActiveRecord::Base
 
   def win?
     game_over?(@piece)
+    # true
   end
 
   private

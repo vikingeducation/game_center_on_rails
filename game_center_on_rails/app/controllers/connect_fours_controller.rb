@@ -3,7 +3,8 @@ class ConnectFoursController < ApplicationController
   helpers
 
   def new #get
-    @game = load_game
+    @game = Array.new(6) { Array.new(7) { :_ } }
+    save_game
   end
 
   def edit
@@ -14,15 +15,15 @@ class ConnectFoursController < ApplicationController
     @game = load_game
     connectfour = ConnectFour.new(@game)
     connectfour.move(params[:column].to_i)
+    @game = connectfour.board
+    session["game_over"] = false
     save_game
     if connectfour.win?
       flash[:success] = "You Won!"
-    else
-      @game = connectfour.board
+      session["game_over"] = true
       
     end
-    redirect_to edit_connect_four_path
-    # render :edit
+      redirect_to edit_connect_four_path
   end
 
   def destroy

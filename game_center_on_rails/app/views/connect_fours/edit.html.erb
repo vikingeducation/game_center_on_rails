@@ -1,3 +1,9 @@
 <%= render "board" %>
 
-<%= link_to "new game?", new_connect_four_path, method: :delete, data: {confirm: "Start a new game?"} %>
+<%= flash[:success] %>
+
+<hr>
+
+<% if session["game_over"] %>
+  <%= link_to "new game?", new_connect_four_path, method: :delete, data: {confirm: "Start a new game?"} %>
+<% end %>
