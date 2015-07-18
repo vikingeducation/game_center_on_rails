@@ -11,7 +11,7 @@ class ConnectFour #< ActiveRecord::Base
     for row in (0..5)
       board<<[]
       for column in (0..6)
-        board[row][column]="__"
+        board[row][column]="_"
       end
     end
     board
@@ -32,7 +32,7 @@ class ConnectFour #< ActiveRecord::Base
   end
 
   def win?
-    @board.game_over?(@piece)
+    game_over?(@piece)
   end
 
   private
@@ -41,9 +41,9 @@ class ConnectFour #< ActiveRecord::Base
   def define_column_row(input)
     col=input
 
-    until check?(col)
-      col=get_input
-    end
+    # until check?(col)
+    #   col=get_input
+    # end
     row=find_row(col)
 
     return row, col
@@ -55,14 +55,14 @@ class ConnectFour #< ActiveRecord::Base
     5.downto(0) do |row|
       arr << @board[row][col-1]
     end
-    empty_space = arr.include?("__")
+    empty_space = arr.include?("_")
     #flash.now "This column is full!" unless empty_space
    (col < 8 && col > 0 &&  empty_space)
   end
 
   def find_row(col)
     row = 5
-    while @board[row][col-1] != "__"
+    while @board[row][col-1] != "_"
         if row < 0
           #puts "Counted down 0"
           break
@@ -81,7 +81,7 @@ class ConnectFour #< ActiveRecord::Base
   def tie?
     for row in (0..5) #rows
       for column in (0..6) #columns
-        return false if @board[row][column] == "__"
+        return false if @board[row][column] == "_"
       end
     end
     #flash.now puts "No more moves! It's a tie."

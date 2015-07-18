@@ -1,8 +1,8 @@
 <div>
   <table>
-
+    <% if @game %>
       <th>
-        <form action=<%=connect_fours_update_path%> method="post">
+        <form action=<%=connect_four_path(1)%> method="post">
           <input name="_method" value="patch" type="hidden"/>
         <% for column in (1..7) %>
           <td>
@@ -22,6 +22,6 @@
           <% end %>
         </tr>
       <%end%>
-
+    <%end%>
   </table>
 </div>
