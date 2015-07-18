@@ -1,0 +1,33 @@
+<h1 class="centered"> Welcome to Connect Four! </h1>
+<div class="board_container">
+<div class="board">
+	<% @board.each do |col| %>
+		<div class="col"> <% col.each do |piece| %>
+			<%= content_tag(:div, nil, :class => "circle#{piece}") %>
+		<% end %>
+		</div>
+	<% end %>
+</div>
+</div>
+
+<div class= "centered">
+	<% unless @game_over %>
+		<%= form_tag("/move", method: "post") do %>
+			<!--<%= number_field_tag("col", 0, {max: 6, min: 0}) %>-->
+			<div class="radio_buttons">
+				<%= radio_button_tag "col", 0, false, disabled: !legal?(0, @board)%>
+				<%= radio_button_tag "col", 1, false, disabled: !legal?(1, @board)%>
+				<%= radio_button_tag "col", 2, false, disabled: !legal?(2, @board)%>
+				<%= radio_button_tag "col", 3, false, disabled: !legal?(3, @board)%>
+				<%= radio_button_tag "col", 4, false, disabled: !legal?(4, @board)%>
+				<%= radio_button_tag "col", 5, false, disabled: !legal?(5, @board)%>
+				<%= radio_button_tag "col", 6, false, disabled: !legal?(6, @board)%>
+			</div>
+			<br>
+			<%= submit_tag 'Submit "button" class="btn btn-default"'.html_safe %>
+		<% end %>
+	<% end %>
+<br>
+	<nav class="navbar navbar-inverse">
+<p class="navbar-text navbar-right"><a href="/new" class="navbar-link">Play new game!</a></p>
+</nav>

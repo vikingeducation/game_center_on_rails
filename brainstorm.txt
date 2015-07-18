@@ -1,0 +1,9 @@
+1. Model: No model
+2. Controller: Game
+	- index - render board  7*6
+		- 1, 2, 0 as our states
+	- play (GET) - get player move
+	- move (POST) - set a move
+3. Views:
+	- index
+	- view partial for play
