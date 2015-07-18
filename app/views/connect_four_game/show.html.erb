@@ -1,0 +1,23 @@
+<% if flash[:notify] %>
+   <div class="notify" style="color:red"><%= flash[:notify] %></div>
+   <br>
+ <% end %>
+
+ <% if flash[:lose] %>
+   <div class="lose" style="color:red"><%= flash[:lose] %></div>
+   <br>
+ <% end %>
+
+ <% if flash[:win] %>
+   <div class="win" style="color:green"><%= flash[:win] %></div>
+   <br>
+ <% end %>
+
+<% @game.board.game_board.transpose.each do |row|%>
+  <% row.each do |tile| %>
+    <p style="display:inline-block; padding:6px"> <%= " #{tile} " %> </p>
+  <% end %>
+  <div style="margin-top:-10px"></div>
+<% end %>
+
+<%= render :partial => 'shared/form' %>
