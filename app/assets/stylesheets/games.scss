@@ -1,0 +1,65 @@
+// Place all the styles related to the games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.circle0 {
+	width:60px;
+	height:60px;
+	background:red;
+	-moz-border-radius:100%;
+	-webkit-border-radius:100%;
+	border-radius:100%;
+	float:left;
+}
+
+.circle1 {
+	width:60px;
+	height:60px;
+	background:blue;
+	-moz-border-radius:100%;
+	-webkit-border-radius:100%;
+	border-radius:100%;
+	float:left;
+}
+
+.col {
+	width:360px;
+	height:60px;
+}
+
+.radio_buttons input{
+	margin-left:20px;
+	margin-right:20px;
+}
+
+.board {
+	margin: auto;
+	width:360px;
+	height:420px;
+	-webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    translateX: 100%;
+    translateY: 100%;
+    -webkit-translateX: 100%;
+    -webkit-translateY: 100%;
+    -moz-translateX: 100%;
+    -moz-translateY: 100%;
+
+background-image:
+    -webkit-linear-gradient(45deg, #CCC 25%, transparent 25%,transparent 75%, #CCC 75%, #CCC 100%),
+    -webkit-linear-gradient(45deg, #CCC 25%, transparent 25%,transparent 75%, #CCC 75%, #CCC 100%);
+    background-image:
+    -moz-linear-gradient(45deg, #CCC 25%, transparent 25%,transparent 75%, #CCC 75%, #CCC 100%),
+    -moz-linear-gradient(45deg, #CCC 25%, transparent 25%,transparent 75%, #CCC 75%, #CCC 100%);
+    -moz-background-size:120px 120px;
+    background-size:120px 120px;
+    -webkit-background-size:120px 120px;
+    background-position:0 0, 60px 60px;
+}
+
+.centered {
+	text-align: center;
+}
