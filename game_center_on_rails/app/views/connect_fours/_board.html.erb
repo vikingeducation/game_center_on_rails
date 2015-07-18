@@ -2,7 +2,7 @@
   <table>
 
       <th>
-        <form action="/update" method="post">
+        <form action=<%=connect_fours_update_path%> method="post">
           <input name="_method" value="patch" type="hidden"/>
         <% for column in (1..7) %>
           <td>

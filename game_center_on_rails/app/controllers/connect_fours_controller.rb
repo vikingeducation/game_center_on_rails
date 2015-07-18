@@ -2,6 +2,11 @@ class ConnectFoursController < ApplicationController
 
 
   def new #get
+    @game = load_game
+  end
+
+  def edit
+    @game = load_game
   end
 
   def update
@@ -14,7 +19,12 @@ class ConnectFoursController < ApplicationController
       @game = connectfour.board
       save_game
     end
-      render :update
+    redirect_to edit_connect_four_path
+  end
+
+  def destroy
+    session["connect4"] = nil
+    redirect_to root_path
   end
 
 end
