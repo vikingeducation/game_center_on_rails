@@ -16,14 +16,17 @@ class ConnectFoursController < ApplicationController
     connectfour = ConnectFour.new(@game)
     connectfour.move(params[:column].to_i)
     @game = connectfour.board
-    session["game_over"] = false
     save_game
     if connectfour.win?
       flash[:success] = "You Won!"
-      session["game_over"] = true
-      
-    end
+      redirect_to connect_four_path(1)
+    else
       redirect_to edit_connect_four_path
+    end
+  end
+
+  def show
+    @game = load_game
   end
 
   def destroy

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#home'
 
-  resources :connect_fours, only: [:new, :edit, :update, :destroy]
+  resources :connect_fours, only: [:new, :edit, :show, :update, :destroy]
 
 
   # get 'connect_fours/new' => "connect_fours#new"
