@@ -1,7 +1,13 @@
-<h2>Pick VS AI or 2 players<h2>
+<h2>Pick to play versus AI or 2 players<h2><br>
 
 <%=form_tag("/new", method: "get") do %>
-	<%= radio_button_tag "player_count", 1 %>1
-	<%= radio_button_tag "player_count", 2 %>2
-	<%= submit_tag "Submit" %>
+	<h3>
+		<%= radio_button_tag "player_count", 1 %>  AI
+	</h3>
+	<br>
+	<h3><%= radio_button_tag "player_count", 2 %>  2 Players
+	</h3>
+	<br>
+	<%= submit_tag 'Start "button" class="btn btn-success"'.html_safe %>
 <% end %>
+

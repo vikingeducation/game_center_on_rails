@@ -24,7 +24,6 @@ class GamesController < ApplicationController
   def move
     board = session["board"]
     play(params[:col].to_i, board)
-
     redirect_to index_path
   end
 

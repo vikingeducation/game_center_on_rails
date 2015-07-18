@@ -23,9 +23,11 @@
 				<%= radio_button_tag "col", 5, false, disabled: !legal?(5, @board)%>
 				<%= radio_button_tag "col", 6, false, disabled: !legal?(6, @board)%>
 			</div>
-			<%= submit_tag "Submit" %>
+			<br>
+			<%= submit_tag 'Submit "button" class="btn btn-default"'.html_safe %>
 		<% end %>
 	<% end %>
-	<a href="/new"><button type="btn btn-default navbar-btn">Play new game!</button></a>
-
-</div>
+<br>
+	<nav class="navbar navbar-inverse">
+<p class="navbar-text navbar-right"><a href="/new" class="navbar-link">Play new game!</a></p>
+</nav>
