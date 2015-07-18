@@ -1,6 +1,7 @@
 
 
 <h1>Board game Connect Four </h1>
+<h4><%=session[:player] %> play now!</h4>
 <ul>
   <table>
     <% 6.times do |row| %>
@@ -14,16 +15,19 @@
     <%end%>
   </table>
   <form action="move" method="post">
-    <input type="radio" name="move" value ="0">
-    <input type="radio" name="move" value ="1">
-    <input type="radio" name="move" value ="2">
-    <input type="radio" name="move" value ="3">
-    <input type="radio" name="move" value ="4">
-    <input type="radio" name="move" value ="5">
-    <input type="radio" name="move" value ="6"><br>
+    <%0.upto(6) do |i| %>
+     
+        <input type="radio" name="move" value ="<%=i%>" <%="disabled".html_safe if column_full(i) %>>
+      
+     <% end %>
+
+    <br>
     <input type="submit" value="Move">
     <input  type="hidden"
     name="authenticity_token"
     value="<%= form_authenticity_token %>">
+  </form>
+  <form action="reset" method="get">
+    <input type="submit" value="Reset">
   </form>
 </ul>
