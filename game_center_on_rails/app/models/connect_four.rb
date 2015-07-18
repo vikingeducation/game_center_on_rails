@@ -4,7 +4,7 @@ class ConnectFour #< ActiveRecord::Base
 
   def initialize(obj)
     obj ? @board = obj : @board = build_board
-    @piece = "O "
+    @piece = "O"
   end
 
   def build_board  #top right= row 0, col 0; bottom left= row 5, col6

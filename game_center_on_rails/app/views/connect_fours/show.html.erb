@@ -12,7 +12,15 @@
         <tr>
           <td></td>
           <% for column in (0..6) %>
-            <td><%= @game[row][column] ? @game[row][column] : '__' %></td>
+            <td>
+              <% if @game[row][column] == "O"%>
+                <%= image_tag "red.png", size: "40x40" %>
+              <% elsif @game[row][column] == "X" %>
+                <%= image_tag "black.png", size: "40x40" %>
+              <% else %>
+                <%= image_tag "grid.png", size: "40x40" %>
+              <% end %>
+            </td>
           <% end %>
         </tr>
       <%end%>
