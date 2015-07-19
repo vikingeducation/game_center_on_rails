@@ -1,0 +1,35 @@
+<div>
+  <table>
+    <% if @game %>
+      <th>
+        <form action=<%=connect_four_path(1)%> method="post">
+          <input name="_method" value="patch" type="hidden"/>
+        <% for column in (1..7) %>
+          <td>
+            <input type="submit" name="column" value=<%=column%>>
+          </td>
+        <% end %>
+          <input  type="hidden"
+                  name="authenticity_token"
+                  value="<%= form_authenticity_token %>">
+        </form>
+      </th>
+      <% for row in (0..5) %>
+        <tr>
+          <td></td>
+          <% for column in (0..6) %>
+            <td>
+              <% if @game[row][column] == "O"%>
+                <%= image_tag "red.png", size: "40x40" %>
+              <% elsif @game[row][column] == "X" %>
+                <%= image_tag "black.png", size: "40x40" %>
+              <% else %>
+                <%= image_tag "grid.png", size: "40x40" %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <%end%>
+    <%end%>
+  </table>
+</div>

@@ -1,0 +1,35 @@
+<div>
+  <table>
+    <% if @game %>
+      <th>
+        <% for column in (1..7) %>
+          <td>
+            <input type="submit" name="column" value=<%=column%>>
+          </td>
+        <% end %>
+      </th>
+      <% for row in (0..5) %>
+        <tr>
+          <td></td>
+          <% for column in (0..6) %>
+            <td>
+              <% if @game[row][column] == "O"%>
+                <%= image_tag "red.png", size: "40x40" %>
+              <% elsif @game[row][column] == "X" %>
+                <%= image_tag "black.png", size: "40x40" %>
+              <% else %>
+                <%= image_tag "grid.png", size: "40x40" %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <%end%>
+    <%end%>
+  </table>
+</div>
+
+<%= flash[:success] %>
+
+<hr>
+
+<%= link_to "new game?", new_connect_four_path, method: :delete, data: {confirm: "Start a new game?"} %>
