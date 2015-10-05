@@ -1,0 +1,18 @@
+<table class="col-select">
+  
+  <%= form_tag(make_move_path, :method => :post) do %>
+
+  <tr>
+    <% 0.upto(6) do |col| %>
+    <% disabled = full_columns.include?(col) %>
+      <td><%= radio_button_tag( "col", "#{col}", 
+                                checked = false,
+                                :disabled => disabled ) %></td>
+    <% end %>
+    <td><%= submit_tag "Drop Piece" %></td>
+  </tr>
+
+  <% end %>
+  
+</table>
+

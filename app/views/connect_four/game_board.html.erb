@@ -1,0 +1,23 @@
+<table>
+
+  <% 5.downto(0) do |row| %>
+    <tr>
+      <% 0.upto(6) do |col| %>
+        <% piece = @board_arr[col][row] || "gray" %>
+        <td><%= image_tag("#{piece}_circle.png") %></td>
+      <% end %>
+    </tr>
+  <% end %>
+
+</table>
+
+<% if @game_over_msg %>
+
+<%= @game_over_msg %>
+<%= link_to "Play again?", root_path %>
+
+<% else %>
+
+<%= render partial: "move_form", locals: {full_columns: @full_columns} %>
+
+<% end %>
