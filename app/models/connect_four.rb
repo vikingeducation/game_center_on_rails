@@ -1,6 +1,6 @@
 class ConnectFour
 
-  attr_reader :board, :state
+  attr_reader :board, :end_game_message
 
 
   def initialize(board_arr)
@@ -10,7 +10,7 @@ class ConnectFour
 
   def step(player_move)
     player_move(player_move)
-    if @state
+    if @end_game_message
       return
     else
       computer_move
@@ -25,22 +25,22 @@ class ConnectFour
     @board.add_piece(player_move, "red")
 
     if @board.winning_line?("red")
-      @state = "Player won!"
+      @end_game_message = "Player won!"
     elsif @board.full?
-      @state = "Its a Draw!"
+      @end_game_message = "Its a Draw!"
     end
   end
 
 
   def computer_move
-    ai = Ai.new(@board.board_arr)
-    ai_move = ai.make_move
-    @board.add_piece(ai_move, "blue")
+    computer = ComputerPlayer.new(@board.board_arr)
+    computer_move = computer.make_move
+    @board.add_piece(computer_move, "blue")
     
     if @board.winning_line?("blue")
-      @state = "Computer won!"
+      @end_game_message = "Computer won!"
     elsif @board.full?
-      @state = "Its a draw!"
+      @end_game_message = "Its a draw!"
     end
   end
   

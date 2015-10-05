@@ -12,8 +12,7 @@ class ConnectFourController < ApplicationController
 
   def make_move
     game = ConnectFour.new(retrieve_board)
-
-    player_move = retrieve_col
+    player_move = retrieve_move
     
     if player_move.nil?
       @board_arr = game.board.board_arr
@@ -25,8 +24,8 @@ class ConnectFourController < ApplicationController
       @board_arr = game.board.board_arr
       @full_columns = game.board.full_columns
  
-      if game.state
-        @game_over_msg = game.state
+      if game.end_game_message
+        @game_over_msg = game.end_game_message
         render :game_board
       else
         save_board
@@ -41,7 +40,7 @@ class ConnectFourController < ApplicationController
   private
 
 
-  def retrieve_col
+  def retrieve_move
     if params[:col]
       params[:col].to_i 
     end
