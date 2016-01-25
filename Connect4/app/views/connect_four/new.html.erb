@@ -9,16 +9,12 @@
     <th>Column 7</th>
   </tr>
 
-<% @table.each do |row| %>
+<% @board.each do |row| %>
   <tr>
-    <td><%= row %></td>
-    <td><%= row %></td> 
-    <td><%= row %></td>
-    <td><%= row %></td>
-    <td><%= row %></td>
-    <td><%= row %></td>
-    <td><%= row %></td>
-  </tr>
+    <% row.each do |col| %>
+     <td><%= col %></td>
+    <% end %> 
+  </tr> 
 <% end %>
 
 </table>
