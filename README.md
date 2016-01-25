@@ -7,7 +7,7 @@ This is your README!
 
 Ruby on Rails Connect 4
 
-Kelsey and John
+John and Kelsey
 
 This is a Connect 4 Ruby on Rails application.
 
