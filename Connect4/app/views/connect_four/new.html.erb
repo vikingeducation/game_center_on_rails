@@ -9,7 +9,7 @@
     <th>Column 7</th>
   </tr>
 
-<% @board.each do |row| %>
+<% @board.each do |row_num, row| %>
   <tr>
     <% row.each do |col| %>
      <td><%= col %></td>
