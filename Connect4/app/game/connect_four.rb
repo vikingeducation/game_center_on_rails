@@ -6,51 +6,50 @@ require_relative 'computer.rb'
 class ConnectFour
   attr_accessor :player_1, :player_2, :board
 
-  def initialize(board = nil)
-    @board_object = Board.new(board)
-    @board.setup
+  def initialize(board = nil,player)
+    @board = Board.new(board)
+    #@board.setup
     #@board.test_left
     @player_1 = Human.new("R")
     @player_2 = Computer.new("B")
+    @player = player
   end
 
-  def play_connect_four
+  
+  # def play_connect_four
 
 
 
-    player = @player_2
+  #   player = @player_2
 
 
-    #until @board.win?(player.row, player.column) || @board.draw?(player.row, player.column) do
+  #   #until @board.win?(player.row, player.column) || @board.draw?(player.row, player.column) do
 
-      if @player_2.is_a? Computer
-        @player_2.board.board = @board.board
-      end
+  #     if @player_2.is_a? Computer
+  #       @player_2.board.board = @board.board
+  #     end
 
 
 
-      (puts "Column is full") if @board.column_full?(player.column)
-      player = switch_player(player)
+  #     (puts "Column is full") if @board.column_full?(player.column)
+  #     player = switch_player(player)
 
-      puts "It is #{player.color}'s turn"
-      if !player.add_piece(player.select_move, @board)
-        player = switch_player(player)
-      else
-        next
-      end
-    end
+  #     puts "It is #{player.color}'s turn"
+  #     if !player.add_piece(player.select_move, @board)
+  #       player = switch_player(player)
+  #     else
+  #       next
+  #     end
+  #   end
 
-    if @board.win?(player.row, player.column)
-      puts win_message
-    elsif @board.draw?(player.row, player.column)
-      puts draw_message
-    end
+  #   if @board.win?(player.row, player.column)
+  #     puts win_message
+  #   elsif @board.draw?(player.row, player.column)
+  #     puts draw_message
+  #   end
 
-  end
+  # end
 
-  def board_setup
-    @
-  end
 
   def display_instructions
     puts "==========================================================="
@@ -86,8 +85,8 @@ class ConnectFour
     color == "B" ? "R" : "B"
   end
 
-  def switch_player(player)
-    player == @player_1 ? player = @player_2 : player = @player_1
+  def switch_player
+    @player == "player_1" ? @player = "player_2" : @player = "player_1"
   end
   
 

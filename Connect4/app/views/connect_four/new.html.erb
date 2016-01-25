@@ -1,12 +1,13 @@
 <table>
   <tr>
-    <th>Column 1</th>
-    <th>Column 2</th> 
-    <th>Column 3</th>
-    <th>Column 4</th>
-    <th>Column 5</th>
-    <th>Column 6</th>
-    <th>Column 7</th>
+    <% 7.times do |col| %>
+    <form action="/connect_four" method="post">
+     <input type="hidden" name="authenticity_token" 
+            value="<%= form_authenticity_token %>">
+      <th><button value=<%=col+1%> name="column" type="submit"><%=col+1%></button></th>
+     </form>
+    <% end %>  
+
   </tr>
 
 <% @board.each do |row_num, row| %>
@@ -18,3 +19,5 @@
 <% end %>
 
 </table>
+
+
