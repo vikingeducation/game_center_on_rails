@@ -21,10 +21,8 @@ class Board < ActiveRecord::Base
     [[5,2], [4,3], [3,4], [2,5], [1,6]],
     [[5,3], [4,4], [3,5], [2,6]]
   ]
-  
 
   attr_accessor :game_board
-
 
   def initialize(existing_board=nil)
     if existing_board
@@ -34,7 +32,7 @@ class Board < ActiveRecord::Base
     end
   end
 
-  
+
   def get_move_array(move_col)
     # make sure slot is empty (nil)
     (ROWS - 1 ).downto(0) do |row|
@@ -44,25 +42,25 @@ class Board < ActiveRecord::Base
     end
     false
   end
-   
+
 
 
   def atleast_one_row_empty?(move_col)
     # make sure slot is empty (nil)
-    @game_board[0][move_col].nil? 
-  end 
+    @game_board[0][move_col].nil?
+  end
 
 
   # TODO: refactor this method to be better, and to return false if there's no win
   def straight_win?(array,move,color)
-    
+
     user_row = move[0]
     user_col = move[1]
 
     # check horizontal rows
     return true if horizontal_vertical_win?(array[user_row],color)
     # check vertical rows
-    return true if horizontal_vertical_win?(array.collect {|row| row[user_col]},color)  
+    return true if horizontal_vertical_win?(array.collect {|row| row[user_col]},color)
     #check backslash diagonals
     return true if check_diagonals(BACKWARD_DIAGONALS,array, color, move)
     #check forwardslash diagonals
@@ -89,7 +87,7 @@ class Board < ActiveRecord::Base
     end
     true
   end
-    
+
 
 
   # private
@@ -105,16 +103,16 @@ class Board < ActiveRecord::Base
         diagonal.each do |item|
           arr << array[item[0]][item[1]]
         end
-        
+
         # check if 4 consecutive items in diagonal are the same
-        return true if horizontal_vertical_win?(arr, color) 
+        return true if horizontal_vertical_win?(arr, color)
       end
     end
     return false
-  
+
   end
 
-  
+
 
   def horizontal_vertical_win?(array, color)
     consecutive = 0
@@ -130,6 +128,4 @@ class Board < ActiveRecord::Base
   end
 
 
-end 
-
-
+end
