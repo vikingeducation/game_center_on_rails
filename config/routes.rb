@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "boards#index"
   resources :board
+
+  patch '/move' => "boards#move"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

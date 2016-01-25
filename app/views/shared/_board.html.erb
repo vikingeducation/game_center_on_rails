@@ -2,8 +2,12 @@
 <% @board.each do |row| %>
   <tr>
     <% row.each do |col| %>
-      <% if col == nil %>
-        <td>THIS CELL IS NIL</td>
+      <% if col == 0 %>
+        <td>-</td>
+      <% elsif col == 1 %>
+        <td>1</td>
+      <% elsif col == 2 %>
+        <td>2</td>
       <% end %>
     <% end %>
   </tr>

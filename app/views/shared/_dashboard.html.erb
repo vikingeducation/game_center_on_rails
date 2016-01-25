@@ -1,0 +1,20 @@
+<form action="<%= move_path %>" method="post">
+  <input  type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+  <input name="_method" type="hidden" value="patch" />
+  <input type="radio" name="column" value="1">
+  <input type="radio" name="column" value="2">
+  <input type="radio" name="column" value="3">
+  <input type="radio" name="column" value="4">
+  <input type="radio" name="column" value="5">
+  <input type="radio" name="column" value="6">
+  <input type="radio" name="column" value="7">
+  <br>
+  <% if @player %>
+    <h3>Player 1's turn</h3>
+  <% else %>
+    <h3>Player 2's turn</h3>
+  <% end %>
+  <input type="submit" value="make move">
+</form>
