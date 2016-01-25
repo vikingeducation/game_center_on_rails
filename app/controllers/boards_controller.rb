@@ -1,7 +1,6 @@
 class BoardsController < ApplicationController
   def index
-    @board = Board.new.board
-    session[:board] = @board
+    @board = Board.new(session[:board]).board
   end
 
 
