@@ -7,9 +7,25 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end 
 
+  def index
+    @articles = Article.all
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(whitelisted_params)
+      redirect_to article_path(@article)
+    else
+      redirect_to edit_article_path
+    end
+  end
+
 
   def create
-    puts " Params : #{whitelisted_params}"
       
     @article = Article.new(whitelisted_params)
     if @article.save
@@ -21,6 +37,6 @@ class ArticlesController < ApplicationController
 
   private
   def whitelisted_params
-   params.require(:articles).permit(:title, :body)
+   params.require(:article).permit(:title, :body)
   end   
 end

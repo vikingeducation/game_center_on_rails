@@ -1,0 +1,13 @@
+<html>
+ <body>
+  <form method="post" action="<%= article_path %>">
+    <input  type="hidden" 
+    name="authenticity_token" 
+    value="<%= form_authenticity_token %>">
+    <input name="_method" type="hidden" value="patch" />
+    <input type ="text" name = "article[title]" value = "<%= @article.title %>"><br>
+    <input type ="text" name = "article[body]" value = "<%= @article.body %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+ </body>
+</html>
