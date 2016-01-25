@@ -1,0 +1,14 @@
+
+
+<html>
+ <body>
+  <form method="post" action="<%=articles_path%>">
+    <input  type="hidden" 
+    name="authenticity_token" 
+    value="<%= form_authenticity_token %>">
+    <input type ="text" name = "Title" placeholder = "test"><br>
+    <input type ="text" name = "Body" placeholder = "body test"><br>
+    <input type="submit" value="Submit">
+  </form>
+ </body>
+</html>
