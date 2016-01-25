@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'connect_four#new'
 
+  post 'connect_four/:move' => 'connect_four#drop_piece'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

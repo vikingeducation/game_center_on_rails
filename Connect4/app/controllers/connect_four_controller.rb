@@ -1,7 +1,12 @@
 class ConnectFourController < ApplicationController
 
   def new
-    @table = [1,2,3,4,5,6,7]
+    game = ConnectFour.new
+    @board = game.board
+    
   end
 
+  def drop_piece
+     
+  end  
 end
