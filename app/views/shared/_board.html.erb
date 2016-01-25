@@ -1,0 +1,11 @@
+<table>
+<% @board.each do |row| %>
+  <tr>
+    <% row.each do |col| %>
+      <% if col == nil %>
+        <td>THIS CELL IS NIL</td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+</table>
