@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <% 7.times do |col| %>
+    <form action="connect_four" method="post">
+     <input type="hidden" name="authenticity_token" 
+            value="<%= form_authenticity_token %>">
+      <th><button value=<%=col+1%> name="column" type="submit"><%=col+1%></button></th>
+     </form>
+    <% end %> 
+
+  </tr>
+
+<% @board.each do |row_num, row| %>
+  <tr>
+    <% row.each do |col| %>
+     <td><%= col %></td>
+    <% end %> 
+  </tr> 
+<% end %>
+
+</table>
+   <% if @game_message %>
+      <p><%= @game_message %></p>
+    <% end %>  
+    <form action="connect_four/new_game" method="post">
+      <input type="hidden" name="authenticity_token" 
+            value="<%= form_authenticity_token %>">
+      <button value="new" name="new_game" type="submit">New Game</button>
+    </form>
