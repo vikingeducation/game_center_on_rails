@@ -20,4 +20,8 @@
 
 </table>
 
-
+    <form action="connect_four/new_game" method="post">
+      <input type="hidden" name="authenticity_token" 
+            value="<%= form_authenticity_token %>">
+      <button value="new" name="new_game" type="submit">New Game</button>
+    </form>

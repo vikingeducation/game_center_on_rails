@@ -17,9 +17,9 @@ class Player
       return false
     else
       6.downto(1).to_a.each do |row|
-        if board.position_empty?(board.board[row][column - 1])
-          board.board[row][column - 1] = @color
-          @row = row
+        if board.position_empty?(board.board[row.to_s][column - 1])
+          board.board[row.to_s][column - 1] = @color
+          @row = row.to_s
           return true
         end
       end

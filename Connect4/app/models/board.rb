@@ -117,12 +117,13 @@ class Board
 
   # This returns the values to the upper right of the move coordinates.
   def check_diagonal_upper_right(row, column)
-    check_array = [@board[row][column - 1]]
-    temp_row = row
+    check_array = [@board[row.to_s][column - 1]]
+    temp_row = row.to_s
     temp_column = column - 1
 
     5.times do
 
+      temp_row = temp_row.to_i
       temp_row -= 1
       temp_column += 1
 
@@ -139,17 +140,18 @@ class Board
   # This returns the values to the lower left of the move coordinates.
   def check_diagonal_lower_left(row, column)
     check_array = []
-    temp_row = row
+    temp_row = row.to_s
     temp_column = column - 1
 
     5.times do 
+      temp_row = temp_row.to_i 
       temp_row += 1
       temp_column -= 1
 
       if temp_row > 6 || temp_column < 0
         return check_array.reverse
       else
-        check_array << @board[temp_row][temp_column]
+        check_array << @board[temp_row.to_s][temp_column]
       end      
     end    
     check_array
@@ -157,19 +159,20 @@ class Board
 
   # This returns the values to the upper left of the move coordinates.
   def check_diagonal_upper_left(row, column)
-    check_array = [@board[row][column - 1]]
-    temp_row = row
+    check_array = [@board[row.to_s][column - 1]]
+    temp_row = row.to_s
     temp_column = column - 1
 
     5.times do
 
+      temp_row = temp_row.to_i 
       temp_row -= 1
       temp_column -= 1
 
       if temp_row < 1 || temp_column < 0
         return check_array.reverse
       else
-        check_array << @board[temp_row][temp_column]
+        check_array << @board[temp_row.to_s][temp_column]
       end
 
     end
@@ -179,17 +182,18 @@ class Board
   # This returns the values to the lower right of the move coordinates.
   def check_diagonal_lower_right(row, column)
     check_array = []
-    temp_row = row
+    temp_row = row.to_s
     temp_column = column - 1
 
     5.times do 
+      temp_row = temp_row.to_i
       temp_row += 1
       temp_column += 1
 
       if temp_row > 6 || temp_column > 6
         return check_array
       else
-        check_array << @board[temp_row][temp_column]
+        check_array << @board[temp_row.to_s][temp_column]
       end      
     end    
     check_array
