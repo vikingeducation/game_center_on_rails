@@ -54,7 +54,7 @@ class Board
 
 
   # TODO: refactor this method to be better, and to return false if there's no win
-  def straight_win?(array,move,color)
+  def win?(array,move,color)
 
     user_row = move[0]
     user_col = move[1]
@@ -90,10 +90,18 @@ class Board
     true
   end
 
+  def computer_col
+    rand(0..6)
+  end
 
-  def make_move(move_col)
+
+  def make_move(move_col, player_type)
     move_array = get_move_array(move_col)
-    add_move(move_array, "R")
+    if player_type == "human"
+      add_move(move_array, "R")
+    else
+      add_move(move_array, "B")
+    end
   end
 
 
