@@ -11,6 +11,10 @@
 <%= render "shared/error" %>
 <%= render "shared/board" %>
 <%= yield %>
-<%= render "shared/dashboard" %>
+<% if @victory %>
+  <%= render "shared/victory" %>
+<% else %>
+  <%= render "shared/dashboard" %>
+<% end %>
 </body>
 </html>

@@ -1,0 +1,12 @@
+<% if @player %>
+  <h3>Player 1 wins!</h3>
+<% else %>
+  <h3>Player 2 wins!</h3>
+<% end %>
+
+<form action="<%= root_path %>" method="get">
+  <input  type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+  <input type="submit" value="Start New Game">
+</form>
