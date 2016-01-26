@@ -3,14 +3,15 @@
 <%= render_board(@board) %>
 
 <form method='post' action='/board'>
-  <input type='radio' name='column[1]' value='1'>
-  <input type='radio' name='column[2]' value='2'>
-  <input type='radio' name='column[3]' value='3'>
-  <input type='radio' name='column[4]' value='4'>
-  <input type='radio' name='column[5]' value='5'>
-  <input type='radio' name='column[6]' value='6'>
-  <input type='radio' name='column[7]' value='7'>
+  <input type='radio' name='column' value='1'>
+  <input type='radio' name='column' value='2'>
+  <input type='radio' name='column' value='3'>
+  <input type='radio' name='column' value='4'>
+  <input type='radio' name='column' value='5'>
+  <input type='radio' name='column' value='6'>
+  <input type='radio' name='column' value='7'>
   <input type='submit' name='column' value='Submit'>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input name="_method" type="hidden" value="patch" />
 </form>
 
