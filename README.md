@@ -1,6 +1,6 @@
-game_center_on_rails
+rails_connect_4
 ====================
 
-The Game Center finds its way onto the Web!
+This is a rails implementation of Connect Four!
 
-This is your README!
+Andrew and Thomas.

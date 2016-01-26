@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form action="<%= move_path %>" method="post">
+      <input  type="hidden"
+        name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+        <table class="table">
+          <tr>
+            <input name="_method" type="hidden" value="patch" />
+            <td><input type="radio" name="column" value="1" onChange='this.form.submit();'></td>
+            <td><input type="radio" name="column" value="2" onChange='this.form.submit();'></td>
+            <td><input type="radio" name="column" value="3" onChange='this.form.submit();'></td>
+            <td><input type="radio" name="column" value="4" onChange='this.form.submit();'></td>
+            <td><input type="radio" name="column" value="5" onChange='this.form.submit();'></td>
+            <td><input type="radio" name="column" value="6" onChange='this.form.submit();'></td>
+            <td><input type="radio" name="column" value="7" onChange='this.form.submit();'></td>
+          </tr>
+        </table>
+        <% if @player %>
+          <h3 class="text-center">Player 1's turn</h3>
+        <% else %>
+          <h3 class="text-center">Player 2's turn</h3>
+        <% end %>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+
+  </div>
+</div>
