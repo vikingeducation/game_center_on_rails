@@ -18,8 +18,13 @@ class ConnectFourController < ApplicationController
 
   def drop_piece
     board = JSON.parse(session[:board])
-    game = ConnectFour.new(board)
-    
+    player = session[:player]
+    game = ConnectFour.new(board,player)
+    column = params[:column]
+    puts "params is #{params[:column]}"
+    if player == "player1"
+      @game.player_1.add_piece(column,board)
+    end  
 
   end  
 end

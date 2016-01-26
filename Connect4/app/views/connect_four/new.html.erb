@@ -1,12 +1,12 @@
 <table>
   <tr>
     <% 7.times do |col| %>
-    <form action="/connect_four" method="post">
+    <form action="connect_four" method="post">
      <input type="hidden" name="authenticity_token" 
             value="<%= form_authenticity_token %>">
       <th><button value=<%=col+1%> name="column" type="submit"><%=col+1%></button></th>
      </form>
-    <% end %>  
+    <% end %> 
 
   </tr>
 
