@@ -28,4 +28,58 @@ class ConnectFourGame
 
     num_ones < num_zeros ? 1 : 0
   end
+
+  def winner_horizontal? 
+    @board.any? do |row|
+      row.each_cons(4).to_a.any? do |array|
+        array.all? {|cell| cell == 0} || 
+        array.all? {|cell| cell == 1}
+      end
+    end
+  end
+
+  def winner_vertical? 
+    @board.transpose.any? do |col|
+      col.each_cons(4).to_a.any? do |array|
+        array.all? {|cell| cell == 0} || 
+        array.all? {|cell| cell == 1}
+      end
+    end
+  end
+
+  def winner?
+    winner_vertical? || winner_horizontal?
+  end
+
+  def diagonal_coords(size)
+  left_array = push_array(size, :left)
+  right_array = push_array(size, :right)
+  [left_array, right_array].flatten(1)
 end
+
+# def push_array(size, direction)
+#   array = Array.new(size) { |x| Array.new(size) { |y| [x,y] }}
+#   size.times do |i|
+#     case direction
+#     when :right then right = size - 1 - left = i
+#     when :left then left = size - 1 - right = i
+#     end
+#     right.times do
+#       array[i].unshift(nil)
+#     end
+#     left.times do
+#       array[i] << nil
+#     end
+#   end
+#   array.transpose.map(&:compact)
+# end
+
+#   def winner_diagonal?
+#     @board.transpose.any? do |col|
+#       col.each_cons(4).to_a.any? do |array|
+#         array.all? {|cell| cell == 0} || 
+#         array.all? {|cell| cell == 1}
+#       end
+#     end
+
+  end

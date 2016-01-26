@@ -10,6 +10,11 @@
   <% end %>
 </div>
 
+<% if @game.winner? %>
+  <h2> You are a winner! </h2>
+<% end %>
+
+
 <div class="game-form">
   <form action="<%= drop_piece_path %>" method="post">
     <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -18,4 +23,5 @@
     <% end %>
     <input type="submit">
   </form>
+
 </div>
