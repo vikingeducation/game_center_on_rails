@@ -1,10 +1,10 @@
 <h1 class="centered">Connect Four</h1>
 
 <div class="board-container">
-  <% 6.times do |row| %>
+  <% @game.board.each do |row| %>
     <div class="row">
-      <% 7.times do |col| %>
-        <span class="cell"></span>
+      <% row.each do |cell| %>
+        <span class="cell <%= color_for(cell)%>" ></span>
       <% end %>
     </div>
   <% end %>

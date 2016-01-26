@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'connect_four#new'
   get '/connectfour' => 'connect_four#new'
   post '/connectfour/drop_piece' => 'connect_four#drop_piece', as: :drop_piece
 
