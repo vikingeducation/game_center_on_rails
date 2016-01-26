@@ -1,9 +1,9 @@
 <table>
-<% @board.each do |row| %>
+<% (@board.length-1).downto(0) do |row_index| %>
   <tr>
-    <% row.each do |col| %>
+    <% @board[row_index].each do |col| %>
       <% if col == 0 %>
-        <td>-</td>
+        <td>0</td>
       <% elsif col == 1 %>
         <td>1</td>
       <% elsif col == 2 %>
