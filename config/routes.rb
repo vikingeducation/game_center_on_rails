@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root to: 'board#new'
+  root to: 'boards#new'
 
-  resources :board
+  resource :board
 
 end

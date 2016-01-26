@@ -1,5 +1,4 @@
-class Board < ActiveRecord::Base
-
+class Board
 
   COLS = 7
   ROWS = 6
@@ -22,13 +21,15 @@ class Board < ActiveRecord::Base
     [[5,3], [4,4], [3,5], [2,6]]
   ]
 
-  attr_accessor :game_board
+  attr_accessor :game_board, :session
 
-  def initialize(existing_board=nil)
-    if existing_board
-      @game_board = existing_board
+  def initialize(session=nil)
+    @session = session
+    if @session
+      @game_board = @session[:grid]
     else
       @game_board = Array.new(ROWS){Array.new(COLS)}
+      @session[:grid] = @game_board
     end
   end
 
