@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'index'
-  resources :board
+  root to: "boards#index"
+  resource :board
 end
