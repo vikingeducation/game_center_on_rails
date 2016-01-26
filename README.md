@@ -1,6 +1,8 @@
-game_center_on_rails
-====================
+== README
 
-The Game Center finds its way onto the Web!
+Connect Four
 
-This is your README!
+Julia + Josh
+
+Rails project for Viking Code School, http://vikingcodeschool.com
+
