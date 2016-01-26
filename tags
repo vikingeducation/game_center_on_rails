@@ -10,7 +10,17 @@ ApplicationController	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/co
 ApplicationHelper	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
 ConnectFourController	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/controllers/connect_four_controller.rb	/^class ConnectFourController < ApplicationController$/;"	c
 ConnectFourControllerTest	/Users/kitlangton/Viking/Unit8/game_center_on_rails/test/controllers/connect_four_controller_test.rb	/^class ConnectFourControllerTest < ActionController::TestCase$/;"	c
+ConnectFourGame	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/models/connect_four_game.rb	/^class ConnectFourGame$/;"	c
 ConnectFourHelper	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/helpers/connect_four_helper.rb	/^module ConnectFourHelper$/;"	m
 GameCenterOnRails	/Users/kitlangton/Viking/Unit8/game_center_on_rails/config/application.rb	/^module GameCenterOnRails$/;"	m
+color_for	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/helpers/connect_four_helper.rb	/^  def color_for(cell)$/;"	f	class:ConnectFourHelper
+current_player	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/models/connect_four_game.rb	/^  def current_player$/;"	f	class:ConnectFourGame
 drop_piece	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/controllers/connect_four_controller.rb	/^  def drop_piece$/;"	f	class:ConnectFourController
+drop_piece	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/models/connect_four_game.rb	/^  def drop_piece(col)$/;"	f	class:ConnectFourGame
+initialize	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/models/connect_four_game.rb	/^  def initialize(game_state = nil)$/;"	f	class:ConnectFourGame
+moves	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/models/connect_four_game.rb	/^  def moves$/;"	f	class:ConnectFourGame
 new	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/controllers/connect_four_controller.rb	/^  def new$/;"	f	class:ConnectFourController
+save_board	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/controllers/connect_four_controller.rb	/^  def save_board$/;"	f	class:ConnectFourController
+set_board	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/controllers/connect_four_controller.rb	/^  def set_board$/;"	f	class:ConnectFourController
+show	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/controllers/connect_four_controller.rb	/^  def show$/;"	f	class:ConnectFourController
+valid_move?	/Users/kitlangton/Viking/Unit8/game_center_on_rails/app/models/connect_four_game.rb	/^  def valid_move?(col)$/;"	f	class:ConnectFourGame

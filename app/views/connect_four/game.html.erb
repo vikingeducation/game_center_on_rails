@@ -12,16 +12,10 @@
 
 <div class="game-form">
   <form action="<%= drop_piece_path %>" method="post">
-    <input  type="hidden"
-            name="authenticity_token"
-            value="<%= form_authenticity_token %>">
-    <input type="radio" name="column" value="1"> 1<br>
-    <input type="radio" name="column" value="2"> 2<br>
-    <input type="radio" name="column" value="3"> 3<br>
-    <input type="radio" name="column" value="4"> 4<br>
-    <input type="radio" name="column" value="5"> 5<br>
-    <input type="radio" name="column" value="6"> 6<br>
-    <input type="radio" name="column" value="7"> 7
+    <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <% @game.moves.each do |move| %>
+      <input type="radio" name="column" value="<%= move %>" <%= "disabled" unless @game.valid_move?(move - 1) %>> <%= move %><br>
+    <% end %>
     <input type="submit">
   </form>
 </div>

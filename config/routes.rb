@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-
   root 'connect_four#new'
-  get '/connectfour' => 'connect_four#new'
+  get '/connectfour/new_game' => 'connect_four#new', as: :new_game
+  get '/connectfour' => 'connect_four#show', as: :show_game
   post '/connectfour/drop_piece' => 'connect_four#drop_piece', as: :drop_piece
 
   # The priority is based upon order of creation: first created -> highest priority.

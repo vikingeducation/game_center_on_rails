@@ -1,7 +1,4 @@
-
-
 class ConnectFourGame
-
   attr_reader :board
 
   def initialize(game_state = nil)
@@ -17,16 +14,18 @@ class ConnectFourGame
     end
   end
 
+  def valid_move?(col)
+    @board.transpose[col].any?(&:nil?)
+  end
+
+  def moves
+    (1..@board[0].size).to_a
+  end
+
   def current_player
     num_zeros = @board.flatten.count{|i| i == 0}
     num_ones = @board.flatten.count{|i| i == 1}
 
-    if num_ones < num_zeros
-      return 1
-    else 
-      return 0
-    end
-
+    num_ones < num_zeros ? 1 : 0
   end
-
 end
