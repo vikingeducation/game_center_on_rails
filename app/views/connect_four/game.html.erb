@@ -1,0 +1,27 @@
+<h1 class="centered">Connect Four</h1>
+
+<div class="board-container">
+  <% @game.board.each do |row| %>
+    <div class="row">
+      <% row.each do |cell| %>
+        <span class="cell <%= color_for(cell)%>" ></span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<% if @game.winner? %>
+  <h2> You are a winner! </h2>
+<% end %>
+
+
+<div class="game-form">
+  <form action="<%= drop_piece_path %>" method="post">
+    <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <% @game.moves.each do |move| %>
+      <input type="radio" name="column" value="<%= move %>" <%= "disabled" unless @game.valid_move?(move - 1) %>> <%= move %><br>
+    <% end %>
+    <input type="submit">
+  </form>
+
+</div>

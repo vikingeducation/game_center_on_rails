@@ -1,0 +1,29 @@
+// Place all the styles related to the connect_four controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.board-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.centered {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cell {
+  background-color: grey;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+.red {
+background-color: red;
+}
+
+.green {
+background-color: green;
+}
