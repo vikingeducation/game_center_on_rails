@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'connect_four' => 'connect_four#drop_piece'
   post 'connect_four/new_game' => 'connect_four#new_game'
 
+  get 'connect_four/game_over' => 'connect_four#game_over'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

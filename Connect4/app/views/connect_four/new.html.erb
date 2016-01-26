@@ -19,7 +19,9 @@
 <% end %>
 
 </table>
-
+   <% if @game_message %>
+      <p><%= @game_message %></p>
+    <% end %>  
     <form action="connect_four/new_game" method="post">
       <input type="hidden" name="authenticity_token" 
             value="<%= form_authenticity_token %>">

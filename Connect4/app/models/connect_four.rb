@@ -15,7 +15,25 @@ class ConnectFour
     @player = player
   end
 
-  
+
+  def check_game(player,column)
+    if player == "player_1"
+       current_player = @player_1
+    else
+       current_player = @player_2
+    end      
+    unless @board.win?(current_player.row, current_player.column) || @board.draw?(current_player.row, current_player.column)
+        current_player.add_piece(column,@board)
+    else
+       return false
+    end
+
+  end
+
+  def check_win_or_draw(player)
+      return "Game is a draw!" if @board.draw?(player.row, player.column)
+      return "#{player.color.upcase} wins" if @board.win?(player.row, player.column)
+  end  
   # def play_connect_four
 
 
