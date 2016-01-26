@@ -19,6 +19,7 @@ class BoardsController < ApplicationController
 
   def update
     @board = Board.new(session)
+    @board.make_move(params[:move].to_i)
 
     redirect_to board_path
   end

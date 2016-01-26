@@ -31,6 +31,7 @@ class Board
     else
       @game_board = @session[:grid]
     end
+    @session[:player] = "human"
   end
 
 
@@ -90,8 +91,19 @@ class Board
   end
 
 
+  def make_move(move_col)
+    move_array = get_move_array(move_col)
+    add_move(move_array, "R")
+  end
+
 
   # private
+
+  def add_move(move_array,color)
+    @game_board[move_array[0]][move_array[1]] = color
+  end
+
+
   def check_diagonals(diagonal_array,array,color,move)
 
     diagonal_array.each do |diagonal|
