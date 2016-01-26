@@ -1,15 +1,19 @@
-<table>
-<% (@board.length-1).downto(0) do |row_index| %>
-  <tr>
-    <% @board[row_index].each do |col| %>
-      <% if col == 0 %>
-        <td>0</td>
-      <% elsif col == 1 %>
-        <td>1</td>
-      <% elsif col == 2 %>
-        <td>2</td>
-      <% end %>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table">
+    <% (@board.length-1).downto(0) do |row_index| %>
+      <tr>
+        <% @board[row_index].each do |col| %>
+          <% if col == 0 %>
+            <td class="col-xs-1">0</td>
+          <% elsif col == 1 %>
+            <td class="col-xs-1" style="background:red;">1</td>
+          <% elsif col == 2 %>
+            <td class="col-xs-1" style="background:yellow;">2</td>
+          <% end %>
+        <% end %>
+      </tr>
     <% end %>
-  </tr>
-<% end %>
-</table>
+    </table>
+  </div>
+</div>

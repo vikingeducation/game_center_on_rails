@@ -26,6 +26,7 @@ class BoardsController < ApplicationController
       @player = session[:player]
       render :move
     end
+    
   end
 
   private
