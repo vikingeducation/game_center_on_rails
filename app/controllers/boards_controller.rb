@@ -17,14 +17,11 @@ class BoardsController < ApplicationController
     redirect_to board_path
   end
 
-
-  def edit
-  end
-
-
   def update
-  end
+    @board = Board.new(session)
 
+    redirect_to board_path
+  end
 
   def destroy
   end
@@ -33,4 +30,3 @@ class BoardsController < ApplicationController
 
 
 end
-

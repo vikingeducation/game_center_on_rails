@@ -25,11 +25,11 @@ class Board
 
   def initialize(session=nil)
     @session = session
-    if @session
-      @game_board = @session[:grid]
-    else
+    if @session[:grid].nil?
       @game_board = Array.new(ROWS){Array.new(COLS)}
       @session[:grid] = @game_board
+    else
+      @game_board = @session[:grid]
     end
   end
 

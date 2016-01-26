@@ -1,4 +1,32 @@
-<h1>We made it to the board!</h1>
+<div class='row'>
+  <div class='col-sm-6 col-sm-offset-3'
 
+    <h1>Welcome to the board!</h1>
 
-<%= @board %>
+    <table class="table">
+      <% @board.game_board.each do |row| %>
+        <tr class="table-row">
+        <% row.each do |col| %>
+          <td class="table-col"><%= col %></td>
+        <% end %>
+        </tr>
+      <% end %>
+      <form action="/board" method="post">
+        <tr>
+
+          <td><input type="radio" name="move" value="0" ></input></td>
+          <td><input type="radio" name="move" value="1" ></input></td>
+          <td><input type="radio" name="move" value="2" ></input></td>
+          <td><input type="radio" name="move" value="3" ></input></td>
+          <td><input type="radio" name="move" value="4" ></input></td>
+          <td><input type="radio" name="move" value="5" ></input></td>
+          <td><input type="radio" name="move" value="6" ></input></td>
+
+        </tr>
+        <input type="submit" value="Move">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+        <input name="_method" type="hidden" value="patch" />
+      </form>
+    </table>
+  </div>
+</div>
