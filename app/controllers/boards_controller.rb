@@ -10,12 +10,17 @@ class BoardsController < ApplicationController
     @board = Board.new( session )
   end
 
+  def create
+    redirect_to edit_board_path
+  end
+
   def edit
-    board.place_piece(column)
+    @board = Board.new( session )
+    @board.place_piece(params[:column])
   end
 
   def update
-    # ridirect.to 
+    
   end
 
 end
