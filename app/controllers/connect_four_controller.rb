@@ -13,7 +13,7 @@ class ConnectFourController < ApplicationController
     # disable full column selection
   end
 
-  def update
+  def drop_piece
     @board = Board.new(session[:state])   # reinstate a board with state
     @board.make_move(params[:choice])     # update board according to radio
     redirect_to :win if game_over?(@board.state)  # redirect to win path if win
