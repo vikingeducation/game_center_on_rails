@@ -4,6 +4,8 @@ class Connect4 < ActiveRecord::Base
   require_relative "human"
   require_relative "computer"
 
+  attr_reader :game_board
+
   def initialize(board = nil)
     @game_board = Board.new(board)
     @player_one =  Human.new("Phillip", :x)

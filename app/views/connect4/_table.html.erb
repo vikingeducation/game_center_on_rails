@@ -2,17 +2,19 @@
   <% 6.downto(1) do |row| %>
   <tr>
     <% 7.times do |col| %>
-      <td><%= game_board[col + 1][row - 1] ] %></td>
+      <td><%= @connect4.game_board.game_board[col + 1][row - 1] %></td>
     <% end %>
   </tr>
   <% end %>
+  <%= form_for edit_connect4_path do |f| %>
   <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    <td>4</td>
-    <td>5</td>
-    <td>6</td>
-    <td>7</td>
+    <td><%= f.submit "1" %></td>
+    <td><%= f.submit "2" %></td>
+    <td><%= f.submit "3" %></td>
+    <td><%= f.submit "4" %></td>
+    <td><%= f.submit "5" %></td>
+    <td><%= f.submit "6" %></td>
+    <td><%= f.submit "7" %></td>
   </tr>
+  <% end %>
 </table>
