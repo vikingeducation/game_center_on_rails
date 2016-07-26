@@ -28,8 +28,7 @@ class GameController < ApplicationController
 
 end
 
-# (1) Make end render dynamically.
-# (2) Validate input.
+# (2) Validate input. 
 # (3) Full-column should be invalid input.
 # (4) Make reset button on end page.
 # (5) Make flash messages appear.

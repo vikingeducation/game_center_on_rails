@@ -3,7 +3,22 @@
 <form action="<%= play_path %>" method="post">
   <input type="text" name="move" placeholder="What's your move?" />
   <input type="submit" />
-  <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
 </form>
 
 <%= render partial: 'shared/board', locals: { board: @board } %>
+
+<table cellpadding="7">
+  <tr>
+    <form action=" <%= play_path %>" method="post">
+      <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <td><input type="radio" name="move" value="0"/></td>
+      <td><input type="radio" name="move" value="1"/></td>
+      <td><input type="radio" name="move" value="2"/></td>
+      <td><input type="radio" name="move" value="3"/></td>
+      <td><input type="radio" name="move" value="4"/></td>
+      <td><input type="radio" name="move" value="5"/></td>
+      <td><input type="radio" name="move" value="6"/></td>
+    </form>
+  </tr>
+</table>
