@@ -52,5 +52,3 @@ class GameController < ApplicationController
 
 end
 
-# (4) Make reset button on end page.
-# (5) Make flash messages appear.

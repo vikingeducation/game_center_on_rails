@@ -1,18 +1,29 @@
-<h1>GAMEBOARD</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>GAMEBOARD</h1>
+    </div>
+  </div>
+  
 
-<%= render partial: 'shared/board', locals: { board: @board } %>
-<form action=" <%= play_path %>" method="post">
-  <table cellpadding="6">
-    <tr>
-      <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <td><input type="radio" name="move" value="0"/></td>
-      <td><input type="radio" name="move" value="1"/></td>
-      <td><input type="radio" name="move" value="2"/></td>
-      <td><input type="radio" name="move" value="3"/></td>
-      <td><input type="radio" name="move" value="4"/></td>
-      <td><input type="radio" name="move" value="5"/></td>
-      <td><input type="radio" name="move" value="6"/></td>
-    </tr>
-  </table>
-  <input type="submit" />
-</form>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= render partial: 'shared/board', locals: { board: @board } %>
+      <form action=" <%= play_path %>" method="post">
+        <table cellpadding="6">
+          <tr>
+            <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <td><input type="radio" name="move" value="0"/></td>
+            <td><input type="radio" name="move" value="1"/></td>
+            <td><input type="radio" name="move" value="2"/></td>
+            <td><input type="radio" name="move" value="3"/></td>
+            <td><input type="radio" name="move" value="4"/></td>
+            <td><input type="radio" name="move" value="5"/></td>
+            <td><input type="radio" name="move" value="6"/></td>
+          </tr>
+        </table>
+        <input type="submit" />
+      </form>
+    </div>
+  </div>
+</div>
