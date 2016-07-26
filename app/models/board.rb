@@ -19,6 +19,7 @@ class Board
   end
 
   def add_piece(column, piece)
+    column = column.to_i
     return false if column_full?(column)
 
     row = nil
@@ -40,7 +41,7 @@ class Board
   end
 
   def column_full?(column)
-    @game_board[column][-1] != :clear
+    @game_board[column.to_i][-1] != "clear"
   end
 
   def full?
@@ -65,7 +66,7 @@ class Board
 #skip first iteration
         next if index == 0
 #return if empty slot
-        if sequence[index] == :clear
+        if sequence[index] == "clear"
           current_piece = :empty
           count = 0
         end
@@ -131,7 +132,7 @@ class Board
 
   def create_board_structure
     7.times do |count|
-      @game_board[count + 1] = Array.new(6, :clear)
+      @game_board[count + 1] = Array.new(6, "clear")
     end
   end
 
