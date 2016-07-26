@@ -1,9 +1,12 @@
 class GamesController < ApplicationController
+  include GamesHelper
+
   def new
   end
 
   def create
     @game = ConnectFour.new
+    save_game(@game)
     redirect_to games_path
   end
 
@@ -11,8 +14,9 @@ class GamesController < ApplicationController
   end
 
   def index
-    @game = ConnectFour.new(game_params)
+    game = ConnectFour.new(*load_game)
     # render the board
+    render locals: { grid: game.board.grid }
   end
 
   def edit

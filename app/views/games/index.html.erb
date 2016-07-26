@@ -1,16 +1,24 @@
 <h1>Connect Four</h1>
 
 <p>
-
+  <% grid.transpose.reverse.each do |rows| %>
+    <% rows.each do |space| %>
+      <% if space.empty? %>
+        <span>"|___|"</span>
+      <% else %>
+        <span> <%= "|#{space.color.center(3, '_')}|" %> </span>
+      <% end %>
+    <% end %>
+    <br>
+  <% end %>
 </p>
 
 
 <%= form_tag("/game", method: "puts") do %>
-  <input type="radio" name="move" value="1">
-  <input type="radio" name="move" value="2"> 
-  <input type="radio" name="move" value="3"> 
-  <input type="radio" name="move" value="4"> 
-  <input type="radio" name="move" value="5"> 
-  <input type="radio" name="move" value="6"> 
-  <input type="radio" name="move" value="7">   
+  <% 7.times do |index| %> 
+    <%= radio_button_tag(:move, "#{index + 1}") %>
+    <%= label_tag(:move, "column #{index + 1}") %>
+  <% end %>
+
+  <%= submit_tag("submit") %>
 <% end %>

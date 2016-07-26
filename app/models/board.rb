@@ -1,7 +1,8 @@
 class Board
+  attr_reader :grid
 
-  def initialize(board = nil)
-    @grid = board || Array.new(7){Array.new(6){[]}}
+  def initialize(grid = nil)
+    @grid = grid || Array.new(7){Array.new(6){[]}}
   end
 
   def update_board(column, color)

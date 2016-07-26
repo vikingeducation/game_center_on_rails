@@ -3,9 +3,11 @@ require_relative "player"
 require_relative "piece"
 
 class ConnectFour
+  attr_reader :board, :player
 
-  def initialize(board = nil)
-    @board = board || Board.new
+  def initialize(grid = nil, player = "X")
+    @player = player
+    @board = Board.new(grid) || Board.new
   end
 
   def win?
