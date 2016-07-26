@@ -1,10 +1,12 @@
-#require '../models/board'
+require "better_errors"
 
 class ConnectfourController < ApplicationController
 
   def index
     session['game_board'] = {} unless session['game_board']
     @board = Board.new(session['game_board'])  
+
+
   end
 
   def create

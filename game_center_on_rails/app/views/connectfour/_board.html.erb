@@ -1,7 +1,7 @@
 <% 6.downto(1) do |row| %>
   <% 7.times do |col| %>
 
-    <%=  @board.game_board[(col + 1).to_s][(row -1).to_i] %>
+    <%=  @board.render_hash[@board.game_board[(col + 1).to_s][row -1]] %>
   <% end %>
   <br>
 <% end %>

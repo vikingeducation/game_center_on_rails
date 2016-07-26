@@ -11,18 +11,21 @@ class Board
 #data = {  1 => [ :o, :o, :clear ,  :clear,  _ , _  ] ,  2 => [].... }
 
   attr_accessor :game_board
+  attr_reader :render_hash
 
   def initialize(game_board = {})
     @NUM_ROWS = 6
     @NUM_COLS = 7
     @game_board = game_board
     create_board_structure if @game_board.empty? 
+
+    @render_hash = { "o" => "[o]", "x" => "[x]", "clear" => "[_]" }
     
 
   end
 
   def render
-    render_hash = { :o => "[o]", :x => "[x]", :clear => "[_]" }
+    
     @NUM_ROWS.downto(1) do |row|
       @NUM_COLS.times do |col|
         print "#{render_hash[ @game_board[col + 1][row - 1] ]} "
@@ -34,13 +37,14 @@ class Board
     puts
   end
 
-  def add_piece(column, piece)
+  def add_piece(col, piece)
+    column = col.to_s
     return false if column_full?(column)
 
     row = nil
 
     @game_board[column].each_index do |index|
-      row ||= index if @game_board[column][index] == :clear  
+      row ||= index if @game_board[column][index] == "clear"  
     end
     
     @game_board[column][row] = piece
@@ -48,7 +52,7 @@ class Board
   end
 
   def column_full?(column)
-    @game_board[column][-1] != :clear
+    @game_board[column.to_s][-1] != "clear"
   end
 
   def full?
