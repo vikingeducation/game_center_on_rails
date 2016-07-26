@@ -1,28 +1,28 @@
-class ConnectFour < ActiveRecord::Base
+class ConnectFour
+  attr_reader :active_board
 
-  def initialize(new_board=board)
-    @active_board = new_board
+  def initialize(new_board = nil)
+    if new_board.nil?
+      @active_board = build_board
+    else
+      @active_board = new_board
+    end
   end
 
-  def add_piece(column)
-
+  def add_piece(column, player_color)
+    row = find_available_row(column)
+    @active_board[row][column] = player_color
   end
 
   def find_available_row(column)
     (0..5).each do |i|
-      if @active_board[[i,column]]==nil
+      if @active_board[i][column].nil?
         return i
       end
     end
   end
 
-  def board
-    board = Hash.new
-    ("0".."5").each do |i|
-      ("0".."6").each do |j|
-        board[[i,j]]=nil
-      end
-    end
-    board
+  def build_board
+    Array.new(6) { Array.new(7, nil) }
   end
 end

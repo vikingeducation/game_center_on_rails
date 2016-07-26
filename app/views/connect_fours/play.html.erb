@@ -3,11 +3,16 @@
 </p>
 
 <table>
-  <% 6.downto(0) do |rows| %>
+  <% 5.downto(0) do |rows| %>
     <tr>
-      <% 7.times do |cols|  %>
+      <% 0.upto(6) do |cols|  %>
         <td>
-          <%= [rows, cols]  %>
+          <% if @board[rows][cols].nil? %>
+              <%= " "*5 %>
+          <% else %>
+            <%= @board[rows][cols] %>
+          <% end %>
+
         </td>
       <% end %>
     </tr>
