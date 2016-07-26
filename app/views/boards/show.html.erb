@@ -1,3 +1,12 @@
 <h1>Boards#show</h1>
 <p>Find me in app/views/boards/show.html.erb</p>
-<%= @test %>
+<div class="container">
+  <% @board.grid.transpose.reverse.each do |rows| %>
+    <% counter = 0 %>
+    <div class="row">
+    <% rows.each do |space| %>
+      <div class="col-md-1 space">.col-md-1</div>
+    <% end %>
+    <% counter += 1 %>
+  <% end %>
+</div>
