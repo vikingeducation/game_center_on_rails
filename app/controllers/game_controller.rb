@@ -1,7 +1,7 @@
 class GameController < ApplicationController
 
   def home
-    session['color'] ||= "red"
+    session['color'] ||= "R"
     @board = session['board'] || Board.new.play_field
     session['board'] = @board
   end
@@ -13,13 +13,17 @@ class GameController < ApplicationController
     if board.valid_move?(move, color)
       board.add_piece(move, color)
       flash[:success] = "Your peice has been added!"
-      session['color'] = session['color'] == "red" ? "black" : "red"
+      session['color'] = session['color'] == "R" ? "B" : "R"
       session['board'] = board.play_field
     else
       flash[:danger] = "That move is invalid... please try again"
     end
     #if board has victory
-    redirect_to board.has_victory? ? :end : :home
+    if board.has_victory? || board.is_draw?
+      render :end
+    else
+      redirect_to :home
+    end
   end
 
 end

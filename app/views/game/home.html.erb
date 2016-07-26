@@ -1,9 +1,22 @@
 <h1>GAMEBOARD</h1>
 
-<%= board_render %>
-
 <form action="<%= play_path %>" method="post">
   <input type="text" name="move" placeholder="What's your move?" />
   <input type="submit" />
   <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 </form>
+
+<table>
+<% 5.downto(0) do |row| %>
+  <tr>
+  <% 0.upto(6) do |column| %>
+    <% if @board[column][row] %>
+      <%= content_tag(:td, "| #{@board[column][row]} ") %>
+    <% else %>
+      <%= content_tag(:td, "|---") %>
+    <% end %>
+      <%= content_tag(:td, "|") %>
+  <% end %>
+  </tr>
+<% end %>
+</table>
