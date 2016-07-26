@@ -1,0 +1,13 @@
+#Board has 7 columns
+  #Columns have 6 slots
+    #Slots can either be red, black, or empty and they start as empty
+
+#Players can be computer or human
+  #Player has a name and a piece
+  #Method to switch who the current player is
+
+#Use table to display board and it's all part of a form
+  #Bottom row has a radio button or says full 
+
+
+  <td style="background-color:red">
