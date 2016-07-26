@@ -31,24 +31,6 @@ class Board
     @play_field[column] << color
   end
 
-  def render
-    5.downto(0) do |row|
-      0.upto(6) do |column|
-        if @play_field[column][row]
-          print "| #{@play_field[column][row]} "
-        else
-          print "|   "
-        end
-      end
-      puts "|\n"
-      puts "-" * 29
-    end
-    print "  "
-    0.upto(6) {|i| print i.to_s.ljust(4)}
-
-    puts "\n\n"
-  end
-
   # anything that can be private should be private
   private
 
@@ -86,7 +68,7 @@ class Board
     same_count = 0
 
     #crawls horizontally along the board at height of last move
-    #tries to chain up 4 in a row, starts count over if it meets a 
+    #tries to chain up 4 in a row, starts count over if it meets a
     # blank or the other color
     (0..6).each do |i|
       if @play_field[i][row] == color

@@ -12,3 +12,7 @@
 <% else %>
   <%= content_tag :h3, "Draw" %>
 <% end %>
+
+<form action="<%= reset_path %>" method="get">
+  <input type="submit" value="New Game?" />
+</form>

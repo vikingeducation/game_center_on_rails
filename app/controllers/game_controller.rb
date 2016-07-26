@@ -15,20 +15,23 @@ class GameController < ApplicationController
       flash[:success] = "Your piece has been added!"
       session['color'] = session['color'] == "R" ? "B" : "R"
       session['board'] = @board.play_field
+      if @board.has_victory? || @board.is_draw?
+        render :end
+      else
+        redirect_to :home
+      end
     else
       flash[:danger] = "That move is invalid... please try again"
-    end
-    #if board has victory
-    if @board.has_victory? || @board.is_draw?
-      render :end
-    else
       redirect_to :home
     end
   end
 
+  def reset
+    session.clear
+    redirect_to :home
+  end
+
 end
 
-# (2) Validate input. 
-# (3) Full-column should be invalid input.
 # (4) Make reset button on end page.
 # (5) Make flash messages appear.

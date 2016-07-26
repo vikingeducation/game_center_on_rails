@@ -1,16 +1,9 @@
 <h1>GAMEBOARD</h1>
 
-<form action="<%= play_path %>" method="post">
-  <input type="text" name="move" placeholder="What's your move?" />
-  <input type="submit" />
-
-</form>
-
 <%= render partial: 'shared/board', locals: { board: @board } %>
-
-<table cellpadding="7">
-  <tr>
-    <form action=" <%= play_path %>" method="post">
+<form action=" <%= play_path %>" method="post">
+  <table cellpadding="6">
+    <tr>
       <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <td><input type="radio" name="move" value="0"/></td>
       <td><input type="radio" name="move" value="1"/></td>
@@ -19,6 +12,7 @@
       <td><input type="radio" name="move" value="4"/></td>
       <td><input type="radio" name="move" value="5"/></td>
       <td><input type="radio" name="move" value="6"/></td>
-    </form>
-  </tr>
-</table>
+    </tr>
+  </table>
+  <input type="submit" />
+</form>
