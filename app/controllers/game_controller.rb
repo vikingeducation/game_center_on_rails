@@ -7,19 +7,10 @@ class GameController < ApplicationController
   end
 
   def play
-    move = params[:move].to_i
-    @color = session[:color]
-    @board = Board.new(session['board'])
+    move = get_session
     if @board.valid_move?(move, @color)
-      @board.add_piece(move, @color)
-      flash[:success] = "Your piece has been added!"
-      session['color'] = session['color'] == "R" ? "B" : "R"
-      session['board'] = @board.play_field
-      if @board.has_victory? || @board.is_draw?
-        render :end
-      else
-        redirect_to :home
-      end
+      update_session(move)
+      direct_to_view
     else
       flash[:danger] = "That move is invalid... please try again"
       redirect_to :home
@@ -30,6 +21,29 @@ class GameController < ApplicationController
     session.clear
     redirect_to :home
   end
+
+  private
+
+    def get_session
+      @color = session[:color]
+      @board = Board.new(session['board'])
+      params[:move].to_i
+    end
+
+    def direct_to_view
+      if @board.has_victory? || @board.is_draw?
+        render :end
+      else
+        redirect_to :home
+      end
+    end
+
+    def update_session(move)
+      @board.add_piece(move, @color)
+      flash[:success] = "Your piece has been added!"
+      session['color'] = session['color'] == "R" ? "B" : "R"
+      session['board'] = @board.play_field
+    end
 
 end
 
