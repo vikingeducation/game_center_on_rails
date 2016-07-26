@@ -6,15 +6,15 @@
     <% end %>
   </tr>
   <% end %>
-  <%= form_for edit_connect4_path do |f| %>
+
   <tr>
-    <td><%= f.submit "1" %></td>
-    <td><%= f.submit "2" %></td>
-    <td><%= f.submit "3" %></td>
-    <td><%= f.submit "4" %></td>
-    <td><%= f.submit "5" %></td>
-    <td><%= f.submit "6" %></td>
-    <td><%= f.submit "7" %></td>
+    <td><%= link_to "1", connect4_path(1), method:"patch" %></td>
+    <td><%= submit_tag "2" %></td>
+    <td><%= submit_tag "3" %></td>
+    <td><%= submit_tag "4" %></td>
+    <td><%= submit_tag "5" %></td>
+    <td><%= submit_tag "6" %></td>
+    <td><%= submit_tag "7" %></td>
   </tr>
-  <% end %>
+  
 </table>

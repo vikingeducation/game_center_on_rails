@@ -18,26 +18,13 @@ class Board
     refill_board(board) if board
   end
 
-  def render
-    render_hash = { :o => "[o]", :x => "[x]", :clear => "[_]" }
-    @NUM_ROWS.downto(1) do |row|
-      @NUM_COLS.times do |col|
-        print "#{render_hash[ @game_board[col + 1][row - 1] ]} "
-      end
-      puts
-    end
-
-    @NUM_COLS.times { |col| print " #{col + 1}  " }
-    puts
-  end
-
   def add_piece(column, piece)
     return false if column_full?(column)
 
     row = nil
 
     @game_board[column].each_index do |index|
-      row ||= index if @game_board[column][index] == :clear
+      row ||= index if @game_board[column][index] == "clear"
     end
 
     @game_board[column][row] = piece
@@ -46,8 +33,8 @@ class Board
 
   def refill_board(board)
     @NUM_COLS.times do |col|
-      board[col+1].each do |piece|
-        add_piece(col+1, piece)
+      board[(col+1).to_s].each do |piece|
+        add_piece((col + 1).to_s, piece)
       end
     end
   end
