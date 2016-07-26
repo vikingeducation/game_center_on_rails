@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  # root to: gamecenter_index
- resources :gamecenter
+root to: 'connectfour#index'
+ resources :connectfour
+
 end

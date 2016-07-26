@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GamecenterControllerTest < ActionController::TestCase
+class ConnectfourControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
