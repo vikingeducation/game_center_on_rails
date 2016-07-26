@@ -1,12 +1,23 @@
 <h1>Boards#show</h1>
 <p>Find me in app/views/boards/show.html.erb</p>
+<% col = 0 %>
+<div class="all_buttons">
+  <% 7.times do %>
+    <div class="button">
+      <%= radio_button_tag('color', col) %>
+      <% col += 1 %>
+    </div>
+  <% end %>
+</div>
 <div class="container">
   <% @board.grid.transpose.reverse.each do |rows| %>
     <% col_number = 0 %>
     <div class="row">
     <% rows.each do |space| %>
     <% color = "test" %>
-      <div class="col-md-1 space <%= 'empty' unless space.color %>" id="<%= col_number %>"><%= space %></div>
+      <div class="col-md-1 space <%= color(space) %>" id="<%= col_number %>"><%= space %></div>
     <% end %>
   <% end %>
 </div>
+
+
