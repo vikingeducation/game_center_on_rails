@@ -12,4 +12,12 @@
       <% end %>
     </tr>
   <% end %>
+  <tr>
+    <%= form_tag(connect_fours_path, :method => "post") do%>
+      <% 7.times do |i| %>
+      <td><%= radio_button_tag(:column,i)%></td>
+    <% end%>
+  </tr>
 </table>
+    <%= submit_tag("Enter move")%>
+<%end%>
