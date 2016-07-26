@@ -7,12 +7,11 @@
     <tr>
       <% 0.upto(6) do |cols|  %>
         <td>
-          <% if @board[rows][cols].nil? %>
+          <% if @active_board[rows][cols].nil? %>
               <%= " "*5 %>
           <% else %>
-            <%= @board[rows][cols] %>
+            <%= @active_board[rows][cols] %>
           <% end %>
-
         </td>
       <% end %>
     </tr>
@@ -20,7 +19,11 @@
   <tr>
     <%= form_tag(connect_fours_path, :method => "post") do%>
       <% 7.times do |cols| %>
-      <td><%= radio_button_tag(:column, cols)%></td>
+      <td>
+        <%unless @board.col_full?(cols)%>
+          <%= radio_button_tag(:column, cols)%>
+        <%end%>
+      </td>
     <% end%>
   </tr>
 </table>

@@ -25,4 +25,12 @@ class ConnectFour
   def build_board
     Array.new(6) { Array.new(7, nil) }
   end
+
+  def col_full?(column)
+    @active_board.transpose[column].none?{|row|row.nil?}
+  end
+
+  def board_full?
+    @active_board.flatten.none?{|square| square.nil?}
+  end
 end

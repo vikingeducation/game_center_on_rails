@@ -8,8 +8,8 @@ class ConnectFoursController < ApplicationController
   def create
     @board = ConnectFour.new(session[:board])
     @board.add_piece(params[:column].to_i, session[:player])
-    @board = @board.active_board
-    save_session(@board, session[:player])
+    @active_board = @board.active_board
+    save_session(@active_board, session[:player])
     render 'play'
   end
 
