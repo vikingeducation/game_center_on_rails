@@ -8,7 +8,7 @@
       <% 0.upto(6) do |cols|  %>
         <td>
           <% if @active_board[rows][cols].nil? %>
-              <%= " "*5 %>
+              <%= " " %>
           <% else %>
             <%= @active_board[rows][cols] %>
           <% end %>
