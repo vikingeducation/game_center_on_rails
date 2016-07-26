@@ -10,7 +10,8 @@
           <% if @active_board[rows][cols].nil? %>
               <%= " " %>
           <% else %>
-            <%= @active_board[rows][cols] %>
+            <div class="<%= @active_board[rows][cols]  %>">
+            </div>
           <% end %>
         </td>
       <% end %>
