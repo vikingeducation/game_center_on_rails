@@ -24,7 +24,5 @@ class ConnectFourController < ApplicationController
 
   # need to write:
   # game_over
-  # make_move
-  # comp_move
   # win view
 end
