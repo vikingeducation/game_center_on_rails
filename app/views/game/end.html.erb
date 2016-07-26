@@ -1,1 +1,14 @@
 <h1>Game is over.</h1>
+
+<%= render partial: 'shared/board', locals: { board: @board.play_field } %>
+
+<% if @board.has_victory? %>
+  <% case @color %>
+  <% when 'B' %>
+    <%= content_tag :h3, "Black wins" %>
+  <% else %>
+    <%= content_tag :h3, "Red wins" %>
+  <% end %>
+<% else %>
+  <%= content_tag :h3, "Draw" %>
+<% end %>
