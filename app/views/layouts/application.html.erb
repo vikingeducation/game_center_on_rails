@@ -6,8 +6,12 @@
   </head>
 
   <body>
-    <% flash.each do |pair| %>
-      <%= content_tag(:p, pair[1]) %>
+    <% if flash.to_h.has_key?(:notice) %>
+      <%= content_tag(:p, flash[:notice]) %>
+    <% else %>
+      <% flash.each do |pair| %>
+        <%= content_tag(:p, pair[1]) %>
+      <% end %>
     <% end %>
     <%= yield %>
   </body>

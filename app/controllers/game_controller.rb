@@ -31,8 +31,13 @@ class GameController < ApplicationController
     end
 
     def direct_to_view
-      if @board.has_victory? || @board.is_draw?
-        render :end
+      if @board.has_victory?
+        winner = @color == "B" ? "Black" : "Red"
+        flash.now[:notice] = "The game has ended. #{winner} is the winner."
+        render :end, locals: { board: @board.play_field }
+      elsif @board.is_draw?
+        flash.now[:notice] = "The game ended in a draw."
+        render :end, locals: { board: @board.play_field }
       else
         redirect_to :home
       end
