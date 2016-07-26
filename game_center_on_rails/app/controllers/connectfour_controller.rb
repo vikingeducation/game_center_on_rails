@@ -3,8 +3,8 @@
 class ConnectfourController < ApplicationController
 
   def index
-    @board = Board.new   
-    session['game_board'] = @board.game_board
+    session['game_board'] = {} unless session['game_board']
+    @board = Board.new(session['game_board'])  
   end
 
   def create

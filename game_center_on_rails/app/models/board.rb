@@ -12,11 +12,12 @@ class Board
 
   attr_accessor :game_board
 
-  def initialize
+  def initialize(game_board = {})
     @NUM_ROWS = 6
     @NUM_COLS = 7
-    @game_board = {}
-    create_board_structure
+    @game_board = game_board
+    create_board_structure if @game_board.empty? 
+    
 
   end
 
