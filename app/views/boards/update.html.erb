@@ -1,2 +1,16 @@
 <h1>Boards#update</h1>
 <p>Find me in app/views/boards/update.html.erb</p>
+
+<% until game_over? %>
+  <%= render :board %>
+<% else %>
+  <%= render :game_over %>
+<% end %>
+
+here we need to; 
+call all methods from the controller methods in the play loop
+also get their move from the radio buttons
+need to create board
+make the board here
+test board
+make the board in html and css

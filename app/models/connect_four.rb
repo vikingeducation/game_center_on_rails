@@ -41,8 +41,8 @@ class ConnectFour
 
 
   def win?
-    check_win(@board.horizontals) ||
-    check_win(@board.verticals) ||
+    check_win(@board.horizontals)      ||
+    check_win(@board.verticals)        ||
     check_win(@board.rising_diagonals) ||
     check_win(@board.falling_diagonals)
   end
