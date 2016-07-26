@@ -1,6 +1,6 @@
 class ConnectFourController < ApplicationController
   include ConnectFourHelper
-  
+
   def index
     if session[:board] == nil
       session[:full_columns] = []
@@ -14,7 +14,9 @@ class ConnectFourController < ApplicationController
     board = session[:board]
     board = add_piece(board, whitelisted_params[:move].to_i)
     board = add_computer_piece(board)
-    session[:board] = @board
+    session[:board] = board
+    session[:full_columns] = get_full_columns(board)
+
     redirect_to connect_four_index_path
   end
 

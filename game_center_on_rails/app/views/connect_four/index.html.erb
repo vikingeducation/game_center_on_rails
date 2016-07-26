@@ -1,6 +1,5 @@
 <h1>Welcome to Connect Four!</h1>
 
-
   <form method="post" action="/connect_four">
     <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <table>
@@ -19,13 +18,8 @@
         </tr>
       <% end %>
       <tr>
-        <td><input type="radio" name="move" value="0" <%= disabled if @full_columns.include?(0) %>></td>
-        <td><input type="radio" name="move" value="1" <%= disabled if @full_columns.include?(1) %>></td>
-        <td><input type="radio" name="move" value="2" <%= disabled if @full_columns.include?(2) %>></td>
-        <td><input type="radio" name="move" value="3" <%= disabled if @full_columns.include?(3) %>></td>
-        <td><input type="radio" name="move" value="4" <%= disabled if @full_columns.include?(4) %>></td>
-        <td><input type="radio" name="move" value="5" <%= disabled if @full_columns.include?(5) %>></td>
-        <td><input type="radio" name="move" value="6" <%= disabled if @full_columns.include?(6) %>></td>
+        <%= render "move" %>
+      </tr>
     </table>
     <input type="submit" value="Drop Piece">
   </form>

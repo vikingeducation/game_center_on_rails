@@ -1,0 +1,8 @@
+<% (0..6).each do |col| %>
+  <td><input type="radio" name="move" value="<%= col %>"
+      <% if @full_columns.include?(col) %>
+        disabled
+      <% end %>
+      >
+  </td>
+<% end %>

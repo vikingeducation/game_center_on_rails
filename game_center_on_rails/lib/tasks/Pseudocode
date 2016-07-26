@@ -15,6 +15,7 @@
 # Session Hash
   # board [[r, r],[col],[],[],[],[b]]
   # game_over true/false
+  #full columns [1, 2]
 
 
 <table>
