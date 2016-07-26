@@ -1,5 +1,6 @@
 class ConnectFourController < ApplicationController
-  helper ConnectFourHelper
+  include ConnectFourHelper
+  
   def index
     if session[:board] == nil
       session[:full_columns] = []
@@ -11,7 +12,8 @@ class ConnectFourController < ApplicationController
 
   def create
     board = session[:board]
-    @board = add_piece(board, whitelisted_params[:move])
+    board = add_piece(board, whitelisted_params[:move].to_i)
+    board = add_computer_piece(board)
     session[:board] = @board
     redirect_to connect_four_index_path
   end
@@ -22,9 +24,5 @@ class ConnectFourController < ApplicationController
     redirect_to connect_four_index_path
   end
 
-  private
 
-  def whitelisted_params
-    params.permit(:move)
-  end
 end
