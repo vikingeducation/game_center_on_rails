@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "connect_four#new"
-  resources :connect_four, only: [ :new, :index, :edit ]
+  resources :connect_four, only: [ :new, :index, :create ]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
