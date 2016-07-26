@@ -1,5 +1,31 @@
 <h1>Welcome to Connect Four!</h1>
 
+  <form>
+    <table>
+      <% @board.transpose.each do |row| %>
+        <tr>
+          <% row.each do |cell| %>
+            <% if cell == "R" %>
+              <td id="red-cell"></td>
+            <% elsif cell == "B" %>
+              <td id="black-cell"></td>
+            <% else %>
+              <td></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+      <tr>
+        <td><input type="radio" name="move" value="0"></td>
+        <td><input type="radio" name="move" value="1"></td>
+        <td><input type="radio" name="move" value="2"></td>
+        <td><input type="radio" name="move" value="3"></td>
+        <td><input type="radio" name="move" value="4"></td>
+        <td><input type="radio" name="move" value="5"></td>
+        <td><input type="radio" name="move" value="6"></td>
+    </table>
+  </form>
+
 <form method="get" action="<%= new_connect_four_path %>">
-  <input type="submit" value="Play!">
+  <input type="submit" value="Reset game">
 </form>

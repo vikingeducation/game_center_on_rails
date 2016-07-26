@@ -1,7 +1,10 @@
 class ConnectFourController < ApplicationController
 
   def index
-
+    if session[:board] == nil
+      session[:board] = Array.new(7) { Array.new(6) }
+    end
+    @board = session[:board]
   end
 
 
