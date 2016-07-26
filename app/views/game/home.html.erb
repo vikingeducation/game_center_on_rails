@@ -1,5 +1,9 @@
 <h1>GAMEBOARD</h1>
-<form action="play_path" method="post">
+
+<%= board_render %>
+
+<form action="<%= play_path %>" method="post">
   <input type="text" name="move" placeholder="What's your move?" />
   <input type="submit" />
+  <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 </form>
