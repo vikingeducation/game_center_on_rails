@@ -17,13 +17,23 @@
           <% end %>
         </tr>
       <% end %>
-      <tr>
-        <%= render "move" %>
-      </tr>
+      <% unless @winner %>
+        <tr>
+          <%= render "move" %>
+        </tr>
+      <% end %>
     </table>
-    <input type="submit" value="Drop Piece">
+    <% unless @winner %>
+      <input type="submit" value="Drop Piece">
+    <% end %>
   </form>
 
 <form method="get" action="<%= new_connect_four_path %>">
   <input type="submit" value="Reset game">
 </form>
+
+<% if @winner == "player" %>
+  <h1>You win!</h1>
+<% elsif @winner == "computer" %>
+  <h1>You lose!</h1>
+<% end %>

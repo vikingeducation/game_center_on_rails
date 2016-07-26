@@ -8,16 +8,25 @@ class ConnectFourController < ApplicationController
     end
     @board = session[:board]
     @full_columns = session[:full_columns]
+    @winner = session[:winner]
   end
 
   def create
-    board = session[:board]
-    board = add_piece(board, whitelisted_params[:move].to_i)
-    board = add_computer_piece(board)
-    session[:board] = board
-    session[:full_columns] = get_full_columns(board)
-
-    redirect_to connect_four_index_path
+    execute_player_move(whitelisted_params[:move].to_i)
+    if check_winner?("R")
+      session[:winner] = "player"
+      redirect_to connect_four_index_path
+    else
+      execute_computer_move
+      if check_winner?("B")
+        session[:winner] = "computer"
+        redirect_to connect_four_index_path
+      else
+        session[:full_columns] = get_full_columns
+        check_for_tie?
+        redirect_to connect_four_index_path
+      end
+    end
   end
 
 
