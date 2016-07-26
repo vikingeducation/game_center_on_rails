@@ -2,11 +2,11 @@
 <p>Find me in app/views/boards/show.html.erb</p>
 <div class="container">
   <% @board.grid.transpose.reverse.each do |rows| %>
-    <% counter = 0 %>
+    <% col_number = 0 %>
     <div class="row">
     <% rows.each do |space| %>
-      <div class="col-md-1 space">.col-md-1</div>
+    <% color = "test" %>
+      <div class="col-md-1 space <%= 'empty' unless space.color %>" id="<%= col_number %>"><%= space %></div>
     <% end %>
-    <% counter += 1 %>
   <% end %>
 </div>
