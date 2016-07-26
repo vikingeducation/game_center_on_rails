@@ -33,22 +33,21 @@ class GameController < ApplicationController
     def direct_to_view
       if @board.has_victory?
         winner = @color == "B" ? "Black" : "Red"
-        flash.now[:notice] = "The game has ended. #{winner} is the winner."
+        flash.now[:info] = "The game has ended. #{winner} is the winner."
         render :end, locals: { board: @board.play_field }
       elsif @board.is_draw?
-        flash.now[:notice] = "The game ended in a draw."
+        flash.now[:info] = "The game ended in a draw."
         render :end, locals: { board: @board.play_field }
       else
+        flash[:success] = "Your piece has been added!"
         redirect_to :home
       end
     end
 
     def update_session(move)
       @board.add_piece(move, @color)
-      flash[:success] = "Your piece has been added!"
       session['color'] = session['color'] == "R" ? "B" : "R"
       session['board'] = @board.play_field
     end
 
 end
-
