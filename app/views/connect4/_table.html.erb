@@ -1,0 +1,20 @@
+<table style="border: solid black 1px">
+  <% 6.downto(1) do |row| %>
+  <tr>
+    <% 7.times do |col| %>
+      <td><%= @connect4.game_board.game_board[col + 1][row - 1] %></td>
+    <% end %>
+  </tr>
+  <% end %>
+
+  <tr>
+    <td><%= link_to "1", connect4_path(1), method:"patch" %></td>
+    <td><%= link_to "2", connect4_path(2), method:"patch" %></td>
+    <td><%= link_to "3", connect4_path(3), method:"patch" %></td>
+    <td><%= link_to "4", connect4_path(4), method:"patch" %></td>
+    <td><%= link_to "5", connect4_path(5), method:"patch" %></td>
+    <td><%= link_to "6", connect4_path(6), method:"patch" %></td>
+    <td><%= link_to "7", connect4_path(7), method:"patch" %></td>
+  </tr>
+  
+</table>
