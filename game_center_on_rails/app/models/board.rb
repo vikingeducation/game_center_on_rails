@@ -177,7 +177,7 @@ class Board
 
   def create_board_structure
     7.times do |count|
-      @game_board[count + 1] = Array.new(6, :clear)
+      @game_board[(count + 1).to_s] = Array.new(6, "clear")
     end
   end
 end

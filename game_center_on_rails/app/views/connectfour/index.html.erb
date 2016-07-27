@@ -1,4 +1,6 @@
 
+<p class="flash" > <%=flash.notice%> </p>
+
 <h1>Connect Four</h1>
 
 <%= render "board" %>
@@ -18,3 +20,9 @@
   <input type="submit" value="Submit!">
 
 </form>
+
+<%= link_to "Clear Game", new_connectfour_path %>
+
+
+
+
