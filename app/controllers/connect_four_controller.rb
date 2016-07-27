@@ -18,10 +18,12 @@ class ConnectFourController < ApplicationController
     @board.make_move(params[:choice])     # update board according to radio
     if @board.game_over?
       @winner = @board.winner
+      redirect_to :win
     end
     @board.comp_move   # computer makes choice
     if @board.game_over? # otherwise check to see if computer wins
       @winner = @board.winner
+      redirect_to :win
     end
     render :game
   end
