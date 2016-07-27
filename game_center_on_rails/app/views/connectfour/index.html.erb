@@ -1,0 +1,20 @@
+
+<h1>Connect Four</h1>
+
+<%= render "board" %>
+
+<form action="/connectfour" method="post">
+  <input type="radio" name="col" value = "1" checked>
+  <input type="radio" name="col" value = "2" >
+  <input type="radio" name="col" value = "3" >
+  <input type="radio" name="col" value = "4" >
+  <input type="radio" name="col" value = "5" >
+  <input type="radio" name="col" value = "6" >
+  <input type="radio" name="col" value = "7" >
+  <br>
+  <input  type="hidden" 
+    name="authenticity_token" 
+    value="<%= form_authenticity_token %>">
+  <input type="submit" value="Submit!">
+
+</form>
