@@ -1,6 +1,5 @@
 require_relative "board"
 require_relative "player"
-require_relative "piece"
 
 class ConnectFour
   attr_reader :board, :player
@@ -45,13 +44,8 @@ class ConnectFour
         elsif space["color"] == "B"
           counter_b += 1
         end
+        return true if counter_r == 4 || counter_b == 4
       end
-        if counter_r == 4
-          binding.pry
-         return "R"
-       elsif counter_b == 4
-          return "B"
-        end
     end
     false
   end

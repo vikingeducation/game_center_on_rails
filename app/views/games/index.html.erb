@@ -13,15 +13,15 @@
   <% end %>
 </p>
 
-
-<%= form_tag("/game", method: "put") do %>
-  <% 7.times do |index| %>
-    <%= radio_button_tag(:move, "#{index}") %>
-    <%= label_tag(:move, "column #{index + 1}") %>
-  <% end %>
-  <%= submit_tag("submit") %>
-<% end %>
-
 <% if status %>
-  <h3> <%= "#{session[:player]} wins!" %> </h3>
+<h3> <%= "#{player} wins!" %> </h3>
+<%=link_to "New Game", new_game_path%>
+<% else %>
+  <%= form_tag("/game", method: "put") do %>
+    <% 7.times do |index| %>
+      <%= radio_button_tag(:move, "#{index}") %>
+      <%= label_tag(:move, "#{index + 1}") %>
+    <% end %>
+    <%= submit_tag("submit") %>
+  <% end %>
 <% end %>

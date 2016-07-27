@@ -6,7 +6,7 @@ class Board
   end
 
   def update_board(column, color)
-    @grid[column][bottom(column)] = Piece.new(color)
+    @grid[column][bottom(column)] = {color: color}
   end
 
   def bottom(column)
