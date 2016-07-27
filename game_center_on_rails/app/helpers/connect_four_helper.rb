@@ -1,4 +1,27 @@
 module ConnectFourHelper
+  # def initialize_board
+  #   Board.new(session[:board]).board
+  # end
+
+  def play_out_rest_of_move
+    if check_winner?("R")
+      save_winner("player")
+    else
+      execute_computer_move
+      if check_winner?("B")
+        save_winner("computer")
+      else
+        session[:full_columns] = get_full_columns
+        check_for_tie?
+        redirect_to connect_four_index_path
+      end
+    end
+  end
+
+  def save_winner(player)
+    session[:winner] = player
+    redirect_to connect_four_index_path
+  end
 
   def execute_player_move(move)
     board = session[:board]
@@ -6,17 +29,17 @@ module ConnectFourHelper
     session[:board] = board
   end
 
-
-  def add_piece(board, move, piece="R")
-    spot = board[move].rindex(nil)
-    board[move][spot] = piece
-    board
-  end
-
   def execute_computer_move
     board = session[:board]
     available_columns = (0..6).to_a - get_full_columns
     session[:board] = add_piece(board, available_columns.sample, "B")
+  end
+
+# add to board class in model
+  def add_piece(board, move, piece="R")
+    spot = board[move].rindex(nil)
+    board[move][spot] = piece
+    board
   end
 
   def get_full_columns
@@ -32,7 +55,7 @@ module ConnectFourHelper
 
   def check_winner?(piece)
     board = session[:board]
-    check_columns?(piece, board) || 
+    check_columns?(piece, board) ||
     check_rows?(piece, board) ||
     check_up_diagonals?(piece, board) ||
     check_down_diagonals?(piece, board)
@@ -102,13 +125,14 @@ module ConnectFourHelper
     array.all? { |element| element == piece}
   end
 
-  def tie?
+  def check_for_tie?
+    board = session[:board]
     board.each do |column|
       if column.any? { |piece| piece == nil }
         return false
       end
     end
-    session["winner"] = "tie"
+    session[:winner] = "tie"
   end
 
   private
