@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GameCenterOnRails</title>
+    <%= csrf_meta_tags %>
+    <%= javascript_include_tag("application") %>
+    <%= stylesheet_link_tag("application", media: "all" ) %>
+  </head>
+
+  <body>
+    <% if flash.to_h.has_key?(:info) %>
+      <%= content_tag(:p, flash[:info], class: "alert alert-info") %>
+    <% else %>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:p, value, class: "alert alert-#{key}") %>
+      <% end %>
+    <% end %>
+    <div class="jumbotron">
+      <%= yield %>
+    </div>
+  </body>
+</html>

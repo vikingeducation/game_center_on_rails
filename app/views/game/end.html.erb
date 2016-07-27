@@ -1,0 +1,11 @@
+<h1>Game is over.</h1>
+
+<%= render partial: 'shared/board', locals: { board: board } %>
+
+<div class="row">
+  <div class="col-md-2 col-md-offset-5">
+    <form action="<%= reset_path %>" method="get">
+      <input type="submit" value="New Game?" />
+    </form>
+  </div>
+</div>

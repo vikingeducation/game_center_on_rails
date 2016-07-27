@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <table class="table table-bordered">
+      <% 5.downto(0) do |row| %>
+        <tr>
+        <% 0.upto(6) do |column| %>
+          <% if board[column][row] %>
+            <%= content_tag(:td, "#{board[column][row]}") %>
+          <% else %>
+            <%= content_tag(:td, "---") %>
+          <% end %>
+        <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
