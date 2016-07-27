@@ -1,0 +1,41 @@
+<h1>Welcome to Connect Four!</h1>
+
+  <form method="post" action="/connect_four">
+    <input  type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <table>
+
+      <% @board.transpose.each do |row| %>
+        <tr>
+          <% row.each do |cell| %>
+            <% if cell == "R" %>
+              <td><div id="red-cell"></div></td>
+            <% elsif cell == "B" %>
+              <td><div id="black-cell"></div></td>
+            <% else %>
+              <td></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+      <% unless @winner %>
+        <tr>
+          <%= render "move" %>
+        </tr>
+      <% end %>
+    </table>
+    <% unless @winner %>
+      <input type="submit" value="Drop Piece">
+    <% end %>
+  </form>
+
+<form method="get" action="<%= new_connect_four_path %>">
+  <input type="submit" value="Reset game">
+</form>
+
+<% if @winner == "player" %>
+  <h1>You win!</h1>
+<% elsif @winner == "computer" %>
+  <h1>You lose!</h1>
+<% elsif @winner == "tie" %>
+  <h1>Tie game!</h1>
+<% end %>

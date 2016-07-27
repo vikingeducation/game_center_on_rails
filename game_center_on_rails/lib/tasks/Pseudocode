@@ -1,0 +1,37 @@
+# ConnectFour controller
+  # show displays board
+  # new resets session and redirects to show
+  # index home page with play button
+  # edit
+    # add piece to board
+    # if game over, reset game over in sessions
+    # save in sessions
+    # redirect to show
+
+# Views
+  # index
+  # show
+
+# Session Hash
+  # board [[r, r],[col],[],[],[],[b]]
+  # game_over true/false
+  #full columns [1, 2]
+
+
+<table>
+  <tr>
+    <td>
+
+#Board has 7 columns
+  #Columns have 6 slots
+    #Slots can either be red, black, or empty and they start as empty
+
+#Players can be computer or human
+  #Player has a name and a piece
+  #Method to switch who the current player is
+
+#Use table to display board and it's all part of a form
+  #Bottom row has a radio button or says full
+
+#
+  <td style="background-color:red">
