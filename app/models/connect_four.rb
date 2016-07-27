@@ -15,11 +15,13 @@ class ConnectFour
   end
 
   def find_available_row(column)
+    row_num = nil
     (0..5).each do |i|
       if @active_board[i][column].nil?
-        return i
+        row_num = i
       end
     end
+    row_num
   end
 
   def build_board
@@ -44,9 +46,9 @@ class ConnectFour
         idx=0
           while idx <= column.length-4
             #create a subarray starting at idx with length 4
-            sub_arr = column[idx, 4] 
+            sub_arr = column[idx, 4]
             #check if all four elements in the subarray are the same
-            
+
             return true if sub_arr.all? {|e| e==session[:player]}
             idx+=1
           end
@@ -60,9 +62,9 @@ class ConnectFour
         if row.count("red")+row.count("black")>=4
           while idx<3
             sub_arr = row[idx, 4]
-           
+
             return true if sub_arr.all?{|e| e==session[:player]}
-            
+
             idx+=1
           end
         end
@@ -78,9 +80,9 @@ class ConnectFour
           (0..3).each do |increment|
             diagonal << @active_board[x+increment][y+increment]
           end
-   
+
           return true if diagonal.all?{|e| e==session[:player]}
-         
+
         end
       end
       #down-diagonals
@@ -90,9 +92,9 @@ class ConnectFour
           (0..3).each do |decrement|
             diagonal << @active_board[x+decrement][y-decrement]
           end
-          
+
           return true if diagonal.all?{|e| e==session[:player]}
-          
+
         end
       end
       return false
