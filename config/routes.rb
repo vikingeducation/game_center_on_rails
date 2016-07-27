@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/connectfour' => 'connect_four#new'
 
   post '/drop_piece' => 'connect_four#drop_piece'
+
+  get '/win' => 'connect_four#win'
 end

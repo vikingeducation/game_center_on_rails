@@ -16,10 +16,18 @@ class ConnectFourController < ApplicationController
   def drop_piece
     @board = Board.new(session[:state])   # reinstate a board with state
     @board.make_move(params[:choice])     # update board according to radio
-    redirect_to :win if game_over?(@board.state)  # redirect to win path if win
+    if @board.game_over?
+      @winner = @board.winner
+    end
     @board.comp_move   # computer makes choice
-    redirect_to :win if game_over?(@board.state)   # otherwise check to see if computer wins
+    if @board.game_over? # otherwise check to see if computer wins
+      @winner = @board.winner
+    end
     render :game
+  end
+
+  def win
+   render :win
   end
 
   # need to write:
