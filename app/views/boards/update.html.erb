@@ -1,0 +1,8 @@
+<h1>Boards#update</h1>
+<p>Find me in app/views/boards/update.html.erb</p>
+
+<% until game_over? %>
+  <%= render :board %>
+<% else %>
+  <%= render :game_over %>
+<% end %>
