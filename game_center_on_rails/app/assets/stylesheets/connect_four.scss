@@ -4,14 +4,16 @@
 
 #red-cell {
   background-color: red;
+  border-radius: 50%;
 }
 
 #black-cell {
   background-color: black;
+  border-radius: 50%;
 }
 
 td {
-  border: 2px solid black;
+  border: 1px solid black;
   height: 50px;
   width: 50px;
   text-align: center;
@@ -23,4 +25,8 @@ body {
 
 table {
   margin: 0 auto;
+}
+
+tr {
+  border: 1px solid black;
 }
