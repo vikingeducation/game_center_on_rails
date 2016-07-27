@@ -1,0 +1,26 @@
+<table class="table">
+  <tbody>
+    <% @state.each do |col| %>
+      <tr>
+      <% col.each do |row| %>
+        <td><%= row %></td>
+      <% end %>
+      </tr>
+    <% end %>
+    <form action='<%= drop_piece_path %>' method='post'>
+      <% @state.length.times do |time| %>
+        <td><input type="radio" name="choice" value="<%= time %>"><%= time + 1 %></td>
+      <% end %>
+      <input type="submit" value="Submit">
+      <input  type="hidden"
+              name="authenticity_token"
+              value="<%= form_authenticity_token %>">
+    </form>
+  </tbody>
+</table>
+
+<%= link_to "Reset Game", connectfour_path %>
+
+<% if @winner %>
+  <%= "#{@winner}'s win!" %>
+<% end %>
