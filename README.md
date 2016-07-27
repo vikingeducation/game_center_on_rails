@@ -1,6 +1,11 @@
-game_center_on_rails
+Game Center on Rails
 ====================
 
-The Game Center finds its way onto the Web!
+## Authors:
+Leo and Vishal.
 
-This is your README!
+## Description
+Connect Four game using Rails 5!
+
+[Viking Code School](http://vikingcodeschool.com)
+
