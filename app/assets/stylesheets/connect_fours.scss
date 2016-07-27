@@ -1,0 +1,29 @@
+// Place all the styles related to the connect_fours controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$dimension: 10vw;
+
+table{
+  border: 2px solid black;
+}
+
+td{
+  border: 1px solid black;
+  height: $dimension;
+  width: $dimension;
+}
+
+div {
+  height: 95%;
+  width: 95%;
+  border-radius: 50%;
+}
+
+.red {
+  background-color: red;
+}
+
+.black{
+  background-color: black;
+}

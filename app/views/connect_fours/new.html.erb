@@ -1,0 +1,27 @@
+<p>
+  Board HERER
+</p>
+<div class="container"
+
+  <div class="col-sm-8 col-sm-offset-2">
+    <table>
+      <% 6.downto(0) do |rows| %>
+        <tr>
+          <% 7.times do |cols|  %>
+            <td>
+              <%= [rows, cols]  %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+      <tr>
+        <%= form_tag( connect_fours_path, :method => "post" ) do%>
+          <% 7.times do |cols| %>
+          <td><%= radio_button_tag(:column, cols) %></td>
+        <% end%>
+      </tr>
+    </table>
+        <%= submit_tag("Enter move")%>
+    <%end%>
+  </div>
+</div>
