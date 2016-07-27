@@ -1,11 +1,13 @@
-<p>
-  Board HERER
+ <%if @message%>
+ <p>
+  <%=@message%>
 </p>
+<%end%>
 <div class="container">
 
   <div class="col-sm-10 col-sm-offset-1 text-center">
     <table>
-      <% 5.downto(0) do |rows| %>
+      <% 0.upto(5) do |rows| %>
         <tr>
           <% 0.upto(6) do |cols|  %>
             <td>

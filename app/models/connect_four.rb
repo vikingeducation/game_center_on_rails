@@ -32,8 +32,8 @@ class ConnectFour
     @active_board.transpose[column].none?{|row|row.nil?}
   end
 
-  def game_over?
-    horizontals || verticals || diagonals
+  def game_over?(player)
+    horizontals(player) || verticals(player) || diagonals(player)
   end
 
   def board_full?
@@ -41,7 +41,7 @@ class ConnectFour
   end
 
   private
-  def verticals
+  def verticals(player)
       @active_board.transpose.each do |column|
         idx=0
           while idx <= column.length-4
@@ -49,21 +49,21 @@ class ConnectFour
             sub_arr = column[idx, 4]
             #check if all four elements in the subarray are the same
 
-            return true if sub_arr.all? {|e| e==session[:player]}
+            return true if sub_arr.all? {|e| e==player}
             idx+=1
           end
       end
       return false
     end
 
-    def horizontals
+    def horizontals(player)
       @active_board.each do |row|
         idx=0
         if row.count("red")+row.count("black")>=4
           while idx<3
             sub_arr = row[idx, 4]
 
-            return true if sub_arr.all?{|e| e==session[:player]}
+            return true if sub_arr.all?{|e| e==player}
 
             idx+=1
           end
@@ -72,16 +72,16 @@ class ConnectFour
       return false
     end
 
-    def diagonals
+    def diagonals(player)
       #up-diagonals
-      (0..3).each do |x|
-        (0..2).each do |y|
+      (0..2).each do |x|
+        (0..3).each do |y|
           diagonal=[]
           (0..3).each do |increment|
             diagonal << @active_board[x+increment][y+increment]
           end
 
-          return true if diagonal.all?{|e| e==session[:player]}
+          return true if diagonal.all?{|e| e==player}
 
         end
       end
@@ -90,10 +90,10 @@ class ConnectFour
         (3..5).each do |y|
           diagonal=[]
           (0..3).each do |decrement|
-            diagonal << @active_board[x+decrement][y-decrement]
+            diagonal << @active_board[x-decrement][y+decrement]
           end
-
-          return true if diagonal.all?{|e| e==session[:player]}
+        
+          return true if diagonal.all?{|e| e==player}
 
         end
       end
