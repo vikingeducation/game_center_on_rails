@@ -25,3 +25,7 @@
 </form>
 
 <%= link_to "Reset Game", connectfour_path %>
+
+<% if @winner %>
+  <%= "#{@winner}'s win!" %>
+<% end %>

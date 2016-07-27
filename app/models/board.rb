@@ -10,16 +10,14 @@ class Board
     @winner = nil
   end
 
-  def make_move(col)
-    @state[col.to_i][index(col)] = "X"
-  end
-
   def comp_move
-    col = rand(7)
-    if col_full?(col)
-      comp_move
-    else
-      @state[col][index(col)] = "O"
+    move = rand(7)
+    move = rand(7) while col_full?(move)
+    @state.reverse.each do |row|
+      if row[move] == '.'
+        row[move] = 'O'
+        break
+      end
     end
   end
 
@@ -29,10 +27,30 @@ class Board
     full_diagonal?
   end
 
+  def make_move(col)
+    col = col.to_i
+    @state.reverse.each do |row|
+      if row[col] == '.'
+        row[col] = 'X'
+        break
+      end
+    end
+  end
+
+  def make_test_board
+    @state[5][0] = 'X'
+    @state[4][1] = 'X'
+    @state[3][2] = 'X'
+    @state[2][3] = 'X'
+  end
 
 
 
   private
+
+  def col_full?(col)
+    @state.transpose[col].all? { |c| c == "X" || c == "O" }
+  end
 
   def full_diagonal?
     diagonal_down_left? ||
@@ -77,8 +95,8 @@ class Board
           return true
         end
       end
-      false
     end
+    false
   end
 
 
@@ -114,15 +132,6 @@ class Board
       end
     end
     false
-  end
-
-  def index(col)
-    col = col.to_i
-    @state[col].index(".")
-  end
-
-  def col_full?(col)
-    @state[col].all? { |c| c == "X" || c == "O" }
   end
 
 end
