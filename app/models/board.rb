@@ -1,3 +1,5 @@
+#Game logic from Viking Code School
+
 class Board
 
   # awkwardly named this to avoid the evils of calling Board#board
