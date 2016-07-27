@@ -10,28 +10,24 @@ class GamesController < ApplicationController
     redirect_to games_path
   end
 
-  def show
-  end
-
   def index
     game = ConnectFour.new(*load_game)
-    # render the board
-    render locals: { grid: game.board.grid }
-  end
-
-  def edit
+    # status = game.win?
+    render locals: { grid: game.board.grid, status: status}
   end
 
   def update
+    game = ConnectFour.new(*load_game)
+    move = params[:move].to_i
+    game.make_move(move)
+    game.change_player unless game.win?
+    save_game(game)
     redirect_to games_path
   end
 
-  def destroy
-    redirect_to games_path
-  end
 
-  private
-    def game_params
-      params.require(:game).permit(:board, :player)
-    end
+  # private
+  #   def game_params
+  #     params.require(:game).permit(:board, :player)
+  #   end
 end

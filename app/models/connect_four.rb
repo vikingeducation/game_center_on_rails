@@ -5,9 +5,18 @@ require_relative "piece"
 class ConnectFour
   attr_reader :board, :player
 
-  def initialize(grid = nil, player = "X")
+  def initialize(grid = nil, player = "R")
+    @grid = grid
     @player = player
     @board = Board.new(grid) || Board.new
+  end
+
+  def change_player
+    @player == "R" ? @player = "B" : @player = "R"
+  end
+
+  def make_move(column)
+      @board.update_board(column, @player)
   end
 
   def win?
@@ -31,13 +40,18 @@ class ConnectFour
       array.each do |space|
         if space.empty?
           counter_r, counter_b = 0, 0
-        elsif space.color == "R"
+        elsif space["color"] == "R"
           counter_r += 1
-        elsif space.color == "B"
+        elsif space["color"] == "B"
           counter_b += 1
         end
       end
-      return true if (counter_r == 4 || counter_b == 4)
+        if counter_r == 4
+          binding.pry
+         return "R"
+       elsif counter_b == 4
+          return "B"
+        end
     end
     false
   end

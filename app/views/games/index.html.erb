@@ -4,9 +4,9 @@
   <% grid.transpose.reverse.each do |rows| %>
     <% rows.each do |space| %>
       <% if space.empty? %>
-        <span>"|___|"</span>
+        <span>|___|</span>
       <% else %>
-        <span> <%= "|#{space.color.center(3, '_')}|" %> </span>
+        <span> <%= "|#{space['color'].center(3, '_')}|" %> </span>
       <% end %>
     <% end %>
     <br>
@@ -14,11 +14,14 @@
 </p>
 
 
-<%= form_tag("/game", method: "puts") do %>
-  <% 7.times do |index| %> 
-    <%= radio_button_tag(:move, "#{index + 1}") %>
+<%= form_tag("/game", method: "put") do %>
+  <% 7.times do |index| %>
+    <%= radio_button_tag(:move, "#{index}") %>
     <%= label_tag(:move, "column #{index + 1}") %>
   <% end %>
-
   <%= submit_tag("submit") %>
+<% end %>
+
+<% if status %>
+  <h3> <%= "#{session[:player]} wins!" %> </h3>
 <% end %>
