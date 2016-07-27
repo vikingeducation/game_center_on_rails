@@ -50,3 +50,11 @@
 .all_buttons {
   margin-left:115px;
 }
+
+.submit-button {
+  padding-left:160px;
+  padding-right:160px;
+  border-left:50px;
+  margin-left:220px;
+
+}
