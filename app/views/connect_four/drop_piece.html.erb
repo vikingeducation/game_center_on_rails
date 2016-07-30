@@ -1,0 +1,26 @@
+<p><%= @message %></p>
+
+<div id="board">
+  <%= simple_format(@board.render) %>
+
+</div>
+
+
+<h2>Choose the column you would like to drop a piece in</h2>
+
+
+  <%= form_tag( drop_piece_path, :method => "post" ) do %>
+  
+    <% 7.times do |col| %>
+      
+      <% unless @board.column_full?(col) %>
+        <%= label_tag col %>
+        <%= radio_button_tag(:column, col) %>
+      <% end %>
+    <% end %>
+    
+    
+    <%= submit_tag("Drop Piece")%>
+  <% end %>
+
+

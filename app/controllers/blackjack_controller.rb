@@ -1,2 +1,0 @@
-class BlackjackController < ApplicationController
-end

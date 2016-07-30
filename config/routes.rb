@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'blackjack/play' => 'blackjack#play', as: :play
-  root 'blackjack#play'
+  get 'static_pages/home'
+  post 'drop_piece' => 'connect_four#drop_piece', as: :drop_piece
+  get 'connectfour' => 'connect_four#new'
+  root 'static_pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
