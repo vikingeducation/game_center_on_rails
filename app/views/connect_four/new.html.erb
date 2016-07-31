@@ -1,0 +1,37 @@
+<div id="board">
+  <%#= simple_format(@board.render) %>
+
+  <table>
+    <% 5.downto(0) do |row_index| %>
+      <tr>
+      <% @board.grid.each do |column| %>
+        <% if column[row_index].nil? %>
+          <td>__</td>
+        <% else %>
+          <td><%= column[row_index] %></td>
+        <% end %>
+      <% end %>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
+
+
+<h2>Choose the column you would like to drop a piece in</h2>
+
+
+  <%= form_tag( drop_piece_path, :method => "post" ) do %>
+  
+    <% 7.times do |col| %>
+      
+      <% unless @board.column_full?(col) %>
+        <%= label_tag col %>
+        <%= radio_button_tag(:column, col) %>
+      <% end %>
+    <% end %>
+    
+    
+    <%= submit_tag("Drop Piece")%>
+  <% end %>
+
