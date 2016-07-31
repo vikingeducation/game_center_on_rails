@@ -14,9 +14,9 @@ class ConnectFourController < ApplicationController
       @message = "#{session[:player]} wins!"
     elsif @board.draw?
       @message = "It's a draw"
+    else
+      save_session(@board.grid)
     end
-    
-    save_session(@board.grid)
   end
 
   private

@@ -13,7 +13,7 @@
   
     <% 7.times do |col| %>
       
-      <% unless @board.column_full?(col) %>
+      <% unless @board.column_full?(col) || @board.game_over? %>
         <%= label_tag col %>
         <%= radio_button_tag(:column, col) %>
       <% end %>
@@ -22,5 +22,8 @@
     
     <%= submit_tag("Drop Piece")%>
   <% end %>
+
+
+  <p><%= link_to "New Game", connectfour_path %></p>
 
 
