@@ -1,8 +1,20 @@
 <p><%= @message %></p>
 
 <div id="board">
-  <%= simple_format(@board.render) %>
-
+  <%#= simple_format(@board.render) %>
+  <table>
+    <% 5.downto(0) do |row_index| %>
+      <tr>
+      <% @board.grid.each do |column| %>
+        <% if column[row_index].nil? %>
+          <td>__</td>
+        <% else %>
+          <td><%= column[row_index] %></td>
+        <% end %>
+      <% end %>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 
