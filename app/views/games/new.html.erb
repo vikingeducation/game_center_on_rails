@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form action="<%= games_path %>" method="post">
+        <div class="row">
+          <div class="col-xs-12">
+            <label class="label-lg">Pick your color</label>
+            <br>
+            <% ['154360', '641E16', '0B5345', '512E5F'].each do |color| %>
+            <label>
+              <input type="radio" name="game[color]" value="<%= color %>">
+              <span class="color-display" style="background: #<%= color %>"></span>
+            </label>
+            <% end %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-4 offset-md-3">
+            <button class="btn-primary btn btn-block" type="submit">Start Game!</button>
+          </div>
+        </div>
+
+        <input type="hidden"
+                 name="authenticity_token"
+                 value="<%= form_authenticity_token %>">
+      </form>
+    </div>
+  </div>
+</div>
