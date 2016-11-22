@@ -4,7 +4,6 @@ class Board
   
   def initialize(layout)
     @layout = layout || Array.new(7){Array.new(6) {'_'} } 
-    @last_move = nil
   end
 
   def display
@@ -23,8 +22,8 @@ class Board
     @layout.all? { |column| full_column?(column) }
   end
 
-  def four_connected?
-    judge = WinJudge.new(@layout, @last_move)
+  def four_connected?(last_move)
+    judge = WinJudge.new(@layout, last_move)
     result = judge.check_for_win?
     judge = nil
     result
@@ -40,7 +39,7 @@ class Board
     return false if full_column?(column)
     piece_index = find_piece_index(column)
     @layout[index][piece_index] = piece
-    @last_move = [index, piece_index]
+    [index, piece_index]
   end
 
   def find_piece_index(column)
