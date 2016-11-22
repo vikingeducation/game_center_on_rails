@@ -27,6 +27,12 @@ class Board
     populate(nil)
   end
 
+  alias_method :state, :columns
+
+  def column(n)
+    columns[n]
+  end
+
   def columns
     grid
   end
