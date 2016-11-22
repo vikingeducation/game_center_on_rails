@@ -1,1 +1,9 @@
-<h1>Hello, world</h1>
+<table>
+  <% @game.to_val(:horizontal).reverse.each do |row| %>
+    <tr>
+      <% row.each do |cell| %>
+        <td><%= cell %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
