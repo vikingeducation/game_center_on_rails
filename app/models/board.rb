@@ -1,3 +1,4 @@
+require File.expand_path('../cell', __FILE__)
 
 class Board
   attr_reader :default, :height, :width
@@ -5,8 +6,6 @@ class Board
   extend Forwardable
   def_delegator :cells, :each
   include Enumerable
-
-  Coords = Struct.new(:x, :y)
 
   def initialize(args = {})
     @default  = args[:default]
@@ -159,7 +158,7 @@ class Board
     def build(width, height)
       grid = Array.new(width) { Array.new }
       cell_coordinates.each do |coords|
-        grid[coords.x] << GameGrid::Cell.new(coords: coords)
+        grid[coords.x] << Cell.new(coords: coords)
       end
       grid
     end
