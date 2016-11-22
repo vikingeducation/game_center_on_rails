@@ -9,4 +9,8 @@ class ConnectFourGamesController < ApplicationController
     @game = ConnectFourGame.new(board: board_state)
   end
 
+  def update
+    p params
+  end
+
 end
