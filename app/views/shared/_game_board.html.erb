@@ -1,0 +1,9 @@
+<% index_num = 5 %>
+<% while index_num > -1 do %>
+<tr>
+  <% @board.layout.each do |list| %>
+    <td><%= list[index_num] %></td>
+  <% end %>
+</tr>
+  <% index_num -= 1 %>
+<% end %>

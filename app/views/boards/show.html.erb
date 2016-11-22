@@ -1,18 +1,9 @@
+<%= render 'shared/flash' %>
 <table>
-  <% index_num = 7 %>
-  <% while index_num > -1 do %>
-  <tr>
-    <% @board.layout.each do |list| %>
-      <td><%= list[index_num] %></td>
-    <% end %>
-  </tr>
-    <% index_num -= 1 %>
+  <%= render 'shared/game_board' %>
+  <% unless @game_over %>
+    <%= render 'shared/column_choices' %>
+  <% else %>
+  <td colspan="7"><%= link_to "Play Again", root_path(:reset => true) %>
   <% end %>
-  <tr>
-  <% 7.times do |n| %>
-    <td>
-    <%= link_to n + 1, board_update_path(column: n + 1), method: :patch %>
-    </td>
-  <% end %>
-  </tr>
 </table>

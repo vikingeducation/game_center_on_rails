@@ -1,0 +1,14 @@
+table{
+  margin: 0 auto;
+}
+td{
+  border: 3px solid #eaea6c;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+#column-numbers{
+  td{
+    border: none;
+  }
+}
