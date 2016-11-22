@@ -1,0 +1,18 @@
+<table>
+  <% index_num = 7 %>
+  <% while index_num > -1 do %>
+  <tr>
+    <% @board.layout.each do |list| %>
+      <td><%= list[index_num] %></td>
+    <% end %>
+  </tr>
+    <% index_num -= 1 %>
+  <% end %>
+  <tr>
+  <% 7.times do |n| %>
+    <td>
+    <%= link_to n + 1, board_update_path, method: :patch, params: { column: n + 1, piece: "X"} %>
+    </td>
+  <% end %>
+  </tr>
+</table>
