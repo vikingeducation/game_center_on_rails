@@ -1,0 +1,2 @@
+class SaveGame < ApplicationRecord
+end
