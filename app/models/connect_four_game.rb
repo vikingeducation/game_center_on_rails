@@ -1,0 +1,2 @@
+class ConnectFourGame < ApplicationRecord
+end
