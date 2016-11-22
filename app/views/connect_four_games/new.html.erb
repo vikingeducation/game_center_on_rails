@@ -1,5 +1,8 @@
 <main>
   <h1>The Board</h1>
-  <table></table>
-
+  <table>
+    <% @game.board_rows.each do |row| %>
+      <%= render 'row', row: row %>
+    <% end %>
+  </table>
 </main>
