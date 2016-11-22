@@ -9,6 +9,7 @@
     <input type="radio" name="column" value="6">
     <input type="radio" name="column" value="7">
     <input type="submit" value="Drop">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
   </form>
   <table>
     <% @game.board_rows.each do |row| %>
