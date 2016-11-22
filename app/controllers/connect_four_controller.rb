@@ -18,7 +18,7 @@ class ConnectFourController < ApplicationController
     board = Board.new(session[:board])
     board.add_piece(params[:move].to_i, 'X')
     @board_array = board.board_array
-    session[:board] = @board_array
+    session[:board] = board.board_array
     redirect_to connect_four_index_path
   end
 

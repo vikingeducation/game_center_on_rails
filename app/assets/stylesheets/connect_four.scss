@@ -1,3 +1,6 @@
-// Place all the styles related to the connect_four controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+td { 
+    border: .5px solid black;
+    height: 20px;
+    width: 15px; 
+    text-align: center;
+   }

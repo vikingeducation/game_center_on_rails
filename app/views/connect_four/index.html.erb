@@ -1,24 +1,28 @@
-<% @board_array do |row| %>
-
-  <% row.each do |cell| %>
-    <%= cell %>
+<table>
+<% 5.downto(0) do |row| %>
+  <tr>
+  <% 6.downto(0) do |col| %>
+    <td><%= @board_array[col][row] %></td>
   <% end %>
-  <br>
+  </tr>
 
 <% end %>
-
+<tr>
 <form method="post" action="<%= connect_four_index_path %>">
-  <%=radio_button_tag("move", "0")%>
-  <%=radio_button_tag("move", "1")%>
-  <%=radio_button_tag("move", "2")%>
-  <%=radio_button_tag("move", "3")%>
-  <%=radio_button_tag("move", "4")%>
-  <%=radio_button_tag("move", "5")%>
-  <%=radio_button_tag("move", "6")%>
-  <%=submit_tag("Make Move!",)%>
+  <td><%=radio_button_tag("move", "6")%></td>
+  <td><%=radio_button_tag("move", "5")%></td>
+  <td><%=radio_button_tag("move", "4")%></td>
+  <td><%=radio_button_tag("move", "3")%></td>
+  <td><%=radio_button_tag("move", "2")%></td>
+  <td><%=radio_button_tag("move", "1")%></td>
+  <td><%=radio_button_tag("move", "0")%></td>
+  <td><%=submit_tag("Make Move!",)%>
   <input  type="hidden"
    name="authenticity_token"
    value="<%= form_authenticity_token %>">
 </form>
+</tr>
+</table>
+
 
 <p> Would you like to play a game?</p>
