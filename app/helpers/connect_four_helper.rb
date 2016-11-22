@@ -9,7 +9,22 @@ module ConnectFourHelper
     end
 
     def gen_board
-      Array.new(6) { |i| i = Array.new(7){|x| x = "_"} }
+      @board_array = Array.new(7){ Array.new }
+    end
+
+    def add_padding
+      @board_array.map! do |col|
+        while col.length < 6
+          col << nil
+        end
+        col
+      end
+    end
+
+    def remove_padding
+      @board_array.map! do |col|
+        col.compact!
+      end
     end
 
     # _______
@@ -20,13 +35,8 @@ module ConnectFourHelper
     # _______
 
     def add_piece(column, piece)
-      current_board = board_array.reverse
-      current_board.each do |row|
-        if row[column] = '_'
-          row[column] = piece
-          break
-        end
-      end
+      @board_array[column] << piece
+
     end
 
   end
