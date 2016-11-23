@@ -1,0 +1,33 @@
+Resource: Game
+
+index - Map to root = home page , static page?
+
+new (/connectfour) - form: -1 or 2 player
+                    -player name (nice2have)
+                    -create and save session variables
+
+create - instantiate a game that takes players, and a newly instantiated board
+          render the show page
+
+edit - show the board status for the game (partial)
+        radio button form to get piece placement column (could be invalid if col full)
+        --- this form should post to update (/drop_piece)
+        -- disable invalid radio buttons
+
+update (/drop_piece) - get game variables from session
+        make a move on that game, make computer move (keep it "duck" to drop a human)
+        reset session cookie
+
+show - final results, appropriate victory loss
+
+destroy - reset_session or session[:key] = nil, redirect to home page,
+          "new_game"
+
+
+WHAT do we NEED in order to track the game:
+  -board = 2D array -> serialize .to_json, come back w/JSON.parse()
+  -current player (?)
+
+
+
+nav links (layout) - "reset" submit to reset , destroy current game , render new
