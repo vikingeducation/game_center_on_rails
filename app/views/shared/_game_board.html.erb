@@ -2,7 +2,11 @@
 <% while index_num > -1 do %>
 <tr>
   <% @board.layout.each do |list| %>
-    <td><%= list[index_num] %></td>
+    <td>
+      <% unless list[index_num] == "_"%>
+        <%= image_tag list[index_num] %>
+      <% end %>
+    </td>
   <% end %>
 </tr>
   <% index_num -= 1 %>

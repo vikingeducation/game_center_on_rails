@@ -1,14 +1,73 @@
+body {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 table{
   margin: 0 auto;
+  border: 3px solid #eaea6c;
+}
+
+table tr:last-child {
+  border: 0;
 }
 td{
   border: 3px solid #eaea6c;
-  width: 30px;
-  height: 30px;
+  width: 80px;
+  height: 80px;
   text-align: center;
+  margin: 0;
+  // background: white;
+
+  img {
+    width: 60px;
+    height: 60px;
+  }
 }
 #column-numbers{
   td{
     border: none;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 28px;
+    color: #ccc;
+  }
+
+  a div {
+    width: 100%;
+    height: 100%;
+    background: #5e9bff;
+    line-height: 70px;
+  }
+}
+
+#flash {
+  position: absolute;
+  left: 450px;
+  top: 250px;
+  background: rgba(0, 102, 255, 0.6);
+  width: 30%;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  text-size: 80px;
+}
+
+#bottom-table {
+  border: none;
+}
+
+#play-again {
+  width: 300px;
+  background: #5e9bff;
+  border: none;
+
+  a {
+    text-decoration: none;
+    font-size: 30px;
   }
 }

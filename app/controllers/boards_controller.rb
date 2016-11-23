@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
   def update
     @board = Board.new(session[:layout])
     unless add_piece
-      flash[:danger] = "Invalid move."
+      invalid_move
     else
       make_move
     end

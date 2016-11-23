@@ -17,7 +17,8 @@ module BoardsHelper
   end
 
   def end_game
-    flash[:success] = "#{session[:player]} wins!"
+    session[:player] == "X" ? player = "Red" : player = "Blue"
+    flash[:success] = "#{player} wins!"
     redirect_to root_path(:game_over => true)
   end
 
@@ -27,6 +28,11 @@ module BoardsHelper
 
   def game_over?
     @board.four_connected?(@last_piece)
+  end
+
+  def invalid_move
+    flash[:danger] = "Invalid move."
+    redirect_to root_path
   end
 
   def make_move
