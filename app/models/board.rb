@@ -27,7 +27,25 @@ class Board
     populate(nil)
   end
 
-  alias_method :state, :columns
+  def column_not_full?(column_number)
+    columns[column_number][5]['value'].nil?
+  end
+
+  def drop_in_column(value, number)
+    if cell = first_empty_cell(column(number))
+      cell['value'] = value
+    end
+  end
+
+  def first_empty_cell(column)
+    column.each do |cell|
+      return cell if cell['value'].nil?
+    end
+  end
+
+  def state
+    columns
+  end
 
   def column(n)
     columns[n]

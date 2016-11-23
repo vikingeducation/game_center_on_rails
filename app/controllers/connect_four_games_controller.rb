@@ -4,7 +4,6 @@ class ConnectFourGamesController < ApplicationController
 
   def new
     board_state = session[:board]
-    # ^ deserialize
     @game = ConnectFourGame.new(board: board_state)
   end
 
@@ -17,6 +16,7 @@ class ConnectFourGamesController < ApplicationController
     else
       flash[:error] = "Invalid move!"
     end
+    redirect_to connectfour_url
   end
 
 end
