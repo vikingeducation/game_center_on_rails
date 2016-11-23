@@ -1,0 +1,41 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+input[type="radio"]{
+  display: none;
+}
+
+input[type="radio"]:checked ~ .color-display{
+  border: 10px solid #ccc;
+}
+
+.color-display {
+  border: 10px solid rgb(255,255,255);
+  display: inline-block;
+  width:100px;
+  height:100px;
+  border-radius: 100%;
+}
+
+/* Gameboard styles */
+
+table{
+
+  .cell{
+    border: 1px solid #333;
+    padding: 10px;
+  }
+  .game-cell{
+    border-radius: 100%;
+    display: block;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+input[type="radio"].col-select{
+  display: inline-block;
+  width:30px;
+  height:30px;
+  margin: 19px;
+}
