@@ -1,5 +1,6 @@
 
 class ConnectFourController
+  attr_accessor :active_player, :game, :player_2
 
   QUIT_OPTIONS = %w(q quit Q exit)
 
@@ -58,8 +59,6 @@ class ConnectFourController
     player_input.to_i
   end
 
-  protected
-    attr_writer :active_player, :game, :player_2
   private
     attr_reader :active_player, :game, :view, :player_1, :player_2
 

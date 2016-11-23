@@ -1,10 +1,11 @@
 class Grid
   attr_reader :column_count, :row_count
+  attr_reader :grid
 
   def initialize(args = {})
     @row_count     = args[:rows]
     @column_count  = args[:columns]
-    @grid          = Array.new(row_count) { Array.new(column_count) }
+    @grid          = args[:preset] || Array.new(row_count) { Array.new(column_count) }
   end
 
   def set_cell(row, col, value)
@@ -42,7 +43,6 @@ class Grid
     grid.transpose
   end
 
-  attr_reader :grid
 end
 
 
@@ -123,12 +123,12 @@ class Board
     (1..board.column_count).include? column
   end
 
-  def board
+  def grid_array
     @board.grid # the 2D array
   end
 
   protected
   attr_writer :last_piece
   private
-  attr_reader :view, :last_piece
+  attr_reader :view, :board, :last_piece
 end
