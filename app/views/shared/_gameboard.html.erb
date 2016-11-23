@@ -1,0 +1,21 @@
+<table id="gameboard">
+  <tbody>
+    <% board.to_val(:horizontal).reverse.each do |row| %>
+    <tr>
+      <% row.each do |cell| -%>
+      <% if cell == :x -%>
+      <% style = color -%>
+      <% elsif cell == :y -%>
+      <% style = cpu -%>
+      <% else -%>
+      <% style = "#fff" -%>
+      <% end -%>
+      <td class="cell">
+        <span class="game-cell" style="background:<%= style %>"></span>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>

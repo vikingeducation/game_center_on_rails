@@ -1,27 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <table id="gameboard">
-        <tbody>
-          <% @game.to_val(:horizontal).reverse.each do |row| %>
-          <tr>
-            <% row.each do |cell| -%>
-            <% if cell == :x -%>
-            <% style = color -%>
-            <% elsif cell == :y -%>
-            <% style = cpu -%>
-            <% else -%>
-            <% style = "#fff" -%>
-            <% end -%>
-            <td class="cell">
-              <span class="game-cell" style="background:<%= style %>"></span>
-            </td>
-            <% end %>
-          </tr>
-          <% end %>
-
-        </tbody>
-      </table>
+      <%= render partial: 'shared/gameboard', locals: { board: board, color: color, cpu: cpu } %>
       <form action="<%= game_path %>" method="post">
         <% 7.times do |i| %>
           <input type="radio" class="col-select" name="col" value="<%= i %>">

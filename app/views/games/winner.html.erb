@@ -1,0 +1,8 @@
+<h1>Game Over!</h1>
+<%= render partial: 'shared/gameboard', locals: { board: board, color: color, cpu: cpu } %>
+<div class="row">
+  <div class="col-xs-12">
+    <h1><%= winner %></h1>
+    <%= link_to 'Play Again', new_game_path %>
+  </div>
+</div>
