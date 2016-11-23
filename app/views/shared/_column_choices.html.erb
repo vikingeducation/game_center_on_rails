@@ -1,0 +1,11 @@
+<tr id="column-numbers">
+<% 7.times do |n| %>
+    <td>
+    <%= link_to(board_update_path(column: n + 1), html_options = {method: :patch} ) do %>
+      <div>
+        <%= n + 1 %>
+      </div>
+    <% end %>
+    </td>
+<% end %>
+</tr>

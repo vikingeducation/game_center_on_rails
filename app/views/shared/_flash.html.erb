@@ -1,0 +1,9 @@
+<% if !flash.empty? %>
+<div id="flash">
+  <% flash.keys.each do |k| %>
+  <div class="<%= k %>">
+  <h1><%= flash[k] %></h1>
+  </div>
+  <% end %>
+</div>
+<% end %>

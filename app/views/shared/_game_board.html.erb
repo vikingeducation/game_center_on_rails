@@ -1,0 +1,13 @@
+<% index_num = 5 %>
+<% while index_num > -1 do %>
+<tr>
+  <% @board.layout.each do |list| %>
+    <td>
+      <% unless list[index_num] == "_"%>
+        <%= image_tag list[index_num] %>
+      <% end %>
+    </td>
+  <% end %>
+</tr>
+  <% index_num -= 1 %>
+<% end %>
