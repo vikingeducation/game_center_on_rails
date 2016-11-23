@@ -97,7 +97,7 @@ class Board
       rescue TypeError
         value = new_value
       ensure
-        cell.value = value
+        cell['value'] = value
       end
     end
   end
@@ -116,7 +116,7 @@ class Board
     attr_reader :grid
 
     def stringify_row(row)
-      (row.map { |cell| "|#{ cell.value || '-'  }"  } + ["|"]).join
+      (row.map { |cell| "|#{ cell['value'] || '-'  }"  } + ["|"]).join
     end
 
     def get_positive_diagonal(starting_coordinate)
@@ -182,7 +182,7 @@ class Board
     def build(width, height)
       grid = Array.new(width) { Array.new }
       cell_coordinates.each do |coords|
-        grid[coords.x] << Cell.new(coords: coords)
+        grid[coords.x] << {coords: coords}
       end
       grid
     end

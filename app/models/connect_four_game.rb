@@ -19,7 +19,7 @@ class ConnectFourGame #< ApplicationRecord
 
   def make_move(column)
     column -= 1
-    if @board.column_not_full?(column)
+    if !@board.column_not_full?(column)
       @board.drop_in_column(active_player, column)
       switch_active_player
       true
