@@ -4,4 +4,4 @@ Assignment Rails Connect4
 
 A Connect4 game using Rails
 
-A descriptively named link from the project to http://vikingcodeschool.com
+Made with skills learned at [VCS](http://vikingcodeschool.com)
