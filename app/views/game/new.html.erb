@@ -1,2 +1,11 @@
-<h1>Game#new</h1>
-<p>Find me in app/views/game/new.html.erb</p>
+<h2>How many human players today?</h2>
+
+<form action="/game" method='post'>
+  <input  type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>">
+  1<%=radio_button_tag(:players, 1 ) %>
+  2<%=radio_button_tag(:players, 2 ) %>
+  <input type='submit'
+        value="Start Playing!" style='margin-bottom: 600px'>
+</form>

@@ -13,6 +13,9 @@
     </div>
   <% end %>
   <br>
+  <% if @current_player %>
+    <h3 class="<%= @current_player %>">It is player <%= @current_player %>'s turn</h3>
+  <% end %>
   <input name='commit' type='submit'
         value="Drop Piece!">
 </form>

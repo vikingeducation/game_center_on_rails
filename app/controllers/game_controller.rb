@@ -2,11 +2,13 @@ class GameController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to game_path
+    redirect_to new_path
   end
 
   def edit
+    session[:current_player] = 'red' if params[:players] == "2"
     @board = session[:board] || Board.new.grid_array
+    @current_player = session[:current_player]
   end
 
   def update
@@ -14,11 +16,18 @@ class GameController < ApplicationController
     grid = Grid.new(preset: @board, rows: 6, columns: 7)
     col = params[:col].to_i + 1
     game = Board.new(grid: grid)
-    game.add_piece(col, "X")
+    player = session[:current_player] || 'red'
+    game.add_piece(col, player)
+
+
     if game.four_in_a_row?
-      session[:winner] = "player"
+      session[:winner] = "player #{player}"
+    end
+
+    if session[:current_player]
+      session[:current_player] = session[:current_player] == 'red' ? 'blue' : 'red'
     else
-      game.add_piece((1..7).to_a.sample, "O") # ai move
+      game.add_piece((1..7).to_a.sample, "blue") # ai move
       if game.four_in_a_row?
         session[:winner] = "computer"
       end
@@ -27,6 +36,9 @@ class GameController < ApplicationController
     redirect_to game_path
   end
 
-  def show
+  def new
+  end
+
+  def index
   end
 end

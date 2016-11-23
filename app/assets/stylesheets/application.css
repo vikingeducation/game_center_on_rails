@@ -27,12 +27,20 @@ div.cell {
   margin: 1px;
 }
 
-div.X {
+div.red {
   background-color: #ff0000;
 }
 
-div.O {
+h3.red {
+  color: #ff0000;
+}
+
+div.blue {
   background-color: #0000ff;
+}
+
+h3.blue {
+  color: #0000ff;
 }
 
 div.col-label {
