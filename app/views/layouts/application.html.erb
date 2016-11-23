@@ -9,6 +9,9 @@
   </head>
 
   <body data-no-turbolinks>
+    <% if flash[:notice] %>
+      <div><%= flash[:notice] %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

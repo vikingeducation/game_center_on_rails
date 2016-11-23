@@ -16,7 +16,21 @@ class ConnectFourController < ApplicationController
 
   def create # modify the board based on a move
     board = Board.new(session[:board])
+
     board.add_piece(params[:move].to_i, 'X')
+
+    if board.win?
+      session[:game_over] = true
+      flash[:notice] = "You've won!"
+    end
+
+    board.add_piece(board.valid_move, 'O')
+
+    if board.win?
+      session[:game_over] = true
+      flash[:notice] = "You've lost!"
+    end
+
     @board_array = board.board_array
     session[:board] = board.board_array
     redirect_to connect_four_index_path
