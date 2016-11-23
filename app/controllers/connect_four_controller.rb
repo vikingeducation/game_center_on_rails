@@ -6,6 +6,7 @@ class ConnectFourController < ApplicationController
     board = Board.new
     @board_array = board.board_array
     session[:board] = @board_array
+    session[:game_over] = false
     redirect_to connect_four_index_path
   end
 

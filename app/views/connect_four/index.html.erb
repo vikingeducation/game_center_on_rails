@@ -18,7 +18,7 @@
     <td><%=radio_button_tag("move", "2")%></td>
     <td><%=radio_button_tag("move", "1")%></td>
     <td><%=radio_button_tag("move", "0")%></td>
-    <td><%=submit_tag("Make Move!")%></td>
+    <td><%=submit_tag("Make Move!", disabled: session[:game_over])%></td>
   </tr>
   <input  type="hidden"
    name="authenticity_token"
