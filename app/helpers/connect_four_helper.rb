@@ -129,7 +129,5 @@ module ConnectFourHelper
     def flip_board
       @board_array.map! { |column| column.reverse }
     end
-
   end
-
 end

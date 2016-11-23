@@ -22,18 +22,19 @@ class ConnectFourController < ApplicationController
     if board.win?
       session[:game_over] = true
       flash[:notice] = "You've won!"
+      @board_array = board.board_array
+      session[:board] = board.board_array
+      redirect_to connect_four_index_path
+    else
+      board.add_piece(board.valid_move, 'O')
+      if board.win?
+        session[:game_over] = true
+        flash[:notice] = "You've lost!"
+      end
+
+      @board_array = board.board_array
+      session[:board] = board.board_array
+      redirect_to connect_four_index_path
     end
-
-    board.add_piece(board.valid_move, 'O')
-
-    if board.win?
-      session[:game_over] = true
-      flash[:notice] = "You've lost!"
-    end
-
-    @board_array = board.board_array
-    session[:board] = board.board_array
-    redirect_to connect_four_index_path
   end
-
 end
