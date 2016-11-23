@@ -1,0 +1,16 @@
+<% @board.each do |row| %>
+  <% row.each do |cell| %>
+    <% if cell.nil? %>
+      <div class="cell"></div>
+    <% else %>
+      <div class="<%= cell %> cell"></div>
+    <% end %>
+  <% end %>
+  <br>
+<% end %>
+
+<% if !session[:winner] %>
+  <%= render "form" %>
+<% else %>
+  <h2>The winner is <%= session[:winner] %></h2>
+<% end %>

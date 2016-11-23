@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GameCenterOnRails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body data-no-turbolink>
+    <div class="container">
+      <%= yield %>
+      <br>
+      <%= link_to "Start a new game", game_destroy_path %>
+    </div>
+  </body>
+</html>
