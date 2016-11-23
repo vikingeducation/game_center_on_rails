@@ -24,8 +24,10 @@ class GameBoard
   def place(piece_type, column_index)
     piece_added = false
     (@board.length-1).downto(0) do |row_index|
-      break if piece_added == true
-      if @board[row_index][column_index] == ''
+      p column_index
+      p row_index
+      return if piece_added
+      if @board[row_index][column_index] == nil
         @board[row_index][column_index] = piece_type
         piece_added = true
       end

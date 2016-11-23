@@ -3,7 +3,7 @@
 <table>
 
   <tr>
-    <% (1..7).each do |num| %>
+    <% (0..6).each do |num| %>
       <th><%= num %></th>
     <% end %>
   </tr>
@@ -19,15 +19,15 @@
 </table>
 
 <form action='drop_piece' method='post'>
-  <input  type="hidden" 
-    name="authenticity_token" 
+  <input  type="hidden"
+    name="authenticity_token"
     value="<%= form_authenticity_token %>">
+  <input type="radio" value="0" name="column">0
   <input type="radio" value="1" name="column">1
   <input type="radio" value="2" name="column">2
   <input type="radio" value="3" name="column">3
   <input type="radio" value="4" name="column">4
   <input type="radio" value="5" name="column">5
   <input type="radio" value="6" name="column">6
-  <input type="radio" value="7" name="column">7
   <input type="submit" value="Submit">
 </form>

@@ -1,9 +1,11 @@
 <p>Drop Piece</p>
 
+<%= @message %>
+
 <table>
 
   <tr>
-    <% (1..7).each do |num| %>
+    <% (0..6).each do |num| %>
       <th><%= num %></th>
     <% end %>
   </tr>
@@ -19,8 +21,8 @@
 </table>
 
 <form action='drop_piece' method='post'>
-  <input  type="hidden" 
-    name="authenticity_token" 
+  <input  type="hidden"
+    name="authenticity_token"
     value="<%= form_authenticity_token %>">
   <input type="radio" value="1" name="column">1
   <input type="radio" value="2" name="column">2

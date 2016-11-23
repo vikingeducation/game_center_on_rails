@@ -9,7 +9,7 @@ class ConnectFourController < ApplicationController
     move = params[:column].to_i
     @board = GameBoard.new
     result = @board.run(move)
-    @board = @board.board
+    p @board = @board.board
     if result == 'X'
       # render winning page
     elsif result == 'O'
