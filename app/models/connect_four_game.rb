@@ -6,7 +6,7 @@ class ConnectFourGame #< ApplicationRecord
 
   def initialize(args = {})
     @board = Board.new(state: args[:board])
-    @active_player = 'red'
+    @active_player = args[:ap] || 'red'
   end
 
   def board_rows
@@ -19,7 +19,7 @@ class ConnectFourGame #< ApplicationRecord
 
   def make_move(column)
     column -= 1
-    if !@board.column_not_full?(column)
+    if @board.column_not_full?(column)
       @board.drop_in_column(active_player, column)
       switch_active_player
       true
@@ -28,7 +28,31 @@ class ConnectFourGame #< ApplicationRecord
     end
   end
 
+  def winner
+    four_in_a_row?
+  end
+
   private
+
+    def four_in_a_row?
+      board.rows
+    end
+
+    def check_rows
+      board.rows.each do |row|
+
+      end
+    end
+
+    def check_columns
+
+    end
+
+    def check_diagonals
+    end
+
+    def check_consecutive(area)
+    end
 
     def switch_active_player
       @active_player = active_player == 'red' ? 'blue' : 'red'

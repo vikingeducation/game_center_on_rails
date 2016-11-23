@@ -28,7 +28,9 @@ class Board
   end
 
   def column_not_full?(column_number)
-    columns[column_number][5]['value'].nil?
+    columns[column_number].any? do |cell|
+      cell['value'].nil?
+    end
   end
 
   def drop_in_column(value, number)
@@ -38,7 +40,7 @@ class Board
   end
 
   def first_empty_cell(column)
-    column.each do |cell|
+    column.reverse.each do |cell|
       return cell if cell['value'].nil?
     end
   end
@@ -56,6 +58,12 @@ class Board
   end
 
   def diagonals
+    all_diagonals.select do |diagonal|
+      diagonal.length == 4
+    end
+  end
+
+  def all_diagonals
     positive_diagonals + negative_diagonals
   end
 

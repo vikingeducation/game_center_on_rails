@@ -8,7 +8,7 @@ class ConnectFourGamesController < ApplicationController
   end
 
   def update
-    game = ConnectFourGame.new(board: session['board'])
+    game = ConnectFourGame.new(board: session['board'], ap: session['active_player'])
     player_move = params['column'].to_i
     if game.make_move(player_move)
       session['board'] = game.board
