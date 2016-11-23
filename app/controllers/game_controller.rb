@@ -8,6 +8,14 @@ class GameController < ApplicationController
   end
 
   def update
+    @board = session[:board] || Board.new.board
+    col = params[:col].to_i
+    game = Board.new(grid: @board)
+    game.add_piece(col, "X")
+    if game.four_in_a_row?
+      render :resul, locals: {winner: "Player"}
+    end
+
   end
 
   def show

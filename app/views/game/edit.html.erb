@@ -1,9 +1,8 @@
 
 <% @board.each do |row| %>
   <% row.each do |cell| %>
-    <%= cell.nil? ?  "|___" : "|_#{cell}_" %>
-  <% end %>
-  |
+    <%= cell.nil? ?  "|__" : "|_#{cell}_" %>
+  <% end %>|
   <br>
 <% end %>
 <p>-----------------------------</p>
@@ -18,10 +17,12 @@
 
   <input name="_method" type="hidden" value="patch" />
 
-  <%= radio_button_tag(:col, "1") %>
-  <%= label_tag(:age_child, "I am younger than 21") %>
-  <%= radio_button_tag(:col, "2") %>
-  <%= label_tag(:age_adult, "I'm over 21") %>
+  <% 7.times do |i| %>
+  -
+  <%=radio_button_tag(:col, i.to_s ) %>
+
+  <% end %>
+
   <input name='commit' type='submit'
         value="Drop Piece!">
 </form>
