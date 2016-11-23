@@ -42,14 +42,14 @@ class Grid
     grid.transpose
   end
 
-  private
   attr_reader :grid
 end
+
+
 
 class Board
   def initialize(args = {})
     @board = args[:grid] || Grid.new(rows: 6, columns: 7)
-    @view = BoardView
     @last_piece = nil
   end
 
@@ -123,8 +123,12 @@ class Board
     (1..board.column_count).include? column
   end
 
+  def board
+    @board.grid # the 2D array
+  end
+
   protected
   attr_writer :last_piece
   private
-  attr_reader :board, :view, :last_piece
+  attr_reader :view, :last_piece
 end

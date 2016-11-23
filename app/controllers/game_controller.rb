@@ -1,13 +1,10 @@
 class GameController < ApplicationController
-  def new
-    session[:board] = 
-  end
 
   def destroy
   end
 
   def edit
-
+    @board = session[:board] || Board.new.board
   end
 
   def update
