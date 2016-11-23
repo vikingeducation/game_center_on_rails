@@ -1,0 +1,18 @@
+<form id='edit_board' accept-charset="UTF-8"
+  action="/drop_piece" method='post'>
+  <input  type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>">
+
+  <input name="_method" type="hidden" value="patch" />
+
+  <% 7.times do |i| %>
+    <div class="col-label">
+      <%= i+1 %>
+      <%=radio_button_tag(:col, i.to_s ) %>
+    </div>
+  <% end %>
+  <br>
+  <input name='commit' type='submit'
+        value="Drop Piece!">
+</form>

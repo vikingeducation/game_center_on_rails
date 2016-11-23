@@ -16,22 +16,17 @@ class GameController < ApplicationController
     game = Board.new(grid: grid)
     game.add_piece(col, "X")
     if game.four_in_a_row?
-      render :show, locals: {winner: "Player"}
-    end
-    game.add_piece((2..8).to_a.sample, "O") # ai move
-    if game.four_in_a_row?
-      render :show, locals: {winner: "Computer"}
+      session[:winner] = "player"
+    else
+      game.add_piece((1..7).to_a.sample, "O") # ai move
+      if game.four_in_a_row?
+        session[:winner] = "computer"
+      end
     end
     session[:board] = game.grid_array
     redirect_to game_path
   end
 
   def show
-  end
-
-  def index
-  end
-
-  def create
   end
 end

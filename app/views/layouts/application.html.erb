@@ -9,8 +9,10 @@
   </head>
 
   <body data-no-turbolink>
-    <%= yield %>
-
-    <%= link_to "DESTROY GAME", game_destroy_path %>
+    <div class="container">
+      <%= yield %>
+      <br>
+      <%= link_to "Start a new game", game_destroy_path %>
+    </div>
   </body>
 </html>

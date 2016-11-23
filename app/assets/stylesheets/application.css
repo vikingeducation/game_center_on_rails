@@ -17,3 +17,33 @@
 * {
   font-family: monospace;
 }
+
+div.cell {
+  width: 75px;
+  height: 75px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 1px;
+}
+
+div.X {
+  background-color: #ff0000;
+}
+
+div.O {
+  background-color: #0000ff;
+}
+
+div.col-label {
+  width: 75px;
+  height: 20px;
+  text-align: center;
+  color: #555;
+  display: inline-block;
+  margin: 10px 1px;
+}
+
+.container {
+  text-align: center;
+}
