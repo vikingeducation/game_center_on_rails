@@ -1,0 +1,51 @@
+# root route is /connectfour --> connect_four#new
+# the view renders the board state, and form for dropping piece into column
+# form's method is POST, action is /drop_piece
+# also a form/button to start a new game --> connect_four#new
+
+# when user drops a piece, it routes to connect_four#drop_piece
+
+CONTROLLERS
+
+class ConnectFourController
+
+  def new
+    # clear sessions
+    # instantiate game board
+  end
+
+  def drop_piece
+
+    # passes parameters to model
+
+    # model updates data
+    # model takes turn for computer
+    # model checks for win condition
+    # model saves data to sessions?
+    # model returns data (win condition, board) to controller
+
+    # if win condition is met
+      # render winning page
+    # otherwise
+      # render show
+
+  end
+
+  def game_over
+
+    # either win, loss or draw
+    # render game_over view
+
+  end
+
+end
+
+
+MODELS
+
+GameBoard
+
+GameLogic
+
+
+VIEWS
