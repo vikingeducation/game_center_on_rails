@@ -1,0 +1,34 @@
+
+$board-color: #e5e500;
+
+/* board */
+table, td {
+  border: 3px solid $board-color;
+}
+
+table {
+  background-color: $board-color;
+}
+
+td {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.red {
+  background-color: red !important;
+}
+
+.blue {
+  background-color: blue !important;
+}
+
+/* board-form */
+.board-form {
+  margin: 0 0 0 25px;
+  input {
+    margin: 0 38px 0 0;
+  }
+}

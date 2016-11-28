@@ -1,0 +1,19 @@
+<main>
+  <h1>The Board</h1>
+  <form class="board-form" method="post" action="connectfour">
+    <input type="radio" name="column" value="1">
+    <input type="radio" name="column" value="2">
+    <input type="radio" name="column" value="3">
+    <input type="radio" name="column" value="4">
+    <input type="radio" name="column" value="5">
+    <input type="radio" name="column" value="6">
+    <input type="radio" name="column" value="7">
+    <input type="submit" value="Drop">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  </form>
+  <table>
+    <% @game.board_rows.each do |row| %>
+      <%= render 'row', row: row %>
+    <% end %>
+  </table>
+</main>
