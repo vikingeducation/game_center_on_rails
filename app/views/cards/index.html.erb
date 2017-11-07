@@ -1,0 +1,24 @@
+<h1>Cards#index</h1>
+<p>Find me in app/views/cards/index.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Suit</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.name %></td>
+      <td><%= card.number %></td>
+      <td><%= card.suit %></td>
+      <td><%= card.value %></td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
