@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'tic_tac_toe/new' => 'tic_tac_toe#new', as: 'tic_tac_toe'
   post '/make_move' => 'tic_tac_toe#make_move'
 
+  get 'hi_lo/new' => 'hi_lo#new', as: 'hi_lo'
+  post '/make_move' => 'hi_lo#make_move'
+
   get 'pages/index'
   get 'pages/blackjack'
   # get 'blackjack/new'
