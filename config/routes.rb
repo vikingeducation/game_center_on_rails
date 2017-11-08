@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'pages#index'
+  get 'pages/index'
 
   get 'tic_tac_toe/new' => 'tic_tac_toe#new', as: 'tic_tac_toe'
   post '/tic_tac_toe/make_move' => 'tic_tac_toe#make_move', as: 'tic_tac_toe_move'
@@ -8,11 +9,9 @@ Rails.application.routes.draw do
   get 'hi_lo/new' => 'hi_lo#new', as: 'hi_lo'
   post '/hi_lo/make_move' => 'hi_lo#make_move', as: 'hi_lo_move'
 
-  get 'pages/index'
-  get 'pages/blackjack'
-  # get 'blackjack/new'
-  # get 'blackjack/hit'
-  # get 'blackjack/stand'
+  get 'blackjack/new' => 'blackjack#new', as: 'blackjack'
+  post '/blackjack/hit' => 'blackjack#hit', as: 'blackjack_hit'
+  post '/blackjack/stand' => 'blackjack#stand', as: 'blackjack_stand'
 
   resources :cards
 
