@@ -10,6 +10,8 @@ The Game Center has a few games all wrapped up into one Rails app. The Game Cent
 - Minesweeper (Pending)
 - Connect Four (Pending)
 
+See it on [lortza-game-center.herokuapp.com](https://lortza-game-center.herokuapp.com/)
+
 From the [Viking Code School Assignment](https://www.vikingcodeschool.com/dashboard#/intro-to-rails-and-deployment/connect-four-on-rails-optional)
 
 [Anne Richardson](https://github.com/lortza)
