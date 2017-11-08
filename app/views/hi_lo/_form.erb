@@ -1,0 +1,11 @@
+<%= form_tag(hi_lo_move_path, :method => "POST") do %>
+  <div class="radio-cells">
+    <% (1..10).to_a.each do |num| %>
+      <div class="cell">
+        <%= label_tag(num)%><br>
+        <%= radio_button_tag( "guess", "#{num}") %>
+      </div> <!-- cell -->
+    <% end %>
+  </div> <!-- radio-cells -->
+  <p><%= submit_tag "Submit Guess" %></p>
+<% end %>
