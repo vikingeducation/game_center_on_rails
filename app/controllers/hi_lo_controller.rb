@@ -13,7 +13,8 @@ class HiLoController < ApplicationController
 
     guess_submitted?
     @guess = params['guess']
-    @game_over = game_over?
+    check_winning_conditions
+    @feedback = determine_feedback
 
     render :new
   end
@@ -31,11 +32,12 @@ class HiLoController < ApplicationController
       @submitted_guesses = session['submitted_guesses']
       @submitted_guesses += 1
       session['submitted_guesses'] = @submitted_guesses
+
       @guess_submitted = true
     end
   end
 
-  def game_over?
+  def check_winning_conditions
     if guessed_correctly?
       @won_game = true
       @lost_game = false
@@ -56,7 +58,19 @@ class HiLoController < ApplicationController
   end
 
   def out_of_guesses?
-    session['submitted_guesses'] >= session['max_guesses']
+    session['submitted_guesses'] >= session['max_guesses'] && !guessed_correctly?
+  end
+
+  def determine_feedback
+    if out_of_guesses?
+      "You're out of guesses."
+    elsif params['guess'].to_i > session['hidden_num']
+      'Go lower.'
+    elsif params['guess'].to_i < session['hidden_num']
+      'Go higher.'
+    else
+      "You're right!"
+    end
   end
 
 end

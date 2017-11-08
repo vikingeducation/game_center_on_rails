@@ -1,10 +1,10 @@
 <div id="hi-lo">
 
-<h1>HiLo#new</h1>
+<h1>HiLo Game</h1>
 
 <p>You have three guesses to pick the winning number in the range of 1 to 10.</p>
 
-<p>Make a Guess: (Answer: <%= @answer %>)</p>
+<p>Make a Guess:</p>
 <%= form_tag(hi_lo_move_path, :method => "POST") do %>
   <div class="radio-cells">
     <% (1..10).to_a.each do |num| %>
@@ -18,8 +18,7 @@
 <% end %>
 
 <% if @guess_submitted %>
-  <p>You guessed: <%= @guess %></p>
-  <p>Go higher/lower</p>
+  <p>You guessed <%= @guess %>. <%= @feedback %></p>
 <% end %>
 
 <% if @lost_game %>
@@ -29,7 +28,7 @@
 <% end %>
 
 <% if @won_game %>
-  <h3>That's Right! It was <%= @answer %>. You WIN!</h3>
+  <h2>You WIN!</h2>
   <p><%= link_to 'Play Again', hi_lo_path %></p>
 <% end %>
 
