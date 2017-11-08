@@ -1,0 +1,11 @@
+<pre>
+  <table cellspacing="0" cellpadding="8" border="1">
+    <% @board_grid.each do |row| %>
+      <tr>
+        <% row.each do |cell| %>
+          <td><%= cell.nil? ? '-' : cell %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</pre>
