@@ -28,3 +28,11 @@ Blackjack is currently WIP
 - Blackjack
 - Minesweeper
 - Connect Four
+
+## Running the App
+
+- rails', '~> 5.0.6'
+- ruby '2.4.2'
+- db:
+  - production: postgres
+  - development & test: sqlite3
