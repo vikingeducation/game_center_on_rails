@@ -5,7 +5,7 @@
 The Game Center has a few games all wrapped up into one Rails app. The Game Center includes:
 
 - Tic Tac Toe
-- HiLo Game (WIP)
+- HiLo Game
 - Blackjack (WIP)
 - Minesweeper (Pending)
 - Connect Four (Pending)
@@ -21,10 +21,10 @@ Blackjack is currently WIP
 ### Complete
 
 - Tic Tac Toe
+- HiLo Game
 
 ### Pending
 
-- Build basic game functionality
-- Render empty board
-- Player move submission form
-- so much more...
+- Blackjack
+- Minesweeper
+- Connect Four
