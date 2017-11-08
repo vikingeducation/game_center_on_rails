@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  # get 'blackjack/new'
+
+  # get 'blackjack/hit'
+
+  # get 'blackjack/stand'
+
   root to: 'pages#index'
 
   get 'pages/index'
