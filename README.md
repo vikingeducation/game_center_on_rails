@@ -5,8 +5,8 @@
 The Game Center has a few games all wrapped up into one Rails app. The Game Center includes:
 
 - Tic Tac Toe
+- HiLo Game (WIP)
 - Blackjack (WIP)
-- HiLo Game (Pending)
 - Minesweeper (Pending)
 - Connect Four (Pending)
 
