@@ -1,19 +1,18 @@
 class HiLoController < ApplicationController
+
   def new
     generate_hidden_num
     @answer = session['hidden_num']
     session['submitted_guesses'] = 0
     guess_submitted?
     session['max_guesses'] = 3
-
   end
 
   def make_move
     @answer = session['hidden_num']
-
     guess_submitted?
     @guess = params['guess']
-    check_winning_conditions
+    set_game_over_status
     @feedback = determine_feedback
 
     render :new
@@ -37,19 +36,16 @@ class HiLoController < ApplicationController
     end
   end
 
-  def check_winning_conditions
+  def set_game_over_status
     if guessed_correctly?
       @won_game = true
       @lost_game = false
-      true
     elsif out_of_guesses?
       @won_game = false
       @lost_game = true
-      false
     else
       @won_game = false
       @lost_game = false
-      false
     end
   end
 
