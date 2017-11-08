@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#index'
 
   get 'tic_tac_toe/new' => 'tic_tac_toe#new', as: 'tic_tac_toe'
-  post '/make_move' => 'tic_tac_toe#make_move'
+  post '/tic_tac_toe/make_move' => 'tic_tac_toe#make_move', as: 'tic_tac_toe_move'
 
   get 'hi_lo/new' => 'hi_lo#new', as: 'hi_lo'
-  post '/make_move' => 'hi_lo#make_move'
+  post '/hi_lo/make_move' => 'hi_lo#make_move', as: 'hi_lo_move'
 
   get 'pages/index'
   get 'pages/blackjack'
