@@ -1,2 +1,38 @@
+<div id="hi-lo">
+
 <h1>HiLo#new</h1>
-<p>Find me in app/views/hi_lo/new.html.erb</p>
+
+<p>You have three guesses to pick the winning number in the range of 1 to 10.</p>
+
+<p>Make a Guess: (Answer: <%= @answer %>)</p>
+<%= form_tag(hi_lo_move_path, :method => "POST") do %>
+  <div class="radio-cells">
+    <% (1..10).to_a.each do |num| %>
+      <div class="cell">
+        <%= label_tag(num)%><br>
+        <%= radio_button_tag( "guess", "#{num}") %>
+      </div> <!-- cell -->
+    <% end %>
+  </div> <!-- radio-cells -->
+  <p><%= submit_tag "Submit Guess" %></p>
+<% end %>
+
+<% if @guess_submitted %>
+  <p>You guessed: <%= @guess %></p>
+  <p>Go higher/lower</p>
+<% end %>
+
+<% if @lost_game %>
+  <h2>Game Over, You lose.</h2>
+  <h3>The Correct Answer was <%= @answer %></h3>
+  <p><%= link_to 'Play Again', hi_lo_path %></p>
+<% end %>
+
+<% if @won_game %>
+  <h3>That's Right! It was <%= @answer %>. You WIN!</h3>
+  <p><%= link_to 'Play Again', hi_lo_path %></p>
+<% end %>
+
+
+
+</div> <!-- hi-lo -->
