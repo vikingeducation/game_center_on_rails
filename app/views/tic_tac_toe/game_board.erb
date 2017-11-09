@@ -1,0 +1,19 @@
+<h1>Tic Tac Toe</h1>
+
+<%= render  :partial => "header",
+            :locals => {  :current_player => @current_player,
+                          :game_over => @game_over } %>
+
+<%= render  :partial => "board",
+            :locals => { :board_arr => @board_arr } %>
+
+
+<% if @game_over %>
+
+  <%= link_to "Play Again!", tic_tac_toe_path %>
+
+<% else %>
+
+  <%= render  :partial => "form",
+              :locals => { :board_arr => @board_arr } %>
+<% end %>

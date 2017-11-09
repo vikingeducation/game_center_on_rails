@@ -1,0 +1,22 @@
+<div id="hi-lo">
+
+<h1>HiLo Game</h1>
+
+<p>You have three guesses to pick the winning number in the range of 1 to 10.</p>
+
+<p>Make a Guess:</p>
+<%= render 'form' %>
+
+<% if @guess_submitted %>
+  <%= render 'feedback' %>
+<% end %>
+
+<% if @lost_game %>
+  <%= render 'losing_message' %>
+<% end %>
+
+<% if @won_game %>
+  <%= render 'winning_message' %>
+<% end %>
+
+</div> <!-- hi-lo -->

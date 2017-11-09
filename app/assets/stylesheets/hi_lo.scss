@@ -1,0 +1,11 @@
+#hi-lo {
+  .radio-cells {
+    overflow: auto;
+    .cell {
+      width: 15px;
+      text-align: center;
+      margin: 0 10px;
+      float: left;
+    }
+  } /* .radio-cells */
+} /* #hi-lo */
