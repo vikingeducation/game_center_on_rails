@@ -27,9 +27,9 @@ Blackjack is currently WIP
 
 ### Pending
 
-- Blackjack
-- Minesweeper
-- Connect Four
+- Incorporate Blackjack from [Sinatra project](https://github.com/lortza/assignment_sinatra_blackjack)
+- Incorporate Minesweeper from [cli game](https://github.com/lortza/project_tdd_minesweeper)
+- Build Connect Four from scratch
 
 ## Running the App
 
